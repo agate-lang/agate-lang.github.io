@@ -439,19 +439,143 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 @media amzn-kf8{#header,#content,#footnotes,#footer{padding:0}}
 </style>
 </head>
-<body class="article">
+<body class="article toc2 toc-right">
 <div id="header">
 <h1>The Agate Developper Documentation</h1>
 <div class="details">
 <span id="author" class="author">v0.1</span><br>
 </div>
+<div id="toc" class="toc2">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_introduction_to_agate_code_source">Introduction to Agate code source</a></li>
+<li><a href="#_conventions_for_core_library">Conventions for core library</a></li>
+<li><a href="#_differences_with_wren">Differences with Wren</a></li>
+</ul>
+</div>
 </div>
 <div id="content">
+<div id="preamble">
+<div class="sectionbody">
 <div class="paragraph">
 <p>Some parts of the code are documented here.</p>
 </div>
 <div class="paragraph">
 <p><a href="index.html">&lt; Back to main page</a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_introduction_to_agate_code_source">Introduction to Agate code source</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Agate is a kind of fork of Wren, the basic implementation comes from Wren with functions and types that have been renamed and/or refactored. If you want to understand some parts of Agate source code, you should look in Wren source code and its excellent comments.</p>
+</div>
+<div class="paragraph">
+<p>Agate is implemented with three files:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>agate.h</code> is the public C interface of the Agate language.</p>
+</li>
+<li>
+<p><code>agate.c</code> is the main file that implements the C interface of the Agate language.</p>
+</li>
+<li>
+<p><code>core.inc</code> is the basic implementation of the core library, it is generated from <code>core.agate</code> with <code>core.sh</code>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>In addition, the following files are provided:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>debug.inc.c</code> contains additional functions that are necessary for debugging (for developpers only), this file may be included from <code>agate.c</code>.</p>
+</li>
+<li>
+<p><code>agate-cli.c</code> is the driver for standalone Agate, it can execute an Agate script from the command line.</p>
+</li>
+<li>
+<p><code>agate.l</code>, <code>agate.y</code> are the <a href="https://github.com/westes/flex">Flex</a> file and the <a href="https://www.gnu.org/software/bison/">Bison</a> file for checking Agate syntax</p>
+</li>
+<li>
+<p><code>syntax.c</code> is the driver for the Flex/Bison parser.</p>
+</li>
+<li>
+<p><code>tests.inc</code> is the list of all tests, it is generated with <code>tests.sh</code>.</p>
+</li>
+<li>
+<p><code>tests.c</code> is the driver for running all the tests.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_conventions_for_core_library">Conventions for core library</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Classes or methods starting with <code>__</code> are considered private and may change.</p>
+</li>
+<li>
+<p>When possible, implement methods with a native functions, especially for <code>String</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_differences_with_wren">Differences with Wren</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Agate is largely based on Wren. Here are the main differences:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Variables are declared with <code>def</code>, not <code>var</code>.</p>
+</li>
+<li>
+<p>Agate has <code>Int</code>, <code>Float</code> and <code>Char</code> as primitive types instead of <code>Num</code>.</p>
+</li>
+<li>
+<p>Agate has a <code>Buffer</code> object to manipulate strings, viewed as codepoint arrays.</p>
+</li>
+<li>
+<p>Wren <code>List</code> is Agate <code>Array</code>.</p>
+</li>
+<li>
+<p>Functions can be declared with <code>def</code> (but also with <code>Fn.new()</code>).</p>
+</li>
+<li>
+<p>Functions can be called directly with <code>f()</code> without <code>.call</code>.</p>
+</li>
+<li>
+<p>Math functions are in the <code>Math</code> class, not methods of <code>Num</code>.</p>
+</li>
+<li>
+<p>Agate <code>Map</code> can take as key any object that implements a <code>hash</code> method (and core types do implement <code>hash</code>).</p>
+</li>
+<li>
+<p>Calling a method on <code>this</code> is done with <code>.method</code>, <code>method</code> refers to a variable (local or global).</p>
+</li>
+<li>
+<p>Agate has no concurrency (and do not plan to introduce concurrency), so no <code>Fiber</code>.</p>
+</li>
+<li>
+<p>Agate has no annotations (and do not plan to introduce annotations).</p>
+</li>
+<li>
+<p>Coding conventions are different: Agate methods, functions and variables are in snake case rather than camel case.</p>
+</li>
+</ul>
+</div>
+</div>
 </div>
 </div>
 <script type="text/x-mathjax-config">
