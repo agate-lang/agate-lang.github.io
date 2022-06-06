@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.12">
 <meta name="author" content="v0.1">
-<title>The Agate Core Library</title>
+<title>Array class</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /* Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
@@ -438,6 +438,221 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 #footer-text{color:rgba(0,0,0,.6);font-size:.9em}}
 @media amzn-kf8{#header,#content,#footnotes,#footer{padding:0}}
 </style>
+<style>
+pre.rouge table td { padding: 5px; }
+pre.rouge table pre { margin: 0; }
+pre.rouge .cm {
+  color: #999988;
+  font-style: italic;
+}
+pre.rouge .cp {
+  color: #999999;
+  font-weight: bold;
+}
+pre.rouge .c1 {
+  color: #999988;
+  font-style: italic;
+}
+pre.rouge .cs {
+  color: #999999;
+  font-weight: bold;
+  font-style: italic;
+}
+pre.rouge .c, pre.rouge .ch, pre.rouge .cd, pre.rouge .cpf {
+  color: #999988;
+  font-style: italic;
+}
+pre.rouge .err {
+  color: #a61717;
+  background-color: #e3d2d2;
+}
+pre.rouge .gd {
+  color: #000000;
+  background-color: #ffdddd;
+}
+pre.rouge .ge {
+  color: #000000;
+  font-style: italic;
+}
+pre.rouge .gr {
+  color: #aa0000;
+}
+pre.rouge .gh {
+  color: #999999;
+}
+pre.rouge .gi {
+  color: #000000;
+  background-color: #ddffdd;
+}
+pre.rouge .go {
+  color: #888888;
+}
+pre.rouge .gp {
+  color: #555555;
+}
+pre.rouge .gs {
+  font-weight: bold;
+}
+pre.rouge .gu {
+  color: #aaaaaa;
+}
+pre.rouge .gt {
+  color: #aa0000;
+}
+pre.rouge .kc {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .kd {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .kn {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .kp {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .kr {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .kt {
+  color: #445588;
+  font-weight: bold;
+}
+pre.rouge .k, pre.rouge .kv {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .mf {
+  color: #009999;
+}
+pre.rouge .mh {
+  color: #009999;
+}
+pre.rouge .il {
+  color: #009999;
+}
+pre.rouge .mi {
+  color: #009999;
+}
+pre.rouge .mo {
+  color: #009999;
+}
+pre.rouge .m, pre.rouge .mb, pre.rouge .mx {
+  color: #009999;
+}
+pre.rouge .sa {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .sb {
+  color: #d14;
+}
+pre.rouge .sc {
+  color: #d14;
+}
+pre.rouge .sd {
+  color: #d14;
+}
+pre.rouge .s2 {
+  color: #d14;
+}
+pre.rouge .se {
+  color: #d14;
+}
+pre.rouge .sh {
+  color: #d14;
+}
+pre.rouge .si {
+  color: #d14;
+}
+pre.rouge .sx {
+  color: #d14;
+}
+pre.rouge .sr {
+  color: #009926;
+}
+pre.rouge .s1 {
+  color: #d14;
+}
+pre.rouge .ss {
+  color: #990073;
+}
+pre.rouge .s, pre.rouge .dl {
+  color: #d14;
+}
+pre.rouge .na {
+  color: #008080;
+}
+pre.rouge .bp {
+  color: #999999;
+}
+pre.rouge .nb {
+  color: #0086B3;
+}
+pre.rouge .nc {
+  color: #445588;
+  font-weight: bold;
+}
+pre.rouge .no {
+  color: #008080;
+}
+pre.rouge .nd {
+  color: #3c5d5d;
+  font-weight: bold;
+}
+pre.rouge .ni {
+  color: #800080;
+}
+pre.rouge .ne {
+  color: #990000;
+  font-weight: bold;
+}
+pre.rouge .nf, pre.rouge .fm {
+  color: #990000;
+  font-weight: bold;
+}
+pre.rouge .nl {
+  color: #990000;
+  font-weight: bold;
+}
+pre.rouge .nn {
+  color: #555555;
+}
+pre.rouge .nt {
+  color: #000080;
+}
+pre.rouge .vc {
+  color: #008080;
+}
+pre.rouge .vg {
+  color: #008080;
+}
+pre.rouge .vi {
+  color: #008080;
+}
+pre.rouge .nv, pre.rouge .vm {
+  color: #008080;
+}
+pre.rouge .ow {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .o {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .w {
+  color: #bbbbbb;
+}
+pre.rouge {
+  background-color: #f8f8f8;
+}
+</style>
   <meta name="keywords" content="Agate, programming language, scripting, gamedev" />
   <meta name="description" content="Agate, a simple and embeddable programming language" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -448,78 +663,287 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
   <meta name="msapplication-TileColor" content="#da532c">
   <meta name="theme-color" content="#ffffff">
 </head>
-<body class="article">
+<body class="article toc2 toc-right">
 <div id="header">
-<h1>The Agate Core Library</h1>
+<h1><code>Array</code> class</h1>
 <div class="details">
 <span id="author" class="author">v0.1</span><br>
+</div>
+<div id="toc" class="toc2">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_static_methods">Static Methods</a>
+<ul class="sectlevel2">
+<li><a href="#_new"><strong>new</strong>()</a></li>
+</ul>
+</li>
+<li><a href="#_methods">Methods</a>
+<ul class="sectlevel2">
+<li><a href="#_append"><strong>append</strong>(item)</a></li>
+<li><a href="#_append_all"><strong>append_all</strong>(other)</a></li>
+<li><a href="#_clear"><strong>clear</strong>()</a></li>
+<li><a href="#_count"><strong>count</strong></a></li>
+<li><a href="#_erase"><strong>erase</strong>(index)</a></li>
+<li><a href="#_find"><strong>find</strong>(item)</a></li>
+<li><a href="#_insert"><strong>insert</strong>(index, item)</a></li>
+<li><a href="#_iterate"><strong>iterate</strong>(iterator), <strong>iterator_value</strong>(iterator)</a></li>
+<li><a href="#_partition"><strong>partition</strong>(pred)</a></li>
+<li><a href="#_remove"><strong>remove</strong>(item)</a></li>
+<li><a href="#_sort"><strong>sort</strong>(), <strong>sort</strong>(comp)</a></li>
+<li><a href="#_swap"><strong>swap</strong>(index0,index1)</a></li>
+</ul>
+</li>
+<li><a href="#_operators">Operators</a>
+<ul class="sectlevel2">
+<li><a href="#_subscript_getter"><strong>[</strong> index <strong>]</strong> operator</a></li>
+<li><a href="#_subscript_setter"><strong>[</strong> index <strong>]=</strong>(item) operator</a></li>
+<li><a href="#_plus"><strong>+</strong>(other)</a></li>
+<li><a href="#_times"><strong>*</strong>(count)</a></li>
+</ul>
+</li>
+</ul>
 </div>
 </div>
 <div id="content">
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>The core library contains all the classes that are available in every Agate source.</p>
+<p>An array is a <a href="Sequence.html"><code>Sequence</code></a> where elements are stored contiguously. Elements of the array are indexed from zero and indices must be of type <a href="Int.html"><code>Int</code></a>. It can be built with elements between <code>[</code> and <code>]</code>.</p>
 </div>
 <div class="paragraph">
-<p><a href="index.html">&lt; Back to main page</a></p>
+<p><a href="core.html">&lt; Back to core library</a></p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_classes"><a class="anchor" href="#_classes"></a>Classes</h2>
+<h2 id="_static_methods"><a class="anchor" href="#_static_methods"></a>Static Methods</h2>
 <div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p><a href="Array.html"><code>Array</code></a></p>
-</li>
-<li>
-<p><a href="Bool.html"><code>Bool</code></a></p>
-</li>
-<li>
-<p><a href="Buffer.html"><code>Buffer</code></a></p>
-</li>
-<li>
-<p><a href="Char.html"><code>Char</code></a></p>
-</li>
-<li>
-<p><a href="Class.html"><code>Class</code></a></p>
-</li>
-<li>
-<p><a href="Float.html"><code>Float</code></a></p>
-</li>
-<li>
-<p><a href="Int.html"><code>Int</code></a></p>
-</li>
-<li>
-<p><a href="IO.html"><code>IO</code></a></p>
-</li>
-<li>
-<p><a href="Map.html"><code>Map</code></a></p>
-</li>
-<li>
-<p><a href="Math.html"><code>Math</code></a></p>
-</li>
-<li>
-<p><a href="Nil.html"><code>Nil</code></a></p>
-</li>
-<li>
-<p><a href="Object.html"><code>Object</code></a></p>
-</li>
-<li>
-<p><a href="Range.html"><code>Range</code></a></p>
-</li>
-<li>
-<p><a href="Sequence.html"><code>Sequence</code></a></p>
-</li>
-<li>
-<p><a href="String.html"><code>String</code></a></p>
-</li>
-<li>
-<p><a href="System.html"><code>System</code></a></p>
-</li>
-</ul>
+<div class="sect2">
+<h3 id="_new"><a class="anchor" href="#_new"></a><strong>new</strong>()</h3>
+<div class="paragraph">
+<p>Create a new empty array. It is equivalent to <code>[ ]</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="k">def</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">Array</span><span class="p">.</span><span class="n">new</span><span class="p">()</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">empty</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; true</span></code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_methods"><a class="anchor" href="#_methods"></a>Methods</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_append"><a class="anchor" href="#_append"></a><strong>append</strong>(item)</h3>
+<div class="paragraph">
+<p>Add <code>item</code> at the end of the array. Return the item.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="k">def</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span><span class="err">
+</span><span class="n">a</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="err">
+</span><span class="n">a</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="sc">'a'</span><span class="p">)</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; [1, a]</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_append_all"><a class="anchor" href="#_append_all"></a><strong>append_all</strong>(other)</h3>
+<div class="paragraph">
+<p>Add all the elements of <code>other</code> at the end of the array. <code>other</code> must be <a href="lang.html#_iterator_protocol">iterable</a>, e.g. a <a href="Sequence.html"><code>Sequence</code></a>. Return <code>other</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="k">def</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="sc">'a'</span><span class="w"> </span><span class="p">]</span><span class="err">
+</span><span class="n">a</span><span class="p">.</span><span class="n">append_all</span><span class="p">([</span><span class="w"> </span><span class="mi">3</span><span class="p">.</span><span class="mi">14</span><span class="p">,</span><span class="w"> </span><span class="s">"good"</span><span class="p">,</span><span class="w"> </span><span class="k">true</span><span class="w"> </span><span class="p">])</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; [1, a, 3.14, good, true]</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_clear"><a class="anchor" href="#_clear"></a><strong>clear</strong>()</h3>
+<div class="paragraph">
+<p>Remove all the elements from the array.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="k">def</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="sc">'a'</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">.</span><span class="mi">14</span><span class="p">,</span><span class="w"> </span><span class="s">"good"</span><span class="p">,</span><span class="w"> </span><span class="k">true</span><span class="w"> </span><span class="p">]</span><span class="err">
+</span><span class="n">a</span><span class="p">.</span><span class="n">clear</span><span class="p">()</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; []</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_count"><a class="anchor" href="#_count"></a><strong>count</strong></h3>
+<div class="paragraph">
+<p>Return the number of elements in the array.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="k">def</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="sc">'a'</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">.</span><span class="mi">14</span><span class="p">,</span><span class="w"> </span><span class="s">"good"</span><span class="p">,</span><span class="w"> </span><span class="k">true</span><span class="w"> </span><span class="p">]</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">count</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; 5</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_erase"><a class="anchor" href="#_erase"></a><strong>erase</strong>(index)</h3>
+<div class="paragraph">
+<p>Remove the element at <code>index</code>. <code>index</code> can be negative to indicate a position from the end, <code>-1</code> being the last element. All the subsequent elements are shifted one position to the left. Return the removed element.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="k">def</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="sc">'a'</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">.</span><span class="mi">14</span><span class="p">,</span><span class="w"> </span><span class="s">"good"</span><span class="p">,</span><span class="w"> </span><span class="k">true</span><span class="w"> </span><span class="p">]</span><span class="err">
+</span><span class="n">a</span><span class="p">.</span><span class="n">erase</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; [1, 3.14, good, true]</span><span class="err">
+</span><span class="n">a</span><span class="p">.</span><span class="n">erase</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; [1, 3.14, good]</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_find"><a class="anchor" href="#_find"></a><strong>find</strong>(item)</h3>
+<div class="paragraph">
+<p>Return the index of the first element equals to <code>item</code> in the array, or <code>-1</code> if <code>item</code> is not found in the array.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="k">def</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="sc">'a'</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">.</span><span class="mi">14</span><span class="p">,</span><span class="w"> </span><span class="s">"good"</span><span class="p">,</span><span class="w"> </span><span class="k">true</span><span class="w"> </span><span class="p">]</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="s">"good"</span><span class="p">))</span><span class="w"> </span><span class="c1">#&gt; 3</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="k">nil</span><span class="p">))</span><span class="w"> </span><span class="c1">#&gt; -1</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_insert"><a class="anchor" href="#_insert"></a><strong>insert</strong>(index, item)</h3>
+<div class="paragraph">
+<p>Insert <code>item</code> at <code>index</code> in the array. <code>index</code> can be equal to the number of elements to append <code>item</code> at the end of the list. <code>index</code> can be negative to indicate a position from the end, <code>-1</code> being the last position after <code>item</code> is inserted. Elements after <code>index</code> are shifted one position to the right. Return <code>item</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="k">def</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">.</span><span class="mi">14</span><span class="w"> </span><span class="p">]</span><span class="err">
+</span><span class="n">a</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="sc">'a'</span><span class="p">)</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; [1, a, 3.14]</span><span class="err">
+</span><span class="n">a</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="s">"good"</span><span class="p">)</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; [1, a, 3.14, good]</span><span class="err">
+</span><span class="n">a</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="k">true</span><span class="p">)</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; [1, a, 3.14, good, true]</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_iterate"><a class="anchor" href="#_iterate"></a><strong>iterate</strong>(iterator), <strong>iterator_value</strong>(iterator)</h3>
+<div class="paragraph">
+<p>Implement the <a href="lang.html#_iterator_protocol">iterator protocol</a> to iterate over the elements of the array.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_partition"><a class="anchor" href="#_partition"></a><strong>partition</strong>(pred)</h3>
+<div class="paragraph">
+<p>Partition the array in two, with all the elements for which the predicate <code>pred</code> is true preceding all the elements for which the predicate <code>pred</code> is false. Return the index of the first element in the second group (which may be the number of elements in the array if no element is in the second group).</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="k">def</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="w"> </span><span class="p">]</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">partition</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="o">|</span><span class="n">item</span><span class="o">|</span><span class="w"> </span><span class="n">item</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">})</span><span class="w"> </span><span class="c1">#&gt; 3</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_remove"><a class="anchor" href="#_remove"></a><strong>remove</strong>(item)</h3>
+<div class="paragraph">
+<p>Remove the first element equals to <code>item</code> from the array. All the subsequent elements are shifted one position to the left. Return the removed element if found, or <code>nil</code> if not found.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="k">def</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="sc">'a'</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">.</span><span class="mi">14</span><span class="p">,</span><span class="w"> </span><span class="s">"good"</span><span class="p">,</span><span class="w"> </span><span class="k">true</span><span class="w"> </span><span class="p">]</span><span class="err">
+</span><span class="n">a</span><span class="p">.</span><span class="n">remove</span><span class="p">(</span><span class="mi">3</span><span class="p">.</span><span class="mi">14</span><span class="p">)</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; [1, a, good, true]</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">remove</span><span class="p">(</span><span class="s">"bad"</span><span class="p">))</span><span class="w"> </span><span class="c1">#&gt; nil</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_sort"><a class="anchor" href="#_sort"></a><strong>sort</strong>(), <strong>sort</strong>(comp)</h3>
+<div class="paragraph">
+<p>Sort the array in place. Comparator <code>comp</code> is used to compare two elements, if it returns <code>true</code> then the first element will be put before the second element in the sorted array. If <code>comp</code> is not provided, <code>&lt;</code> is used to compare elements.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="k">def</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="w"> </span><span class="p">]</span><span class="err">
+</span><span class="n">a</span><span class="p">.</span><span class="n">sort</span><span class="p">()</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; [2, 3, 5, 6, 7, 9, 10]</span><span class="err">
+</span><span class="n">a</span><span class="p">.</span><span class="n">sort</span><span class="w"> </span><span class="p">{</span><span class="o">|</span><span class="n">lhs</span><span class="p">,</span><span class="n">rhs</span><span class="o">|</span><span class="w"> </span><span class="n">lhs</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">rhs</span><span class="w"> </span><span class="p">}</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; [10, 9, 7, 6, 5, 3, 2]</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_swap"><a class="anchor" href="#_swap"></a><strong>swap</strong>(index0,index1)</h3>
+<div class="paragraph">
+<p>Swap the elements at <code>index0</code> and <code>index1</code> in the array.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="k">def</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="sc">'a'</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">.</span><span class="mi">14</span><span class="p">,</span><span class="w"> </span><span class="s">"good"</span><span class="p">,</span><span class="w"> </span><span class="k">true</span><span class="w"> </span><span class="p">]</span><span class="err">
+</span><span class="n">a</span><span class="p">.</span><span class="n">swap</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; [good, a, 3.14, 1, true]</span></code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_operators"><a class="anchor" href="#_operators"></a>Operators</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_subscript_getter"><a class="anchor" href="#_subscript_getter"></a><strong>[</strong> index <strong>]</strong> operator</h3>
+<div class="paragraph">
+<p>Get the element at <code>index</code>. <code>index</code> can be negative to indicate a position from the end, <code>-1</code> being the last element.</p>
+</div>
+<div class="paragraph">
+<p><code>index</code> can also be a <a href="Range.html"><code>Range</code></a>. The result is an array with the elements of the array in the range.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="k">def</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="sc">'a'</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">.</span><span class="mi">14</span><span class="p">,</span><span class="w"> </span><span class="s">"good"</span><span class="p">,</span><span class="w"> </span><span class="k">true</span><span class="w"> </span><span class="p">]</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span><span class="w"> </span><span class="c1">#&gt; good</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">..</span><span class="mi">1</span><span class="p">])</span><span class="w"> </span><span class="c1">#&gt; [1, a]</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_subscript_setter"><a class="anchor" href="#_subscript_setter"></a><strong>[</strong> index <strong>]=</strong>(item) operator</h3>
+<div class="paragraph">
+<p>Set the element at <code>index</code> to <code>item</code>. <code>index</code> can be negative to indicate a position from the end, <code>-1</code> being the last element. Return <code>item</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="k">def</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="sc">'a'</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">.</span><span class="mi">14</span><span class="p">,</span><span class="w"> </span><span class="s">"good"</span><span class="p">,</span><span class="w"> </span><span class="k">true</span><span class="w"> </span><span class="p">]</span><span class="err">
+</span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nil</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; [1, nil, 3.14, good, true]</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_plus"><a class="anchor" href="#_plus"></a><strong>+</strong>(other)</h3>
+<div class="paragraph">
+<p>Concatenate the array with <code>other</code>. <code>other</code> must be <a href="lang.html#_iterator_protocol">iterable</a>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="k">def</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="sc">'a'</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">.</span><span class="mi">14</span><span class="w"> </span><span class="p">]</span><span class="err">
+</span><span class="k">def</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s">"good"</span><span class="p">,</span><span class="w"> </span><span class="k">true</span><span class="w"> </span><span class="p">]</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; [1, a, 3.14, good, true]</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_times"><a class="anchor" href="#_times"></a><strong>*</strong>(count)</h3>
+<div class="paragraph">
+<p>Create an array with <code>count</code> times the original array.</p>
+</div>
 </div>
 </div>
 </div>
