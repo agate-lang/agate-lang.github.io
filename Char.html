@@ -679,6 +679,11 @@ pre.rouge {
 <li><a href="#_to_s"><strong>to_s</strong></a></li>
 </ul>
 </li>
+<li><a href="#_operators">Operators</a>
+<ul class="sectlevel2">
+<li><a href="#_other_other_other_other_operators"><strong>&lt;</strong>(other), <strong>&lt;=</strong>(other), <strong>&gt;</strong>(other), <strong>&gt;=</strong>(other) operators</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
@@ -729,6 +734,25 @@ pre.rouge {
 <div class="content">
 <pre class="rouge highlight"><code data-lang="agate"><span class="k">def</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">'木'</span><span class="err">
 </span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">c</span><span class="p">.</span><span class="n">to_s</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; 木</span></code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_operators"><a class="anchor" href="#_operators"></a>Operators</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_other_other_other_other_operators"><a class="anchor" href="#_other_other_other_other_operators"></a><strong>&lt;</strong>(other), <strong>&lt;=</strong>(other), <strong>&gt;</strong>(other), <strong>&gt;=</strong>(other) operators</h3>
+<div class="paragraph">
+<p>Compares <code>this</code> and <code>other</code> characters based on the codepoint value.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="k">def</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">'h'</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="sc">'a'</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="sc">'z'</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; true</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="sc">'x'</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="sc">'X'</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; false</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="sc">'森'</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="sc">'木'</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; true</span></code></pre>
 </div>
 </div>
 </div>

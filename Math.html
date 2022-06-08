@@ -438,6 +438,221 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 #footer-text{color:rgba(0,0,0,.6);font-size:.9em}}
 @media amzn-kf8{#header,#content,#footnotes,#footer{padding:0}}
 </style>
+<style>
+pre.rouge table td { padding: 5px; }
+pre.rouge table pre { margin: 0; }
+pre.rouge .cm {
+  color: #999988;
+  font-style: italic;
+}
+pre.rouge .cp {
+  color: #999999;
+  font-weight: bold;
+}
+pre.rouge .c1 {
+  color: #999988;
+  font-style: italic;
+}
+pre.rouge .cs {
+  color: #999999;
+  font-weight: bold;
+  font-style: italic;
+}
+pre.rouge .c, pre.rouge .ch, pre.rouge .cd, pre.rouge .cpf {
+  color: #999988;
+  font-style: italic;
+}
+pre.rouge .err {
+  color: #a61717;
+  background-color: #e3d2d2;
+}
+pre.rouge .gd {
+  color: #000000;
+  background-color: #ffdddd;
+}
+pre.rouge .ge {
+  color: #000000;
+  font-style: italic;
+}
+pre.rouge .gr {
+  color: #aa0000;
+}
+pre.rouge .gh {
+  color: #999999;
+}
+pre.rouge .gi {
+  color: #000000;
+  background-color: #ddffdd;
+}
+pre.rouge .go {
+  color: #888888;
+}
+pre.rouge .gp {
+  color: #555555;
+}
+pre.rouge .gs {
+  font-weight: bold;
+}
+pre.rouge .gu {
+  color: #aaaaaa;
+}
+pre.rouge .gt {
+  color: #aa0000;
+}
+pre.rouge .kc {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .kd {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .kn {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .kp {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .kr {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .kt {
+  color: #445588;
+  font-weight: bold;
+}
+pre.rouge .k, pre.rouge .kv {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .mf {
+  color: #009999;
+}
+pre.rouge .mh {
+  color: #009999;
+}
+pre.rouge .il {
+  color: #009999;
+}
+pre.rouge .mi {
+  color: #009999;
+}
+pre.rouge .mo {
+  color: #009999;
+}
+pre.rouge .m, pre.rouge .mb, pre.rouge .mx {
+  color: #009999;
+}
+pre.rouge .sa {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .sb {
+  color: #d14;
+}
+pre.rouge .sc {
+  color: #d14;
+}
+pre.rouge .sd {
+  color: #d14;
+}
+pre.rouge .s2 {
+  color: #d14;
+}
+pre.rouge .se {
+  color: #d14;
+}
+pre.rouge .sh {
+  color: #d14;
+}
+pre.rouge .si {
+  color: #d14;
+}
+pre.rouge .sx {
+  color: #d14;
+}
+pre.rouge .sr {
+  color: #009926;
+}
+pre.rouge .s1 {
+  color: #d14;
+}
+pre.rouge .ss {
+  color: #990073;
+}
+pre.rouge .s, pre.rouge .dl {
+  color: #d14;
+}
+pre.rouge .na {
+  color: #008080;
+}
+pre.rouge .bp {
+  color: #999999;
+}
+pre.rouge .nb {
+  color: #0086B3;
+}
+pre.rouge .nc {
+  color: #445588;
+  font-weight: bold;
+}
+pre.rouge .no {
+  color: #008080;
+}
+pre.rouge .nd {
+  color: #3c5d5d;
+  font-weight: bold;
+}
+pre.rouge .ni {
+  color: #800080;
+}
+pre.rouge .ne {
+  color: #990000;
+  font-weight: bold;
+}
+pre.rouge .nf, pre.rouge .fm {
+  color: #990000;
+  font-weight: bold;
+}
+pre.rouge .nl {
+  color: #990000;
+  font-weight: bold;
+}
+pre.rouge .nn {
+  color: #555555;
+}
+pre.rouge .nt {
+  color: #000080;
+}
+pre.rouge .vc {
+  color: #008080;
+}
+pre.rouge .vg {
+  color: #008080;
+}
+pre.rouge .vi {
+  color: #008080;
+}
+pre.rouge .nv, pre.rouge .vm {
+  color: #008080;
+}
+pre.rouge .ow {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .o {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .w {
+  color: #bbbbbb;
+}
+pre.rouge {
+  background-color: #f8f8f8;
+}
+</style>
   <meta name="keywords" content="Agate, programming language, scripting, gamedev" />
   <meta name="description" content="Agate, a simple and embeddable programming language" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -457,7 +672,47 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
-<li><a href="#_static_methods">Static Methods</a></li>
+<li><a href="#_constants">Constants</a>
+<ul class="sectlevel2">
+<li><a href="#_e"><strong>E</strong></a></li>
+<li><a href="#_inv_pi_inv_pi2"><strong>INV_PI</strong>, <strong>INV_PI2</strong></a></li>
+<li><a href="#_inv_sqrt2"><strong>INV_SQRT2</strong></a></li>
+<li><a href="#_ln2_ln10"><strong>LN2</strong>, <strong>LN10</strong></a></li>
+<li><a href="#_log2e_log10e"><strong>LOG2E</strong>, <strong>LOG10E</strong></a></li>
+<li><a href="#_pi"><strong>PI</strong></a></li>
+<li><a href="#_pi2_pi4"><strong>PI2</strong>, <strong>PI4</strong></a></li>
+<li><a href="#_sqrt2"><strong>SQRT2</strong></a></li>
+</ul>
+</li>
+<li><a href="#_static_methods">Static Methods</a>
+<ul class="sectlevel2">
+<li><a href="#_abs"><strong>abs</strong>(num)</a></li>
+<li><a href="#_acos"><strong>acos</strong>(x)</a></li>
+<li><a href="#_asin"><strong>asin</strong>(x)</a></li>
+<li><a href="#_atan"><strong>atan</strong>(x)</a></li>
+<li><a href="#_atan2"><strong>atan2</strong>(y, x)</a></li>
+<li><a href="#_cbrt"><strong>cbrt</strong>(x)</a></li>
+<li><a href="#_ceil"><strong>ceil</strong>(x)</a></li>
+<li><a href="#_clamp"><strong>clamp</strong>(v, lo, hi)</a></li>
+<li><a href="#_cos"><strong>cos</strong>(x)</a></li>
+<li><a href="#_exp"><strong>exp</strong>(x)</a></li>
+<li><a href="#_exp2"><strong>exp2</strong>(x)</a></li>
+<li><a href="#_floor"><strong>floor</strong>(x)</a></li>
+<li><a href="#_hypot"><strong>hypot</strong>(x, y)</a></li>
+<li><a href="#_log"><strong>log</strong>(x)</a></li>
+<li><a href="#_log2"><strong>log2</strong>(x)</a></li>
+<li><a href="#_log10"><strong>log10</strong>(x)</a></li>
+<li><a href="#_max"><strong>max</strong>(x, y)</a></li>
+<li><a href="#_min"><strong>min</strong>(x, y)</a></li>
+<li><a href="#_pow"><strong>pow</strong>(x, y)</a></li>
+<li><a href="#_round"><strong>round</strong>(x)</a></li>
+<li><a href="#_sign"><strong>sign</strong>(num)</a></li>
+<li><a href="#_sin"><strong>sin</strong>(x)</a></li>
+<li><a href="#_sqrt"><strong>sqrt</strong>(x)</a></li>
+<li><a href="#_tan"><strong>tan</strong>(x)</a></li>
+<li><a href="#_trunc"><strong>trunc</strong>(x)</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
@@ -465,14 +720,548 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
+<p><code>Math</code> is the class for all mathematical constants and functions. Most of these functions take <a href="Float.html"><code>Float</code></a> arguments and return <a href="Float.html"><code>Float</code></a> values, unless specified otherwise.</p>
+</div>
+<div class="paragraph">
 <p><a href="core.html">&lt; Back to core library</a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_constants"><a class="anchor" href="#_constants"></a>Constants</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_e"><a class="anchor" href="#_e"></a><strong>E</strong></h3>
+<div class="paragraph">
+<p>The famous <a href="https://en.wikipedia.org/wiki/E_(mathematical_constant)">\(e\)</a> constant.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">E</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; 2.718281828459</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_inv_pi_inv_pi2"><a class="anchor" href="#_inv_pi_inv_pi2"></a><strong>INV_PI</strong>, <strong>INV_PI2</strong></h3>
+<div class="paragraph">
+<p>Constants for \(\frac{1}{\pi}\) and \(\frac{2}{\pi}\).</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">INV_PI</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; 0.31830988618379</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">INV_PI2</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; 0.63661977236758</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_inv_sqrt2"><a class="anchor" href="#_inv_sqrt2"></a><strong>INV_SQRT2</strong></h3>
+<div class="paragraph">
+<p>A constant for \(\frac{1}{\sqrt{2}}\).</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">INV_SQRT2</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; 0.70710678118655</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_ln2_ln10"><a class="anchor" href="#_ln2_ln10"></a><strong>LN2</strong>, <strong>LN10</strong></h3>
+<div class="paragraph">
+<p>Constants for \(\ln{2}\) and \(\ln{10}\).</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">LN2</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; 0.69314718055995</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">LN10</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; 2.302585092994</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_log2e_log10e"><a class="anchor" href="#_log2e_log10e"></a><strong>LOG2E</strong>, <strong>LOG10E</strong></h3>
+<div class="paragraph">
+<p>Constants for \(\log_2{e}\) and \(\log_{10}{e}\).</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">LOG2E</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; 1.442695040889</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">LOG10E</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; 0.43429448190325</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_pi"><a class="anchor" href="#_pi"></a><strong>PI</strong></h3>
+<div class="paragraph">
+<p>The famous <a href="https://en.wikipedia.org/wiki/Pi">\(\pi\)</a> constant.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">PI</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; 3.1415926535898</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_pi2_pi4"><a class="anchor" href="#_pi2_pi4"></a><strong>PI2</strong>, <strong>PI4</strong></h3>
+<div class="paragraph">
+<p>Constants for \(\frac{\pi}{2}\) and \(\frac{\pi}{4}\).</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">PI2</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; 1.5707963267949</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">PI4</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; 0.78539816339745</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_sqrt2"><a class="anchor" href="#_sqrt2"></a><strong>SQRT2</strong></h3>
+<div class="paragraph">
+<p>The famous <a href="https://en.wikipedia.org/wiki/Square_root_of_2">\(\sqrt{2}\)</a> constant.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">SQRT2</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; 1.4142135623731</span></code></pre>
+</div>
+</div>
 </div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="_static_methods"><a class="anchor" href="#_static_methods"></a>Static Methods</h2>
 <div class="sectionbody">
+<div class="sect2">
+<h3 id="_abs"><a class="anchor" href="#_abs"></a><strong>abs</strong>(num)</h3>
+<div class="paragraph">
+<p>Get the <a href="https://en.wikipedia.org/wiki/Absolute_value">absolute value</a> of a <a href="Float.html"><code>Float</code></a> or an <a href="Int.html"><code>Int</code></a>, denoted \(|x|\).</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">abs</span><span class="p">(</span><span class="mi">42</span><span class="p">))</span><span class="w">    </span><span class="c1">#&gt; 42</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">abs</span><span class="p">(</span><span class="o">-</span><span class="mi">42</span><span class="p">))</span><span class="w">   </span><span class="c1">#&gt; 42</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">abs</span><span class="p">(</span><span class="mi">42</span><span class="p">.</span><span class="mi">0</span><span class="p">))</span><span class="w">  </span><span class="c1">#&gt; 42</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">abs</span><span class="p">(</span><span class="o">-</span><span class="mi">42</span><span class="p">.</span><span class="mi">0</span><span class="p">))</span><span class="w"> </span><span class="c1">#&gt; 42</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_acos"><a class="anchor" href="#_acos"></a><strong>acos</strong>(x)</h3>
+<div class="paragraph">
+<p>Get the <a href="https://en.wikipedia.org/wiki/Inverse_trigonometric_functions">arc cosine</a> of <code>x</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">acos</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kt">Math</span><span class="p">.</span><span class="n">PI</span><span class="p">)</span><span class="w">  </span><span class="c1">#&gt; true</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">acos</span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kt">Math</span><span class="p">.</span><span class="n">PI2</span><span class="p">)</span><span class="w">  </span><span class="c1">#&gt; true</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">acos</span><span class="p">(</span><span class="mi">1</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span><span class="w">       </span><span class="c1">#&gt; true</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>See also: <a href="#_asin"><strong>asin</strong>(x)</a>, <a href="#_atan"><strong>atan</strong>(x)</a>, <a href="#_atan2"><strong>atan2</strong>(y, x)</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_asin"><a class="anchor" href="#_asin"></a><strong>asin</strong>(x)</h3>
+<div class="paragraph">
+<p>Get the <a href="https://en.wikipedia.org/wiki/Inverse_trigonometric_functions">arc sine</a> of <code>x</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">asin</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="o">-</span><span class="kt">Math</span><span class="p">.</span><span class="n">PI2</span><span class="p">)</span><span class="w">  </span><span class="c1">#&gt; true</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">asin</span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span><span class="w">         </span><span class="c1">#&gt; true</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">asin</span><span class="p">(</span><span class="mi">1</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kt">Math</span><span class="p">.</span><span class="n">PI2</span><span class="p">)</span><span class="w">    </span><span class="c1">#&gt; true</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>See also: <a href="#_acos"><strong>acos</strong>(x)</a>, <a href="#_atan"><strong>atan</strong>(x)</a>, <a href="#_atan2"><strong>atan2</strong>(y, x)</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_atan"><a class="anchor" href="#_atan"></a><strong>atan</strong>(x)</h3>
+<div class="paragraph">
+<p>Get the <a href="https://en.wikipedia.org/wiki/Inverse_trigonometric_functions">arc tangent</a> of <code>x</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">atan</span><span class="p">(</span><span class="o">-</span><span class="kt">Float</span><span class="p">.</span><span class="n">INFINITY</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="o">-</span><span class="kt">Math</span><span class="p">.</span><span class="n">PI2</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; true</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">atan</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="o">-</span><span class="kt">Math</span><span class="p">.</span><span class="n">PI4</span><span class="p">)</span><span class="w">            </span><span class="c1">#&gt; true</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">atan</span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span><span class="w">                   </span><span class="c1">#&gt; true</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">atan</span><span class="p">(</span><span class="mi">1</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kt">Math</span><span class="p">.</span><span class="n">PI4</span><span class="p">)</span><span class="w">              </span><span class="c1">#&gt; true</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">atan</span><span class="p">(</span><span class="kt">Float</span><span class="p">.</span><span class="n">INFINITY</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kt">Math</span><span class="p">.</span><span class="n">PI2</span><span class="p">)</span><span class="w">   </span><span class="c1">#&gt; true</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>See also: <a href="#_acos"><strong>acos</strong>(x)</a>, <a href="#_asin"><strong>asin</strong>(x)</a>, <a href="#_atan2"><strong>atan2</strong>(y, x)</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_atan2"><a class="anchor" href="#_atan2"></a><strong>atan2</strong>(y, x)</h3>
+<div class="paragraph">
+<p>Get the <a href="https://en.wikipedia.org/wiki/Inverse_trigonometric_functions">arc tangent</a> of <code>y</code>/<code>x</code>, taking care of all the special cases.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">atan2</span><span class="p">(</span><span class="o">+</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="o">+</span><span class="mi">1</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="o">+</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span><span class="w">      </span><span class="c1">#&gt; true</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">atan2</span><span class="p">(</span><span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="o">+</span><span class="mi">1</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span><span class="w">      </span><span class="c1">#&gt; true</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">atan2</span><span class="p">(</span><span class="o">+</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kt">Math</span><span class="p">.</span><span class="n">PI</span><span class="p">)</span><span class="w">   </span><span class="c1">#&gt; true</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">atan2</span><span class="p">(</span><span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="o">-</span><span class="kt">Math</span><span class="p">.</span><span class="n">PI</span><span class="p">)</span><span class="w">  </span><span class="c1">#&gt; true</span><span class="err">
 
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">atan2</span><span class="p">(</span><span class="o">+</span><span class="mi">1</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kt">Math</span><span class="p">.</span><span class="n">PI2</span><span class="p">)</span><span class="w">   </span><span class="c1">#&gt; true</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">atan2</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="o">-</span><span class="kt">Math</span><span class="p">.</span><span class="n">PI2</span><span class="p">)</span><span class="w">  </span><span class="c1">#&gt; true</span><span class="err">
+
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">atan2</span><span class="p">(</span><span class="o">+</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="o">+</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="o">+</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span><span class="w">      </span><span class="c1">#&gt; true</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">atan2</span><span class="p">(</span><span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="o">+</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span><span class="w">      </span><span class="c1">#&gt; true</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">atan2</span><span class="p">(</span><span class="o">+</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kt">Math</span><span class="p">.</span><span class="n">PI</span><span class="p">)</span><span class="w">   </span><span class="c1">#&gt; true</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">atan2</span><span class="p">(</span><span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="o">-</span><span class="kt">Math</span><span class="p">.</span><span class="n">PI</span><span class="p">)</span><span class="w">  </span><span class="c1">#&gt; true</span><span class="err">
+
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">atan2</span><span class="p">(</span><span class="o">+</span><span class="mi">1</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="kt">Float</span><span class="p">.</span><span class="n">INFINITY</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="o">+</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span><span class="w">      </span><span class="c1">#&gt; true</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">atan2</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="kt">Float</span><span class="p">.</span><span class="n">INFINITY</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span><span class="w">      </span><span class="c1">#&gt; true</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">atan2</span><span class="p">(</span><span class="o">+</span><span class="mi">1</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="kt">Float</span><span class="p">.</span><span class="n">INFINITY</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kt">Math</span><span class="p">.</span><span class="n">PI</span><span class="p">)</span><span class="w">  </span><span class="c1">#&gt; true</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">atan2</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="kt">Float</span><span class="p">.</span><span class="n">INFINITY</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="o">-</span><span class="kt">Math</span><span class="p">.</span><span class="n">PI</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; true</span><span class="err">
+
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">atan2</span><span class="p">(</span><span class="kt">Float</span><span class="p">.</span><span class="n">INFINITY</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kt">Math</span><span class="p">.</span><span class="n">PI2</span><span class="p">)</span><span class="w">   </span><span class="c1">#&gt; true</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">atan2</span><span class="p">(</span><span class="o">-</span><span class="kt">Float</span><span class="p">.</span><span class="n">INFINITY</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="o">-</span><span class="kt">Math</span><span class="p">.</span><span class="n">PI2</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; true</span><span class="err">
+
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">atan2</span><span class="p">(</span><span class="kt">Float</span><span class="p">.</span><span class="n">INFINITY</span><span class="p">,</span><span class="w"> </span><span class="kt">Float</span><span class="p">.</span><span class="n">INFINITY</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kt">Math</span><span class="p">.</span><span class="n">PI4</span><span class="p">)</span><span class="w">          </span><span class="c1">#&gt; true</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">atan2</span><span class="p">(</span><span class="o">-</span><span class="kt">Float</span><span class="p">.</span><span class="n">INFINITY</span><span class="p">,</span><span class="w"> </span><span class="kt">Float</span><span class="p">.</span><span class="n">INFINITY</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="o">-</span><span class="kt">Math</span><span class="p">.</span><span class="n">PI4</span><span class="p">)</span><span class="w">        </span><span class="c1">#&gt; true</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">atan2</span><span class="p">(</span><span class="kt">Float</span><span class="p">.</span><span class="n">INFINITY</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="kt">Float</span><span class="p">.</span><span class="n">INFINITY</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">3</span><span class="p">.</span><span class="mi">0</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kt">Math</span><span class="p">.</span><span class="n">PI4</span><span class="p">)</span><span class="w">   </span><span class="c1">#&gt; true</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">atan2</span><span class="p">(</span><span class="o">-</span><span class="kt">Float</span><span class="p">.</span><span class="n">INFINITY</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="kt">Float</span><span class="p">.</span><span class="n">INFINITY</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="o">-</span><span class="mi">3</span><span class="p">.</span><span class="mi">0</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kt">Math</span><span class="p">.</span><span class="n">PI4</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; true</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>See also: <a href="#_acos"><strong>acos</strong>(x)</a>, <a href="#_asin"><strong>asin</strong>(x)</a>, <a href="#_atan"><strong>atan</strong>(x)</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_cbrt"><a class="anchor" href="#_cbrt"></a><strong>cbrt</strong>(x)</h3>
+<div class="paragraph">
+<p>Get the <a href="https://en.wikipedia.org/wiki/Cube_root">cube root</a> of <code>x</code>, denoted \(\sqrt[3]{x}\).</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">cbrt</span><span class="p">(</span><span class="mi">1</span><span class="p">.</span><span class="mi">0</span><span class="p">))</span><span class="w">  </span><span class="c1">#&gt; 1</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">cbrt</span><span class="p">(</span><span class="mi">2</span><span class="p">.</span><span class="mi">0</span><span class="p">))</span><span class="w">  </span><span class="c1">#&gt; 1.2599210498949</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">cbrt</span><span class="p">(</span><span class="mi">8</span><span class="p">.</span><span class="mi">0</span><span class="p">))</span><span class="w">  </span><span class="c1">#&gt; 2</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">cbrt</span><span class="p">(</span><span class="mi">27</span><span class="p">.</span><span class="mi">0</span><span class="p">))</span><span class="w"> </span><span class="c1">#&gt; 3</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>See also: <a href="#_sqrt"><strong>sqrt</strong>(x)</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_ceil"><a class="anchor" href="#_ceil"></a><strong>ceil</strong>(x)</h3>
+<div class="paragraph">
+<p>Get the <a href="https://en.wikipedia.org/wiki/Floor_and_ceiling_functions">ceil</a> of <code>x</code>, i.e the least integer greater than or equal to \(x\), denoted \(\lceil x \rceil\).</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">ceil</span><span class="p">(</span><span class="mi">4</span><span class="p">.</span><span class="mi">2</span><span class="p">))</span><span class="w">  </span><span class="c1">#&gt; 5</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">ceil</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">.</span><span class="mi">2</span><span class="p">))</span><span class="w"> </span><span class="c1">#&gt; -4</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>See also: <a href="#_floor"><strong>floor</strong>(x)</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_clamp"><a class="anchor" href="#_clamp"></a><strong>clamp</strong>(v, lo, hi)</h3>
+<div class="paragraph">
+<p>Clamps <code>v</code> between <code>lo</code> and <code>hi</code>. Return <code>lo</code> if <code>x</code> is less than <code>lo</code>. Return <code>hi</code> if <code>x</code> is greater than <code>hi</code>. Otherwise return <code>x</code> itself.
+<code>v</code>, <code>lo</code> and <code>hi</code> must be of the same type, <a href="Int.html"><code>Int</code></a> or <a href="Float.html"><code>Float</code></a>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">clamp</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">))</span><span class="w">  </span><span class="c1">#&gt; 4</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">clamp</span><span class="p">(</span><span class="o">-</span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">))</span><span class="w"> </span><span class="c1">#&gt; 0</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">clamp</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">))</span><span class="w"> </span><span class="c1">#&gt; 10</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>See also: <a href="#_max"><strong>max</strong>(x, y)</a>, <a href="#_min"><strong>min</strong>(x, y)</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_cos"><a class="anchor" href="#_cos"></a><strong>cos</strong>(x)</h3>
+<div class="paragraph">
+<p>Get the <a href="https://en.wikipedia.org/wiki/Trigonometric_functions">cosine</a> of <code>x</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">))</span><span class="w">     </span><span class="c1">#&gt; 1</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">cos</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">PI</span><span class="p">))</span><span class="w"> </span><span class="c1">#&gt; -1</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Float</span><span class="p">.</span><span class="n">almost_equals</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">cos</span><span class="p">(</span><span class="o">-</span><span class="kt">Math</span><span class="p">.</span><span class="n">PI2</span><span class="p">),</span><span class="w"> </span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">))</span><span class="w"> </span><span class="c1">#&gt; true</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Float</span><span class="p">.</span><span class="n">almost_equals</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">cos</span><span class="p">(</span><span class="w"> </span><span class="kt">Math</span><span class="p">.</span><span class="n">PI2</span><span class="p">),</span><span class="w"> </span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">))</span><span class="w"> </span><span class="c1">#&gt; true</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>See also: <a href="#_sin"><strong>sin</strong>(x)</a>, <a href="#_tan"><strong>tan</strong>(x)</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_exp"><a class="anchor" href="#_exp"></a><strong>exp</strong>(x)</h3>
+<div class="paragraph">
+<p>Get the <a href="https://en.wikipedia.org/wiki/Exponential_function">exponential</a> value of <code>x</code>, denoted \(e^x\).</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">))</span><span class="w">       </span><span class="c1">#&gt; 1</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="p">.</span><span class="mi">0</span><span class="p">))</span><span class="w">       </span><span class="c1">#&gt; 2.718281828459</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">exp</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">LN2</span><span class="p">))</span><span class="w">  </span><span class="c1">#&gt; 2</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">exp</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">LN10</span><span class="p">))</span><span class="w"> </span><span class="c1">#&gt; 10</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="kt">Float</span><span class="p">.</span><span class="n">INFINITY</span><span class="p">))</span><span class="w"> </span><span class="c1">#&gt; 0</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>See also: <a href="#_log"><strong>log</strong>(x)</a>, <a href="#_exp2"><strong>exp2</strong>(x)</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_exp2"><a class="anchor" href="#_exp2"></a><strong>exp2</strong>(x)</h3>
+<div class="paragraph">
+<p>Get the base-2 exponential value of <code>x</code>, i.e. \(2^x\).</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">exp2</span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">))</span><span class="w"> </span><span class="c1">#&gt; 1</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">exp2</span><span class="p">(</span><span class="mi">1</span><span class="p">.</span><span class="mi">0</span><span class="p">))</span><span class="w"> </span><span class="c1">#&gt; 2</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">exp2</span><span class="p">(</span><span class="mi">2</span><span class="p">.</span><span class="mi">0</span><span class="p">))</span><span class="w"> </span><span class="c1">#&gt; 4</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">exp2</span><span class="p">(</span><span class="mi">3</span><span class="p">.</span><span class="mi">0</span><span class="p">))</span><span class="w"> </span><span class="c1">#&gt; 8</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">exp2</span><span class="p">(</span><span class="o">-</span><span class="kt">Float</span><span class="p">.</span><span class="n">INFINITY</span><span class="p">))</span><span class="w"> </span><span class="c1">#&gt; 0</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>See also: <a href="#_log2"><strong>log2</strong>(x)</a>, <a href="#_exp"><strong>exp</strong>(x)</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_floor"><a class="anchor" href="#_floor"></a><strong>floor</strong>(x)</h3>
+<div class="paragraph">
+<p>Get the <a href="https://en.wikipedia.org/wiki/Floor_and_ceiling_functions">floor</a> of <code>x</code>, i.e the greatest integer less than or equal to \(x\), denoted \(\lfloor x \rfloor\).</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">floor</span><span class="p">(</span><span class="mi">4</span><span class="p">.</span><span class="mi">2</span><span class="p">))</span><span class="w">  </span><span class="c1">#&gt; 4</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">floor</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">.</span><span class="mi">2</span><span class="p">))</span><span class="w"> </span><span class="c1">#&gt; -5</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>See also: <a href="#_ceil"><strong>ceil</strong>(x)</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_hypot"><a class="anchor" href="#_hypot"></a><strong>hypot</strong>(x, y)</h3>
+<div class="paragraph">
+<p>Get the length of the hypotenuse of a right-angled triangle with sides of length <code>x</code> and <code>y</code>, or the distance of the point \((x,y)\) from the origin. The value is \(\sqrt{x^2 + y^2}\).</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">hypot</span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">))</span><span class="w">  </span><span class="c1">#&gt; 0</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">hypot</span><span class="p">(</span><span class="mi">1</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">.</span><span class="mi">0</span><span class="p">))</span><span class="w">  </span><span class="c1">#&gt; 1.4142135623731</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">hypot</span><span class="p">(</span><span class="mi">4</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">3</span><span class="p">.</span><span class="mi">0</span><span class="p">))</span><span class="w"> </span><span class="c1">#&gt; 5</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_log"><a class="anchor" href="#_log"></a><strong>log</strong>(x)</h3>
+<div class="paragraph">
+<p>Get the <a href="https://en.wikipedia.org/wiki/Natural_logarithm">natural logarithm</a> of <code>x</code>, denoted \(\ln x\).</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">))</span><span class="w"> </span><span class="c1">#&gt; -inf</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="mi">1</span><span class="p">.</span><span class="mi">0</span><span class="p">))</span><span class="w"> </span><span class="c1">#&gt; 0</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">E</span><span class="p">))</span><span class="w"> </span><span class="c1">#&gt; 1</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="kt">Float</span><span class="p">.</span><span class="n">INFINITY</span><span class="p">))</span><span class="w"> </span><span class="c1">#&gt; inf</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>See also: <a href="#_exp"><strong>exp</strong>(x)</a>, <a href="#_log2"><strong>log2</strong>(x)</a>, <a href="#_log10"><strong>log10</strong>(x)</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_log2"><a class="anchor" href="#_log2"></a><strong>log2</strong>(x)</h3>
+<div class="paragraph">
+<p>Get the <a href="https://en.wikipedia.org/wiki/Binary_logarithm">binary logarithm</a> of <code>x</code>, i.e. the base 2 logarithm of <code>x</code>, denoted \(\log_2 x\).</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">log2</span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">))</span><span class="w">    </span><span class="c1">#&gt; -inf</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">log2</span><span class="p">(</span><span class="mi">1</span><span class="p">.</span><span class="mi">0</span><span class="p">))</span><span class="w">    </span><span class="c1">#&gt; 0</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">log2</span><span class="p">(</span><span class="mi">2</span><span class="p">.</span><span class="mi">0</span><span class="p">))</span><span class="w">    </span><span class="c1">#&gt; 1</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">log2</span><span class="p">(</span><span class="mi">1024</span><span class="p">.</span><span class="mi">0</span><span class="p">))</span><span class="w"> </span><span class="c1">#&gt; 10</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">log2</span><span class="p">(</span><span class="kt">Float</span><span class="p">.</span><span class="n">INFINITY</span><span class="p">))</span><span class="w"> </span><span class="c1">#&gt; inf</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>See also: <a href="#_exp2"><strong>exp2</strong>(x)</a>, <a href="#_log"><strong>log</strong>(x)</a>, <a href="#_log10"><strong>log10</strong>(x)</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_log10"><a class="anchor" href="#_log10"></a><strong>log10</strong>(x)</h3>
+<div class="paragraph">
+<p>Get the <a href="https://en.wikipedia.org/wiki/Common_logarithm">common logarithm</a> of <code>x</code>, i.e. the base 10 logarithm of <code>x</code>, denoted \(\log_{10} x\).</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">log10</span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">))</span><span class="w">    </span><span class="c1">#&gt; -inf</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">log10</span><span class="p">(</span><span class="mi">1</span><span class="p">.</span><span class="mi">0</span><span class="p">))</span><span class="w">    </span><span class="c1">#&gt; 0</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">log10</span><span class="p">(</span><span class="mi">10</span><span class="p">.</span><span class="mi">0</span><span class="p">))</span><span class="w">   </span><span class="c1">#&gt; 1</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">log10</span><span class="p">(</span><span class="mi">1000</span><span class="p">.</span><span class="mi">0</span><span class="p">))</span><span class="w"> </span><span class="c1">#&gt; 3</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">log10</span><span class="p">(</span><span class="kt">Float</span><span class="p">.</span><span class="n">INFINITY</span><span class="p">))</span><span class="w"> </span><span class="c1">#&gt; inf</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>See also: <a href="#_log"><strong>log</strong>(x)</a>, <a href="#_log2"><strong>log2</strong>(x)</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_max"><a class="anchor" href="#_max"></a><strong>max</strong>(x, y)</h3>
+<div class="paragraph">
+<p>Get the maximum value between <code>x</code> and <code>y</code>. <code>x</code> and <code>y</code> must be of the same type, <a href="Int.html"><code>Int</code></a> or <a href="Float.html"><code>Float</code></a>. If one of the argument is <a href="Float.html#_nan">not a number</a>, the other is returned.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">max</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">))</span><span class="w">        </span><span class="c1">#&gt; 2</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">max</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">2</span><span class="p">))</span><span class="w">      </span><span class="c1">#&gt; -1</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">max</span><span class="p">(</span><span class="mi">1</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">.</span><span class="mi">0</span><span class="p">))</span><span class="w">    </span><span class="c1">#&gt; 2</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">max</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">2</span><span class="p">.</span><span class="mi">0</span><span class="p">))</span><span class="w">  </span><span class="c1">#&gt; -1</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>See also: <a href="#_min"><strong>min</strong>(x, y)</a>, <a href="#_clamp"><strong>clamp</strong>(v, lo, hi)</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_min"><a class="anchor" href="#_min"></a><strong>min</strong>(x, y)</h3>
+<div class="paragraph">
+<p>Get the minimum value between <code>x</code> and <code>y</code>. <code>x</code> and <code>y</code> must be of the same type, <a href="Int.html"><code>Int</code></a> or <a href="Float.html"><code>Float</code></a>. If one of the argument is <a href="Float.html#_nan">not a number</a>, the other is returned.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">min</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">))</span><span class="w">        </span><span class="c1">#&gt; 1</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">min</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">2</span><span class="p">))</span><span class="w">      </span><span class="c1">#&gt; -2</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">min</span><span class="p">(</span><span class="mi">1</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">.</span><span class="mi">0</span><span class="p">))</span><span class="w">    </span><span class="c1">#&gt; 1</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">min</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">2</span><span class="p">.</span><span class="mi">0</span><span class="p">))</span><span class="w">  </span><span class="c1">#&gt; -2</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>See also: <a href="#_max"><strong>max</strong>(x, y)</a>, <a href="#_clamp"><strong>clamp</strong>(v, lo, hi)</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_pow"><a class="anchor" href="#_pow"></a><strong>pow</strong>(x, y)</h3>
+<div class="paragraph">
+<p>Get the value of <code>x</code> raised to the power of <code>y</code>, denoted \(x^y\). <code>x</code> and <code>y</code> must be of the same type, <a href="Int.html"><code>Int</code></a> or <a href="Float.html"><code>Float</code></a>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">pow</span><span class="p">(</span><span class="mi">3</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">.</span><span class="mi">0</span><span class="p">))</span><span class="w">  </span><span class="c1">#&gt; 9</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">pow</span><span class="p">(</span><span class="mi">4</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">.</span><span class="mi">0</span><span class="p">))</span><span class="w"> </span><span class="c1">#&gt; 0.25</span><span class="err">
+
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">pow</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">))</span><span class="w">  </span><span class="c1">#&gt; 9</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">pow</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">))</span><span class="w"> </span><span class="c1">#&gt; 0</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_round"><a class="anchor" href="#_round"></a><strong>round</strong>(x)</h3>
+<div class="paragraph">
+<p>Round <code>x</code> to the nearest integer, but round halfway cases away from zero.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">round</span><span class="p">(</span><span class="mi">4</span><span class="p">.</span><span class="mi">2</span><span class="p">))</span><span class="w"> </span><span class="c1">#&gt; 4</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">round</span><span class="p">(</span><span class="mi">4</span><span class="p">.</span><span class="mi">5</span><span class="p">))</span><span class="w"> </span><span class="c1">#&gt; 5</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">round</span><span class="p">(</span><span class="mi">4</span><span class="p">.</span><span class="mi">8</span><span class="p">))</span><span class="w"> </span><span class="c1">#&gt; 5</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">round</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">.</span><span class="mi">2</span><span class="p">))</span><span class="w"> </span><span class="c1">#&gt; -4</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">round</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">.</span><span class="mi">5</span><span class="p">))</span><span class="w"> </span><span class="c1">#&gt; -5</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">round</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">.</span><span class="mi">8</span><span class="p">))</span><span class="w"> </span><span class="c1">#&gt; -5</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>See also: <a href="#_trunc"><strong>trunc</strong>(x)</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_sign"><a class="anchor" href="#_sign"></a><strong>sign</strong>(num)</h3>
+<div class="paragraph">
+<p>Get the sign of a <a href="Float.html"><code>Float</code></a> or an <a href="Int.html"><code>Int</code></a>. Return <code>-1</code>, <code>0</code> or <code>1</code> if <code>num</code> is positive, zero or positive respectively.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">round</span><span class="p">(</span><span class="mi">4</span><span class="p">.</span><span class="mi">2</span><span class="p">))</span><span class="w"> </span><span class="c1">#&gt; 4</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">round</span><span class="p">(</span><span class="mi">4</span><span class="p">.</span><span class="mi">5</span><span class="p">))</span><span class="w"> </span><span class="c1">#&gt; 5</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">round</span><span class="p">(</span><span class="mi">4</span><span class="p">.</span><span class="mi">8</span><span class="p">))</span><span class="w"> </span><span class="c1">#&gt; 5</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">round</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">.</span><span class="mi">2</span><span class="p">))</span><span class="w"> </span><span class="c1">#&gt; -4</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">round</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">.</span><span class="mi">5</span><span class="p">))</span><span class="w"> </span><span class="c1">#&gt; -5</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">round</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">.</span><span class="mi">8</span><span class="p">))</span><span class="w"> </span><span class="c1">#&gt; -5</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_sin"><a class="anchor" href="#_sin"></a><strong>sin</strong>(x)</h3>
+<div class="paragraph">
+<p>Get the <a href="https://en.wikipedia.org/wiki/Trigonometric_functions">sine</a> of <code>x</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">sin</span><span class="p">(</span><span class="o">-</span><span class="kt">Math</span><span class="p">.</span><span class="n">PI2</span><span class="p">))</span><span class="w"> </span><span class="c1">#&gt; -1</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">))</span><span class="w">       </span><span class="c1">#&gt; 0</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">sin</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">PI2</span><span class="p">))</span><span class="w">  </span><span class="c1">#&gt; 1</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Float</span><span class="p">.</span><span class="n">almost_equals</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">sin</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">PI</span><span class="p">),</span><span class="w"> </span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">))</span><span class="w"> </span><span class="c1">#&gt; true</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>See also: <a href="#_cos"><strong>cos</strong>(x)</a>, <a href="#_tan"><strong>tan</strong>(x)</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_sqrt"><a class="anchor" href="#_sqrt"></a><strong>sqrt</strong>(x)</h3>
+<div class="paragraph">
+<p>Get the <a href="https://en.wikipedia.org/wiki/Square_root">square root</a> of <code>x</code>, denoted \(\sqrt{x}\).</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span><span class="p">.</span><span class="mi">0</span><span class="p">))</span><span class="w"> </span><span class="c1">#&gt; 1</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">.</span><span class="mi">0</span><span class="p">))</span><span class="w"> </span><span class="c1">#&gt; 1.4142135623731</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">4</span><span class="p">.</span><span class="mi">0</span><span class="p">))</span><span class="w"> </span><span class="c1">#&gt; 2</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">9</span><span class="p">.</span><span class="mi">0</span><span class="p">))</span><span class="w"> </span><span class="c1">#&gt; 3</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>See also: <a href="#_cbrt"><strong>cbrt</strong>(x)</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_tan"><a class="anchor" href="#_tan"></a><strong>tan</strong>(x)</h3>
+<div class="paragraph">
+<p>Get the <a href="https://en.wikipedia.org/wiki/Trigonometric_functions">tangent</a> of <code>x</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">tan</span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">))</span><span class="w"> </span><span class="c1">#&gt; 0</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Float</span><span class="p">.</span><span class="n">almost_equals</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">tan</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">PI</span><span class="p">),</span><span class="w"> </span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">))</span><span class="w"> </span><span class="c1">#&gt; true</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>See also: <a href="#_cos"><strong>cos</strong>(x)</a>, <a href="#_sin"><strong>sin</strong>(x)</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_trunc"><a class="anchor" href="#_trunc"></a><strong>trunc</strong>(x)</h3>
+<div class="paragraph">
+<p>Round <code>x</code> to the nearest integer value that is not larger in magnitude than <code>x</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">trunc</span><span class="p">(</span><span class="mi">4</span><span class="p">.</span><span class="mi">2</span><span class="p">))</span><span class="w">  </span><span class="c1">#&gt; 4</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">trunc</span><span class="p">(</span><span class="mi">4</span><span class="p">.</span><span class="mi">8</span><span class="p">))</span><span class="w">  </span><span class="c1">#&gt; 4</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">trunc</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">.</span><span class="mi">2</span><span class="p">))</span><span class="w"> </span><span class="c1">#&gt; -4</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">trunc</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">.</span><span class="mi">8</span><span class="p">))</span><span class="w"> </span><span class="c1">#&gt; -4</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>See also: <a href="#_round"><strong>round</strong>(x)</a></p>
+</div>
+</div>
 </div>
 </div>
 </div>
