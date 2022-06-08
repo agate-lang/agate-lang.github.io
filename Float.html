@@ -438,6 +438,221 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 #footer-text{color:rgba(0,0,0,.6);font-size:.9em}}
 @media amzn-kf8{#header,#content,#footnotes,#footer{padding:0}}
 </style>
+<style>
+pre.rouge table td { padding: 5px; }
+pre.rouge table pre { margin: 0; }
+pre.rouge .cm {
+  color: #999988;
+  font-style: italic;
+}
+pre.rouge .cp {
+  color: #999999;
+  font-weight: bold;
+}
+pre.rouge .c1 {
+  color: #999988;
+  font-style: italic;
+}
+pre.rouge .cs {
+  color: #999999;
+  font-weight: bold;
+  font-style: italic;
+}
+pre.rouge .c, pre.rouge .ch, pre.rouge .cd, pre.rouge .cpf {
+  color: #999988;
+  font-style: italic;
+}
+pre.rouge .err {
+  color: #a61717;
+  background-color: #e3d2d2;
+}
+pre.rouge .gd {
+  color: #000000;
+  background-color: #ffdddd;
+}
+pre.rouge .ge {
+  color: #000000;
+  font-style: italic;
+}
+pre.rouge .gr {
+  color: #aa0000;
+}
+pre.rouge .gh {
+  color: #999999;
+}
+pre.rouge .gi {
+  color: #000000;
+  background-color: #ddffdd;
+}
+pre.rouge .go {
+  color: #888888;
+}
+pre.rouge .gp {
+  color: #555555;
+}
+pre.rouge .gs {
+  font-weight: bold;
+}
+pre.rouge .gu {
+  color: #aaaaaa;
+}
+pre.rouge .gt {
+  color: #aa0000;
+}
+pre.rouge .kc {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .kd {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .kn {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .kp {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .kr {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .kt {
+  color: #445588;
+  font-weight: bold;
+}
+pre.rouge .k, pre.rouge .kv {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .mf {
+  color: #009999;
+}
+pre.rouge .mh {
+  color: #009999;
+}
+pre.rouge .il {
+  color: #009999;
+}
+pre.rouge .mi {
+  color: #009999;
+}
+pre.rouge .mo {
+  color: #009999;
+}
+pre.rouge .m, pre.rouge .mb, pre.rouge .mx {
+  color: #009999;
+}
+pre.rouge .sa {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .sb {
+  color: #d14;
+}
+pre.rouge .sc {
+  color: #d14;
+}
+pre.rouge .sd {
+  color: #d14;
+}
+pre.rouge .s2 {
+  color: #d14;
+}
+pre.rouge .se {
+  color: #d14;
+}
+pre.rouge .sh {
+  color: #d14;
+}
+pre.rouge .si {
+  color: #d14;
+}
+pre.rouge .sx {
+  color: #d14;
+}
+pre.rouge .sr {
+  color: #009926;
+}
+pre.rouge .s1 {
+  color: #d14;
+}
+pre.rouge .ss {
+  color: #990073;
+}
+pre.rouge .s, pre.rouge .dl {
+  color: #d14;
+}
+pre.rouge .na {
+  color: #008080;
+}
+pre.rouge .bp {
+  color: #999999;
+}
+pre.rouge .nb {
+  color: #0086B3;
+}
+pre.rouge .nc {
+  color: #445588;
+  font-weight: bold;
+}
+pre.rouge .no {
+  color: #008080;
+}
+pre.rouge .nd {
+  color: #3c5d5d;
+  font-weight: bold;
+}
+pre.rouge .ni {
+  color: #800080;
+}
+pre.rouge .ne {
+  color: #990000;
+  font-weight: bold;
+}
+pre.rouge .nf, pre.rouge .fm {
+  color: #990000;
+  font-weight: bold;
+}
+pre.rouge .nl {
+  color: #990000;
+  font-weight: bold;
+}
+pre.rouge .nn {
+  color: #555555;
+}
+pre.rouge .nt {
+  color: #000080;
+}
+pre.rouge .vc {
+  color: #008080;
+}
+pre.rouge .vg {
+  color: #008080;
+}
+pre.rouge .vi {
+  color: #008080;
+}
+pre.rouge .nv, pre.rouge .vm {
+  color: #008080;
+}
+pre.rouge .ow {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .o {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .w {
+  color: #bbbbbb;
+}
+pre.rouge {
+  background-color: #f8f8f8;
+}
+</style>
   <meta name="keywords" content="Agate, programming language, scripting, gamedev" />
   <meta name="description" content="Agate, a simple and embeddable programming language" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -459,18 +674,49 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <ul class="sectlevel1">
 <li><a href="#_constants">Constants</a>
 <ul class="sectlevel2">
+<li><a href="#_epsilon"><strong>EPSILON</strong></a></li>
+<li><a href="#_infinity"><strong>INFINITY</strong></a></li>
+<li><a href="#_lowest"><strong>LOWEST</strong></a></li>
+<li><a href="#_max"><strong>MAX</strong></a></li>
+<li><a href="#_min"><strong>MIN</strong></a></li>
 <li><a href="#_nan"><strong>NAN</strong></a></li>
+<li><a href="#_true_min"><strong>TRUE_MIN</strong></a></li>
 </ul>
 </li>
-<li><a href="#_static_methods">Static Methods</a></li>
-<li><a href="#_methods">Methods</a></li>
-<li><a href="#_operators">Operators</a></li>
+<li><a href="#_static_methods">Static Methods</a>
+<ul class="sectlevel2">
+<li><a href="#_almost_equals"><strong>almost_equals</strong>(x,y), <strong>almost_equals</strong>(x, y, abs, rel)</a></li>
+</ul>
+</li>
+<li><a href="#_methods">Methods</a>
+<ul class="sectlevel2">
+<li><a href="#_fractional"><strong>fractional</strong></a></li>
+<li><a href="#_hash"><strong>hash</strong></a></li>
+<li><a href="#_integral"><strong>integral</strong></a></li>
+<li><a href="#_is_infinity"><strong>is_infinity</strong></a></li>
+<li><a href="#_is_nan"><strong>is_nan</strong></a></li>
+<li><a href="#_to_i"><strong>to_i</strong></a></li>
+<li><a href="#_to_s"><strong>to_s</strong></a></li>
+</ul>
+</li>
+<li><a href="#_operators">Operators</a>
+<ul class="sectlevel2">
+<li><a href="#_operators_2"><strong>+</strong>, <strong>-</strong> operators</a></li>
+<li><a href="#_other_other_other_other_operators"><strong>+</strong>(other), <strong>-</strong>(other), <strong>*</strong>(other), <strong>/</strong>(other) operators</a></li>
+<li><a href="#_other_other_operators"><strong>==</strong>(other), <strong>!=</strong>(other) operators</a></li>
+<li><a href="#_other_other_other_other_operators_2"><strong>&lt;</strong>(other), <strong>&lt;=</strong>(other), <strong>&gt;</strong>(other), <strong>&gt;=</strong>(other) operators</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
 <div id="content">
 <div id="preamble">
 <div class="sectionbody">
+<div class="paragraph">
+<p>A <code>Float</code> number is a <a href="https://en.wikipedia.org/wiki/Double-precision_floating-point_format">double precision floating-point number</a>.
+See also <a href="https://docs.oracle.com/cd/E19957-01/806-3568/ncg_goldberg.html">"What Every Computer Scientist Should Know About Floating-Point Arithmetic"</a> by David Goldberg.</p>
+</div>
 <div class="paragraph">
 <p><a href="core.html">&lt; Back to core library</a></p>
 </div>
@@ -480,27 +726,275 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h2 id="_constants"><a class="anchor" href="#_constants"></a>Constants</h2>
 <div class="sectionbody">
 <div class="sect2">
+<h3 id="_epsilon"><a class="anchor" href="#_epsilon"></a><strong>EPSILON</strong></h3>
+<div class="paragraph">
+<p>Difference between <code>1.0</code> and the next representable value of <code>Float</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Float</span><span class="p">.</span><span class="n">EPSILON</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; 2.2204460492503e-16</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_infinity"><a class="anchor" href="#_infinity"></a><strong>INFINITY</strong></h3>
+<div class="paragraph">
+<p>Positive infinity, noted \(\infty\).</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Float</span><span class="p">.</span><span class="n">INFINITY</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; inf</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>See also: <a href="#_nan"><strong>NAN</strong></a>, <a href="#_is_infinity"><strong>is_infinity</strong></a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_lowest"><a class="anchor" href="#_lowest"></a><strong>LOWEST</strong></h3>
+<div class="paragraph">
+<p>Lowest finite value of <code>Float</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Float</span><span class="p">.</span><span class="n">LOWEST</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; -1.7976931348623e+308</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>See also: <a href="#_max"><strong>MAX</strong></a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_max"><a class="anchor" href="#_max"></a><strong>MAX</strong></h3>
+<div class="paragraph">
+<p>Maximum finite value of <code>Float</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Float</span><span class="p">.</span><span class="n">MAX</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; 1.7976931348623e+308</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>See also: <a href="#_lowest"><strong>LOWEST</strong></a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_min"><a class="anchor" href="#_min"></a><strong>MIN</strong></h3>
+<div class="paragraph">
+<p>Minimum, normalized, positive value of <code>Float</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Float</span><span class="p">.</span><span class="n">MIN</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; 2.2250738585072e-308</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>See also: <a href="#_true_min"><strong>TRUE_MIN</strong></a></p>
+</div>
+</div>
+<div class="sect2">
 <h3 id="_nan"><a class="anchor" href="#_nan"></a><strong>NAN</strong></h3>
-
+<div class="paragraph">
+<p><a href="https://en.wikipedia.org/wiki/NaN">Not a Number</a>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Float</span><span class="p">.</span><span class="n">EPSILON</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; nan</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>See also: <a href="#_infinity"><strong>INFINITY</strong></a>, <a href="#_is_nan"><strong>is_nan</strong></a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_true_min"><a class="anchor" href="#_true_min"></a><strong>TRUE_MIN</strong></h3>
+<div class="paragraph">
+<p>Minimum positive value of <code>Float</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Float</span><span class="p">.</span><span class="n">TRUE_MIN</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; 4.9406564584125e-324</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>See also: <a href="#_min"><strong>MIN</strong></a></p>
+</div>
 </div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="_static_methods"><a class="anchor" href="#_static_methods"></a>Static Methods</h2>
 <div class="sectionbody">
-
+<div class="sect2">
+<h3 id="_almost_equals"><a class="anchor" href="#_almost_equals"></a><strong>almost_equals</strong>(x,y), <strong>almost_equals</strong>(x, y, abs, rel)</h3>
+<div class="paragraph">
+<p>Check if <code>x</code> and <code>y</code> are almost equals. <code>abs</code> is the absolute error allowed and <code>rel</code> is the relative error allowed between <code>x</code> and <code>y</code>. The first version of the function sets <code>abs</code> and <code>rel</code> to <a href="#_epsilon"><code>Float.EPSILON</code></a>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Float</span><span class="p">.</span><span class="n">almost_equals</span><span class="p">(</span><span class="mi">42</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">42</span><span class="p">.</span><span class="mi">00000000000001</span><span class="p">))</span><span class="w"> </span><span class="c1">#&gt; true</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Float</span><span class="p">.</span><span class="n">almost_equals</span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="kt">Float</span><span class="p">.</span><span class="n">MIN</span><span class="p">))</span><span class="w">          </span><span class="c1">#&gt; true</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Float</span><span class="p">.</span><span class="n">almost_equals</span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="kt">Float</span><span class="p">.</span><span class="n">EPSILON</span><span class="p">))</span><span class="w">      </span><span class="c1">#&gt; true</span></code></pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="_methods"><a class="anchor" href="#_methods"></a>Methods</h2>
 <div class="sectionbody">
-
+<div class="sect2">
+<h3 id="_fractional"><a class="anchor" href="#_fractional"></a><strong>fractional</strong></h3>
+<div class="paragraph">
+<p>Get the fractional part of a <code>Float</code> i.e. the part after any decimal point. The returned value has the same sign as the number.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="mi">4</span><span class="p">.</span><span class="mi">2</span><span class="p">.</span><span class="n">fractional</span><span class="p">)</span><span class="w">    </span><span class="c1">#&gt; 0.2</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">((</span><span class="o">-</span><span class="mi">6</span><span class="p">.</span><span class="mi">9</span><span class="p">).</span><span class="n">fractional</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; -0.9</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>See also: <a href="#_integral"><strong>integral</strong></a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_hash"><a class="anchor" href="#_hash"></a><strong>hash</strong></h3>
+<div class="paragraph">
+<p>Compute a hash for the <code>Float</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Float</span><span class="p">.</span><span class="n">INFINITY</span><span class="p">.</span><span class="n">hash</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; 2638638862653029785</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_integral"><a class="anchor" href="#_integral"></a><strong>integral</strong></h3>
+<div class="paragraph">
+<p>Get the integral part of a <code>Float</code> i.e. the part before any decimal point. The returned value has the same sign as the number.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="mi">4</span><span class="p">.</span><span class="mi">2</span><span class="p">.</span><span class="n">integral</span><span class="p">)</span><span class="w">    </span><span class="c1">#&gt; 4</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">((</span><span class="o">-</span><span class="mi">6</span><span class="p">.</span><span class="mi">9</span><span class="p">).</span><span class="n">integral</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; -6</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>See also: <a href="#_fractional"><strong>fractional</strong></a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_is_infinity"><a class="anchor" href="#_is_infinity"></a><strong>is_infinity</strong></h3>
+<div class="paragraph">
+<p>Check if a <code>Float</code> is positive infinity or negative infinity.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Float</span><span class="p">.</span><span class="n">INFINITY</span><span class="p">.</span><span class="n">is_infinity</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; true</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="mi">42</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="n">is_infinity</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; false</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>See also: <a href="#_is_nan"><strong>is_nan</strong></a>, <a href="#_infinity"><strong>INFINITY</strong></a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_is_nan"><a class="anchor" href="#_is_nan"></a><strong>is_nan</strong></h3>
+<div class="paragraph">
+<p>Check if a <code>Float</code> is "<a href="https://en.wikipedia.org/wiki/NaN">Not a Number</a>".</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Float</span><span class="p">.</span><span class="n">NAN</span><span class="p">.</span><span class="n">is_nan</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; true</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="mi">42</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="n">is_nan</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; false</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>See also: <a href="#_is_infinity"><strong>is_infinity</strong></a>, <a href="#_nan"><strong>NAN</strong></a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_to_i"><a class="anchor" href="#_to_i"></a><strong>to_i</strong></h3>
+<div class="paragraph">
+<p>Transform the <code>Float</code> into an <a href="Int.html"><code>Int</code></a> by truncating towards zero.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="mi">4</span><span class="p">.</span><span class="mi">2</span><span class="p">.</span><span class="n">to_i</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">4</span><span class="p">)</span><span class="w">     </span><span class="c1">#&gt; true</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">((</span><span class="o">-</span><span class="mi">6</span><span class="p">.</span><span class="mi">9</span><span class="p">).</span><span class="n">to_i</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="o">-</span><span class="mi">6</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; true</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_to_s"><a class="anchor" href="#_to_s"></a><strong>to_s</strong></h3>
+<div class="paragraph">
+<p>Transform the <code>Float</code> to a <a href="String.html"><code>String</code></a>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="mi">4</span><span class="p">.</span><span class="mi">2</span><span class="p">.</span><span class="n">to_s</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">"4.2"</span><span class="p">)</span><span class="w">     </span><span class="c1">#&gt; true</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">((</span><span class="o">-</span><span class="mi">6</span><span class="p">.</span><span class="mi">9</span><span class="p">).</span><span class="n">to_s</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">"-6.9"</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; true</span></code></pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="_operators"><a class="anchor" href="#_operators"></a>Operators</h2>
 <div class="sectionbody">
-
+<div class="sect2">
+<h3 id="_operators_2"><a class="anchor" href="#_operators_2"></a><strong>+</strong>, <strong>-</strong> operators</h3>
+<div class="paragraph">
+<p>Unary <code>+</code> return the <code>Float</code> number itself. Unary <code>-</code> return the opposite of the <code>Float</code> number.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="o">+</span><span class="mi">4</span><span class="p">.</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; 4.2</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">.</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; -4.2</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_other_other_other_other_operators"><a class="anchor" href="#_other_other_other_other_operators"></a><strong>+</strong>(other), <strong>-</strong>(other), <strong>*</strong>(other), <strong>/</strong>(other) operators</h3>
+<div class="paragraph">
+<p>Compute binary operation using usual arithmetic operators on <code>Float</code> numbers. <code>other</code> must be a <code>Float</code>, there is no implicit conversion from <a href="Int.html"><code>Int</code></a>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="mi">4</span><span class="p">.</span><span class="mi">2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">6</span><span class="p">.</span><span class="mi">9</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; 11.1</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="mi">4</span><span class="p">.</span><span class="mi">2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">6</span><span class="p">.</span><span class="mi">9</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; -2.7</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="mi">4</span><span class="p">.</span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">6</span><span class="p">.</span><span class="mi">9</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; 28.98</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="mi">4</span><span class="p">.</span><span class="mi">2</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">6</span><span class="p">.</span><span class="mi">9</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; 0.60869565217391</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_other_other_operators"><a class="anchor" href="#_other_other_operators"></a><strong>==</strong>(other), <strong>!=</strong>(other) operators</h3>
+<div class="paragraph">
+<p>Test the <code>Float</code> number with <code>other</code> for equality or inequality. <code>other</code> must be a <code>Float</code>, there is no implicit conversion from <a href="Int.html"><code>Int</code></a>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="mi">4</span><span class="p">.</span><span class="mi">2</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">6</span><span class="p">.</span><span class="mi">9</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; false</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="mi">4</span><span class="p">.</span><span class="mi">2</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">6</span><span class="p">.</span><span class="mi">9</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; true</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_other_other_other_other_operators_2"><a class="anchor" href="#_other_other_other_other_operators_2"></a><strong>&lt;</strong>(other), <strong>&lt;=</strong>(other), <strong>&gt;</strong>(other), <strong>&gt;=</strong>(other) operators</h3>
+<div class="paragraph">
+<p>Compare the <code>Float</code> number with <code>other</code>. <code>other</code> must be a <code>Float</code>, there is no implicit conversion from <a href="Int.html"><code>Int</code></a>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="mi">4</span><span class="p">.</span><span class="mi">2</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">6</span><span class="p">.</span><span class="mi">9</span><span class="p">)</span><span class="w">  </span><span class="c1">#&gt; true</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="mi">4</span><span class="p">.</span><span class="mi">2</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">6</span><span class="p">.</span><span class="mi">9</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; true</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="mi">4</span><span class="p">.</span><span class="mi">2</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">6</span><span class="p">.</span><span class="mi">9</span><span class="p">)</span><span class="w">  </span><span class="c1">#&gt; false</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="mi">4</span><span class="p">.</span><span class="mi">2</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">6</span><span class="p">.</span><span class="mi">9</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; false</span></code></pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
