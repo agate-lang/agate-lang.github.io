@@ -691,6 +691,8 @@ pre.rouge {
 <li><a href="#_remove"><strong>remove</strong>(item)</a></li>
 <li><a href="#_sort"><strong>sort</strong>(), <strong>sort</strong>(comp)</a></li>
 <li><a href="#_swap"><strong>swap</strong>(index0,index1)</a></li>
+<li><a href="#_to_a"><strong>to_a</strong></a></li>
+<li><a href="#_to_s"><strong>to_s</strong></a></li>
 </ul>
 </li>
 <li><a href="#_operators">Operators</a>
@@ -738,7 +740,7 @@ pre.rouge {
 <div class="sect2">
 <h3 id="_append"><a class="anchor" href="#_append"></a><strong>append</strong>(item)</h3>
 <div class="paragraph">
-<p>Add <code>item</code> at the end of the array. Return the item.</p>
+<p>Add <code>item</code> at the end of the array. Return <code>item</code>.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -857,9 +859,9 @@ pre.rouge {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="agate"><span class="k">def</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="sc">'a'</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">.</span><span class="mi">14</span><span class="p">,</span><span class="w"> </span><span class="s">"good"</span><span class="p">,</span><span class="w"> </span><span class="k">true</span><span class="w"> </span><span class="p">]</span><span class="err">
-</span><span class="n">a</span><span class="p">.</span><span class="n">remove</span><span class="p">(</span><span class="mi">3</span><span class="p">.</span><span class="mi">14</span><span class="p">)</span><span class="err">
-</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; [1, a, good, true]</span><span class="err">
+<pre class="rouge highlight"><code data-lang="agate"><span class="k">def</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="k">true</span><span class="p">,</span><span class="w"> </span><span class="sc">'a'</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">.</span><span class="mi">14</span><span class="p">,</span><span class="w"> </span><span class="s">"good"</span><span class="p">,</span><span class="w"> </span><span class="k">true</span><span class="w"> </span><span class="p">]</span><span class="err">
+</span><span class="n">a</span><span class="p">.</span><span class="n">remove</span><span class="p">(</span><span class="k">true</span><span class="p">)</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; [1, a, 3.14, good, true]</span><span class="err">
 </span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">remove</span><span class="p">(</span><span class="s">"bad"</span><span class="p">))</span><span class="w"> </span><span class="c1">#&gt; nil</span></code></pre>
 </div>
 </div>
@@ -889,6 +891,32 @@ pre.rouge {
 <pre class="rouge highlight"><code data-lang="agate"><span class="k">def</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="sc">'a'</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">.</span><span class="mi">14</span><span class="p">,</span><span class="w"> </span><span class="s">"good"</span><span class="p">,</span><span class="w"> </span><span class="k">true</span><span class="w"> </span><span class="p">]</span><span class="err">
 </span><span class="n">a</span><span class="p">.</span><span class="n">swap</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="err">
 </span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; [good, a, 3.14, 1, true]</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_to_a"><a class="anchor" href="#_to_a"></a><strong>to_a</strong></h3>
+<div class="paragraph">
+<p>Transform the array to a new array with the same elements.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="k">def</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="sc">'a'</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">.</span><span class="mi">14</span><span class="p">,</span><span class="w"> </span><span class="s">"good"</span><span class="p">,</span><span class="w"> </span><span class="k">true</span><span class="w"> </span><span class="p">]</span><span class="err">
+</span><span class="k">def</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">to_a</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; [1, a, 3.14, good, true]</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Object</span><span class="p">.</span><span class="n">same</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">))</span><span class="w"> </span><span class="c1">#&gt; false</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_to_s"><a class="anchor" href="#_to_s"></a><strong>to_s</strong></h3>
+<div class="paragraph">
+<p>Transform the array to a <a href="String.html"><code>String</code></a>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="k">def</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="sc">'a'</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">.</span><span class="mi">14</span><span class="p">,</span><span class="w"> </span><span class="s">"good"</span><span class="p">,</span><span class="w"> </span><span class="k">true</span><span class="w"> </span><span class="p">]</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">to_s</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; [1, a, 3.14, good, true]</span></code></pre>
 </div>
 </div>
 </div>
