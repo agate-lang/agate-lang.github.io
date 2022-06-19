@@ -438,6 +438,221 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 #footer-text{color:rgba(0,0,0,.6);font-size:.9em}}
 @media amzn-kf8{#header,#content,#footnotes,#footer{padding:0}}
 </style>
+<style>
+pre.rouge table td { padding: 5px; }
+pre.rouge table pre { margin: 0; }
+pre.rouge .cm {
+  color: #999988;
+  font-style: italic;
+}
+pre.rouge .cp {
+  color: #999999;
+  font-weight: bold;
+}
+pre.rouge .c1 {
+  color: #999988;
+  font-style: italic;
+}
+pre.rouge .cs {
+  color: #999999;
+  font-weight: bold;
+  font-style: italic;
+}
+pre.rouge .c, pre.rouge .ch, pre.rouge .cd, pre.rouge .cpf {
+  color: #999988;
+  font-style: italic;
+}
+pre.rouge .err {
+  color: #a61717;
+  background-color: #e3d2d2;
+}
+pre.rouge .gd {
+  color: #000000;
+  background-color: #ffdddd;
+}
+pre.rouge .ge {
+  color: #000000;
+  font-style: italic;
+}
+pre.rouge .gr {
+  color: #aa0000;
+}
+pre.rouge .gh {
+  color: #999999;
+}
+pre.rouge .gi {
+  color: #000000;
+  background-color: #ddffdd;
+}
+pre.rouge .go {
+  color: #888888;
+}
+pre.rouge .gp {
+  color: #555555;
+}
+pre.rouge .gs {
+  font-weight: bold;
+}
+pre.rouge .gu {
+  color: #aaaaaa;
+}
+pre.rouge .gt {
+  color: #aa0000;
+}
+pre.rouge .kc {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .kd {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .kn {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .kp {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .kr {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .kt {
+  color: #445588;
+  font-weight: bold;
+}
+pre.rouge .k, pre.rouge .kv {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .mf {
+  color: #009999;
+}
+pre.rouge .mh {
+  color: #009999;
+}
+pre.rouge .il {
+  color: #009999;
+}
+pre.rouge .mi {
+  color: #009999;
+}
+pre.rouge .mo {
+  color: #009999;
+}
+pre.rouge .m, pre.rouge .mb, pre.rouge .mx {
+  color: #009999;
+}
+pre.rouge .sa {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .sb {
+  color: #d14;
+}
+pre.rouge .sc {
+  color: #d14;
+}
+pre.rouge .sd {
+  color: #d14;
+}
+pre.rouge .s2 {
+  color: #d14;
+}
+pre.rouge .se {
+  color: #d14;
+}
+pre.rouge .sh {
+  color: #d14;
+}
+pre.rouge .si {
+  color: #d14;
+}
+pre.rouge .sx {
+  color: #d14;
+}
+pre.rouge .sr {
+  color: #009926;
+}
+pre.rouge .s1 {
+  color: #d14;
+}
+pre.rouge .ss {
+  color: #990073;
+}
+pre.rouge .s, pre.rouge .dl {
+  color: #d14;
+}
+pre.rouge .na {
+  color: #008080;
+}
+pre.rouge .bp {
+  color: #999999;
+}
+pre.rouge .nb {
+  color: #0086B3;
+}
+pre.rouge .nc {
+  color: #445588;
+  font-weight: bold;
+}
+pre.rouge .no {
+  color: #008080;
+}
+pre.rouge .nd {
+  color: #3c5d5d;
+  font-weight: bold;
+}
+pre.rouge .ni {
+  color: #800080;
+}
+pre.rouge .ne {
+  color: #990000;
+  font-weight: bold;
+}
+pre.rouge .nf, pre.rouge .fm {
+  color: #990000;
+  font-weight: bold;
+}
+pre.rouge .nl {
+  color: #990000;
+  font-weight: bold;
+}
+pre.rouge .nn {
+  color: #555555;
+}
+pre.rouge .nt {
+  color: #000080;
+}
+pre.rouge .vc {
+  color: #008080;
+}
+pre.rouge .vg {
+  color: #008080;
+}
+pre.rouge .vi {
+  color: #008080;
+}
+pre.rouge .nv, pre.rouge .vm {
+  color: #008080;
+}
+pre.rouge .ow {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .o {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .w {
+  color: #bbbbbb;
+}
+pre.rouge {
+  background-color: #f8f8f8;
+}
+</style>
   <meta name="keywords" content="Agate, programming language, scripting, gamedev" />
   <meta name="description" content="Agate, a simple and embeddable programming language" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -459,7 +674,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <ul class="sectlevel1">
 <li><a href="#_static_methods">Static Methods</a>
 <ul class="sectlevel2">
-<li><a href="#_sameobj1_obj2"><strong>same</strong>(obj1, obj2)</a></li>
+<li><a href="#_same"><strong>same</strong>(obj1, obj2)</a></li>
 </ul>
 </li>
 <li><a href="#_methods">Methods</a>
@@ -470,9 +685,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </li>
 <li><a href="#_operators">Operators</a>
 <ul class="sectlevel2">
-<li><a href="#_operator"><strong>!</strong> operator</a></li>
-<li><a href="#_other_and_other_operators"><strong>==</strong>(other) and !=(other) operators</a></li>
-<li><a href="#_isother"><strong>is</strong>(other)</a></li>
+<li><a href="#_not"><strong>!</strong> operator</a></li>
+<li><a href="#_eq"><strong>==</strong>(other) and !=(other) operators</a></li>
+<li><a href="#_is"><strong>is</strong>(other)</a></li>
 </ul>
 </li>
 </ul>
@@ -493,8 +708,25 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h2 id="_static_methods"><a class="anchor" href="#_static_methods"></a>Static Methods</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_sameobj1_obj2"><a class="anchor" href="#_sameobj1_obj2"></a><strong>same</strong>(obj1, obj2)</h3>
+<h3 id="_same"><a class="anchor" href="#_same"></a><strong>same</strong>(obj1, obj2)</h3>
+<div class="paragraph">
+<p>Return <code>true</code> if <code>obj1</code> and <code>obj2</code> are the same. <a href="lang.html#_values">Values</a> are compared by value (they must have the same state), and objects are compared by reference (they must be the exact same object). This method can be used to test the equality of two objects even if the <code>==</code> operator has been overriden.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Object</span><span class="p">.</span><span class="n">same</span><span class="p">(</span><span class="mi">42</span><span class="p">,</span><span class="w"> </span><span class="mi">42</span><span class="p">))</span><span class="w">   </span><span class="c1">#&gt; true</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Object</span><span class="p">.</span><span class="n">same</span><span class="p">(</span><span class="mi">42</span><span class="p">,</span><span class="w"> </span><span class="mi">69</span><span class="p">))</span><span class="w">   </span><span class="c1">#&gt; false</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Object</span><span class="p">.</span><span class="n">same</span><span class="p">(</span><span class="mi">42</span><span class="p">,</span><span class="w"> </span><span class="mi">42</span><span class="p">.</span><span class="mi">0</span><span class="p">))</span><span class="w"> </span><span class="c1">#&gt; false</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Object</span><span class="p">.</span><span class="n">same</span><span class="p">(</span><span class="mi">42</span><span class="p">,</span><span class="w"> </span><span class="k">nil</span><span class="p">))</span><span class="w">  </span><span class="c1">#&gt; false</span><span class="err">
 
+</span><span class="k">def</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Object</span><span class="p">.</span><span class="n">same</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">))</span><span class="w">     </span><span class="c1">#&gt; true</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Object</span><span class="p">.</span><span class="n">same</span><span class="p">([],</span><span class="w"> </span><span class="p">[]))</span><span class="w">   </span><span class="c1">#&gt; false</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>See also: <a href="#_eq"><strong>==</strong>(other) and !=(other) operators</a></p>
+</div>
 </div>
 </div>
 </div>
@@ -503,12 +735,34 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sectionbody">
 <div class="sect2">
 <h3 id="_to_s"><a class="anchor" href="#_to_s"></a><strong>to_s</strong></h3>
-
+<div class="paragraph">
+<p>Transform the object to a <a href="String.html"><code>String</code></a>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="k">class</span><span class="w"> </span><span class="n">Saucisse</span><span class="w"> </span><span class="p">{</span><span class="err">
+</span><span class="w">  </span><span class="k">construct</span><span class="w"> </span><span class="n">new</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span><span class="err">
+</span><span class="p">}</span><span class="err">
+</span><span class="k">def</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Saucisse</span><span class="p">.</span><span class="n">new</span><span class="p">()</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n">to_s</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; instance of Saucisse</span></code></pre>
+</div>
+</div>
 </div>
 <div class="sect2">
 <h3 id="_type"><a class="anchor" href="#_type"></a><strong>type</strong></h3>
 <div class="paragraph">
 <p>Returns the <a href="Class.html"><code>Class</code></a> of the object.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="k">class</span><span class="w"> </span><span class="n">Saucisse</span><span class="w"> </span><span class="p">{</span><span class="err">
+</span><span class="w">  </span><span class="k">construct</span><span class="w"> </span><span class="n">new</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span><span class="err">
+</span><span class="p">}</span><span class="err">
+</span><span class="k">def</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Saucisse</span><span class="p">.</span><span class="n">new</span><span class="p">()</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n">type</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; Saucisse</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n">type</span><span class="p">.</span><span class="n">type</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; Saucisse metaclass</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n">type</span><span class="p">.</span><span class="n">type</span><span class="p">.</span><span class="n">type</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; Class</span></code></pre>
+</div>
 </div>
 </div>
 </div>
@@ -517,20 +771,56 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h2 id="_operators"><a class="anchor" href="#_operators"></a>Operators</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_operator"><a class="anchor" href="#_operator"></a><strong>!</strong> operator</h3>
+<h3 id="_not"><a class="anchor" href="#_not"></a><strong>!</strong> operator</h3>
 <div class="paragraph">
 <p>Returns <code>false</code> as most objects evaluates to <code>true</code> except <code>false</code> and <code>nil</code>.</p>
 </div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="k">class</span><span class="w"> </span><span class="n">Saucisse</span><span class="w"> </span><span class="p">{</span><span class="err">
+</span><span class="w">  </span><span class="k">construct</span><span class="w"> </span><span class="n">new</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span><span class="err">
+</span><span class="p">}</span><span class="err">
+</span><span class="k">def</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Saucisse</span><span class="p">.</span><span class="n">new</span><span class="p">()</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="o">!</span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; false</span></code></pre>
+</div>
+</div>
 </div>
 <div class="sect2">
-<h3 id="_other_and_other_operators"><a class="anchor" href="#_other_and_other_operators"></a><strong>==</strong>(other) and !=(other) operators</h3>
+<h3 id="_eq"><a class="anchor" href="#_eq"></a><strong>==</strong>(other) and !=(other) operators</h3>
 <div class="paragraph">
 <p>By default, two objects are considered equal if they have the same value for value types, or if they are the exact same object otherwise.</p>
 </div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="mi">42</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">42</span><span class="p">)</span><span class="w">   </span><span class="c1">#&gt; true</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="mi">42</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">69</span><span class="p">)</span><span class="w">   </span><span class="c1">#&gt; false</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="mi">42</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">42</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; false</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="mi">42</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">nil</span><span class="p">)</span><span class="w">  </span><span class="c1">#&gt; false</span><span class="err">
+
+</span><span class="k">def</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">a</span><span class="p">)</span><span class="w">     </span><span class="c1">#&gt; true</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">([]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="p">[])</span><span class="w">   </span><span class="c1">#&gt; false</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>See also: <a href="#_same"><strong>same</strong>(obj1, obj2)</a></p>
+</div>
 </div>
 <div class="sect2">
-<h3 id="_isother"><a class="anchor" href="#_isother"></a><strong>is</strong>(other)</h3>
-
+<h3 id="_is"><a class="anchor" href="#_is"></a><strong>is</strong>(other)</h3>
+<div class="paragraph">
+<p>Return <code>true</code> if the object&#8217;s class or one of its superclass is <code>other</code>. <code>other</code> must be a <a href="Class.html"><code>Class</code></a>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Object</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="kt">Class</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; true</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="mi">42</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="kt">Int</span><span class="p">)</span><span class="w">       </span><span class="c1">#&gt; true</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="mi">42</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="kt">Float</span><span class="p">)</span><span class="w">     </span><span class="c1">#&gt; false</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="k">nil</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="kt">String</span><span class="p">)</span><span class="w">   </span><span class="c1">#&gt; false</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">([]</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="kt">Array</span><span class="p">)</span><span class="w">     </span><span class="c1">#&gt; true</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">([]</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="kt">Sequence</span><span class="p">)</span><span class="w">  </span><span class="c1">#&gt; true</span></code></pre>
+</div>
+</div>
 </div>
 </div>
 </div>

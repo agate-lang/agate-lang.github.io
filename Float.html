@@ -701,10 +701,10 @@ pre.rouge {
 </li>
 <li><a href="#_operators">Operators</a>
 <ul class="sectlevel2">
-<li><a href="#_operators_2"><strong>+</strong>, <strong>-</strong> operators</a></li>
-<li><a href="#_other_other_other_other_operators"><strong>+</strong>(other), <strong>-</strong>(other), <strong>*</strong>(other), <strong>/</strong>(other) operators</a></li>
-<li><a href="#_other_other_operators"><strong>==</strong>(other), <strong>!=</strong>(other) operators</a></li>
-<li><a href="#_other_other_other_other_operators_2"><strong>&lt;</strong>(other), <strong>&lt;=</strong>(other), <strong>&gt;</strong>(other), <strong>&gt;=</strong>(other) operators</a></li>
+<li><a href="#_unary"><strong>+</strong>, <strong>-</strong> operators</a></li>
+<li><a href="#_binary"><strong>+</strong>(other), <strong>-</strong>(other), <strong>*</strong>(other), <strong>/</strong>(other) operators</a></li>
+<li><a href="#_eq"><strong>==</strong>(other), <strong>!=</strong>(other) operators</a></li>
+<li><a href="#_cmp"><strong>&lt;</strong>(other), <strong>&lt;=</strong>(other), <strong>&gt;</strong>(other), <strong>&gt;=</strong>(other) operators</a></li>
 </ul>
 </li>
 </ul>
@@ -846,7 +846,7 @@ See also <a href="https://docs.oracle.com/cd/E19957-01/806-3568/ncg_goldberg.htm
 <div class="sect2">
 <h3 id="_fractional"><a class="anchor" href="#_fractional"></a><strong>fractional</strong></h3>
 <div class="paragraph">
-<p>Get the fractional part of a <code>Float</code> i.e. the part after any decimal point. The returned value has the same sign as the number.</p>
+<p>Get the fractional part of a float i.e. the part after any decimal point. The returned value has the same sign as the number.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -861,7 +861,7 @@ See also <a href="https://docs.oracle.com/cd/E19957-01/806-3568/ncg_goldberg.htm
 <div class="sect2">
 <h3 id="_hash"><a class="anchor" href="#_hash"></a><strong>hash</strong></h3>
 <div class="paragraph">
-<p>Compute a hash for the <code>Float</code>.</p>
+<p>Compute a hash for the float.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -872,7 +872,7 @@ See also <a href="https://docs.oracle.com/cd/E19957-01/806-3568/ncg_goldberg.htm
 <div class="sect2">
 <h3 id="_integral"><a class="anchor" href="#_integral"></a><strong>integral</strong></h3>
 <div class="paragraph">
-<p>Get the integral part of a <code>Float</code> i.e. the part before any decimal point. The returned value has the same sign as the number.</p>
+<p>Get the integral part of a float i.e. the part before any decimal point. The returned value has the same sign as the number.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -887,7 +887,7 @@ See also <a href="https://docs.oracle.com/cd/E19957-01/806-3568/ncg_goldberg.htm
 <div class="sect2">
 <h3 id="_is_infinity"><a class="anchor" href="#_is_infinity"></a><strong>is_infinity</strong></h3>
 <div class="paragraph">
-<p>Check if a <code>Float</code> is positive infinity or negative infinity.</p>
+<p>Check if a float is positive infinity or negative infinity.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -902,7 +902,7 @@ See also <a href="https://docs.oracle.com/cd/E19957-01/806-3568/ncg_goldberg.htm
 <div class="sect2">
 <h3 id="_is_nan"><a class="anchor" href="#_is_nan"></a><strong>is_nan</strong></h3>
 <div class="paragraph">
-<p>Check if a <code>Float</code> is "<a href="https://en.wikipedia.org/wiki/NaN">Not a Number</a>".</p>
+<p>Check if a float is "<a href="https://en.wikipedia.org/wiki/NaN">Not a Number</a>".</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -917,7 +917,7 @@ See also <a href="https://docs.oracle.com/cd/E19957-01/806-3568/ncg_goldberg.htm
 <div class="sect2">
 <h3 id="_to_i"><a class="anchor" href="#_to_i"></a><strong>to_i</strong></h3>
 <div class="paragraph">
-<p>Transform the <code>Float</code> into an <a href="Int.html"><code>Int</code></a> by truncating towards zero.</p>
+<p>Transform the float to an <a href="Int.html"><code>Int</code></a> by truncating towards zero.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -929,7 +929,7 @@ See also <a href="https://docs.oracle.com/cd/E19957-01/806-3568/ncg_goldberg.htm
 <div class="sect2">
 <h3 id="_to_s"><a class="anchor" href="#_to_s"></a><strong>to_s</strong></h3>
 <div class="paragraph">
-<p>Transform the <code>Float</code> to a <a href="String.html"><code>String</code></a>.</p>
+<p>Transform the float to a <a href="String.html"><code>String</code></a>.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -944,9 +944,9 @@ See also <a href="https://docs.oracle.com/cd/E19957-01/806-3568/ncg_goldberg.htm
 <h2 id="_operators"><a class="anchor" href="#_operators"></a>Operators</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_operators_2"><a class="anchor" href="#_operators_2"></a><strong>+</strong>, <strong>-</strong> operators</h3>
+<h3 id="_unary"><a class="anchor" href="#_unary"></a><strong>+</strong>, <strong>-</strong> operators</h3>
 <div class="paragraph">
-<p>Unary <code>+</code> return the <code>Float</code> number itself. Unary <code>-</code> return the opposite of the <code>Float</code> number.</p>
+<p>Unary <code>+</code> return the float number itself. Unary <code>-</code> return the opposite of the float number.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -954,11 +954,14 @@ See also <a href="https://docs.oracle.com/cd/E19957-01/806-3568/ncg_goldberg.htm
 </span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">.</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; -4.2</span></code></pre>
 </div>
 </div>
+<div class="paragraph">
+<p>See also: <a href="#_binary"><strong>+</strong>(other), <strong>-</strong>(other), <strong>*</strong>(other), <strong>/</strong>(other) operators</a></p>
+</div>
 </div>
 <div class="sect2">
-<h3 id="_other_other_other_other_operators"><a class="anchor" href="#_other_other_other_other_operators"></a><strong>+</strong>(other), <strong>-</strong>(other), <strong>*</strong>(other), <strong>/</strong>(other) operators</h3>
+<h3 id="_binary"><a class="anchor" href="#_binary"></a><strong>+</strong>(other), <strong>-</strong>(other), <strong>*</strong>(other), <strong>/</strong>(other) operators</h3>
 <div class="paragraph">
-<p>Compute binary operation using usual arithmetic operators on <code>Float</code> numbers. <code>other</code> must be a <code>Float</code>, there is no implicit conversion from <a href="Int.html"><code>Int</code></a>.</p>
+<p>Compute binary operation using usual arithmetic operators on float numbers. <code>other</code> must be a <code>Float</code>, there is no implicit conversion from <a href="Int.html"><code>Int</code></a>.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -968,11 +971,14 @@ See also <a href="https://docs.oracle.com/cd/E19957-01/806-3568/ncg_goldberg.htm
 </span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="mi">4</span><span class="p">.</span><span class="mi">2</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">6</span><span class="p">.</span><span class="mi">9</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; 0.60869565217391</span></code></pre>
 </div>
 </div>
+<div class="paragraph">
+<p>See also: <a href="#_unary"><strong>+</strong>, <strong>-</strong> operators</a></p>
+</div>
 </div>
 <div class="sect2">
-<h3 id="_other_other_operators"><a class="anchor" href="#_other_other_operators"></a><strong>==</strong>(other), <strong>!=</strong>(other) operators</h3>
+<h3 id="_eq"><a class="anchor" href="#_eq"></a><strong>==</strong>(other), <strong>!=</strong>(other) operators</h3>
 <div class="paragraph">
-<p>Test the <code>Float</code> number with <code>other</code> for equality or inequality. <code>other</code> must be a <code>Float</code>, there is no implicit conversion from <a href="Int.html"><code>Int</code></a>.</p>
+<p>Test the float number with <code>other</code> for equality or inequality. <code>other</code> must be a <code>Float</code>, there is no implicit conversion from <a href="Int.html"><code>Int</code></a>.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -982,9 +988,9 @@ See also <a href="https://docs.oracle.com/cd/E19957-01/806-3568/ncg_goldberg.htm
 </div>
 </div>
 <div class="sect2">
-<h3 id="_other_other_other_other_operators_2"><a class="anchor" href="#_other_other_other_other_operators_2"></a><strong>&lt;</strong>(other), <strong>&lt;=</strong>(other), <strong>&gt;</strong>(other), <strong>&gt;=</strong>(other) operators</h3>
+<h3 id="_cmp"><a class="anchor" href="#_cmp"></a><strong>&lt;</strong>(other), <strong>&lt;=</strong>(other), <strong>&gt;</strong>(other), <strong>&gt;=</strong>(other) operators</h3>
 <div class="paragraph">
-<p>Compare the <code>Float</code> number with <code>other</code>. <code>other</code> must be a <code>Float</code>, there is no implicit conversion from <a href="Int.html"><code>Int</code></a>.</p>
+<p>Compare the float number with <code>other</code>. <code>other</code> must be a <code>Float</code>, there is no implicit conversion from <a href="Int.html"><code>Int</code></a>.</p>
 </div>
 <div class="listingblock">
 <div class="content">

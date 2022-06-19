@@ -438,6 +438,221 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 #footer-text{color:rgba(0,0,0,.6);font-size:.9em}}
 @media amzn-kf8{#header,#content,#footnotes,#footer{padding:0}}
 </style>
+<style>
+pre.rouge table td { padding: 5px; }
+pre.rouge table pre { margin: 0; }
+pre.rouge .cm {
+  color: #999988;
+  font-style: italic;
+}
+pre.rouge .cp {
+  color: #999999;
+  font-weight: bold;
+}
+pre.rouge .c1 {
+  color: #999988;
+  font-style: italic;
+}
+pre.rouge .cs {
+  color: #999999;
+  font-weight: bold;
+  font-style: italic;
+}
+pre.rouge .c, pre.rouge .ch, pre.rouge .cd, pre.rouge .cpf {
+  color: #999988;
+  font-style: italic;
+}
+pre.rouge .err {
+  color: #a61717;
+  background-color: #e3d2d2;
+}
+pre.rouge .gd {
+  color: #000000;
+  background-color: #ffdddd;
+}
+pre.rouge .ge {
+  color: #000000;
+  font-style: italic;
+}
+pre.rouge .gr {
+  color: #aa0000;
+}
+pre.rouge .gh {
+  color: #999999;
+}
+pre.rouge .gi {
+  color: #000000;
+  background-color: #ddffdd;
+}
+pre.rouge .go {
+  color: #888888;
+}
+pre.rouge .gp {
+  color: #555555;
+}
+pre.rouge .gs {
+  font-weight: bold;
+}
+pre.rouge .gu {
+  color: #aaaaaa;
+}
+pre.rouge .gt {
+  color: #aa0000;
+}
+pre.rouge .kc {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .kd {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .kn {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .kp {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .kr {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .kt {
+  color: #445588;
+  font-weight: bold;
+}
+pre.rouge .k, pre.rouge .kv {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .mf {
+  color: #009999;
+}
+pre.rouge .mh {
+  color: #009999;
+}
+pre.rouge .il {
+  color: #009999;
+}
+pre.rouge .mi {
+  color: #009999;
+}
+pre.rouge .mo {
+  color: #009999;
+}
+pre.rouge .m, pre.rouge .mb, pre.rouge .mx {
+  color: #009999;
+}
+pre.rouge .sa {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .sb {
+  color: #d14;
+}
+pre.rouge .sc {
+  color: #d14;
+}
+pre.rouge .sd {
+  color: #d14;
+}
+pre.rouge .s2 {
+  color: #d14;
+}
+pre.rouge .se {
+  color: #d14;
+}
+pre.rouge .sh {
+  color: #d14;
+}
+pre.rouge .si {
+  color: #d14;
+}
+pre.rouge .sx {
+  color: #d14;
+}
+pre.rouge .sr {
+  color: #009926;
+}
+pre.rouge .s1 {
+  color: #d14;
+}
+pre.rouge .ss {
+  color: #990073;
+}
+pre.rouge .s, pre.rouge .dl {
+  color: #d14;
+}
+pre.rouge .na {
+  color: #008080;
+}
+pre.rouge .bp {
+  color: #999999;
+}
+pre.rouge .nb {
+  color: #0086B3;
+}
+pre.rouge .nc {
+  color: #445588;
+  font-weight: bold;
+}
+pre.rouge .no {
+  color: #008080;
+}
+pre.rouge .nd {
+  color: #3c5d5d;
+  font-weight: bold;
+}
+pre.rouge .ni {
+  color: #800080;
+}
+pre.rouge .ne {
+  color: #990000;
+  font-weight: bold;
+}
+pre.rouge .nf, pre.rouge .fm {
+  color: #990000;
+  font-weight: bold;
+}
+pre.rouge .nl {
+  color: #990000;
+  font-weight: bold;
+}
+pre.rouge .nn {
+  color: #555555;
+}
+pre.rouge .nt {
+  color: #000080;
+}
+pre.rouge .vc {
+  color: #008080;
+}
+pre.rouge .vg {
+  color: #008080;
+}
+pre.rouge .vi {
+  color: #008080;
+}
+pre.rouge .nv, pre.rouge .vm {
+  color: #008080;
+}
+pre.rouge .ow {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .o {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .w {
+  color: #bbbbbb;
+}
+pre.rouge {
+  background-color: #f8f8f8;
+}
+</style>
   <meta name="keywords" content="Agate, programming language, scripting, gamedev" />
   <meta name="description" content="Agate, a simple and embeddable programming language" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -457,15 +672,47 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
-<li><a href="#_static_methods">Static Methods</a></li>
-<li><a href="#_methods">Methods</a></li>
-<li><a href="#_operators">Operators</a></li>
+<li><a href="#_static_methods">Static Methods</a>
+<ul class="sectlevel2">
+<li><a href="#_lowest"><strong>LOWEST</strong></a></li>
+<li><a href="#_max"><strong>MAX</strong></a></li>
+<li><a href="#_min"><strong>MIN</strong></a></li>
+</ul>
+</li>
+<li><a href="#_methods">Methods</a>
+<ul class="sectlevel2">
+<li><a href="#_hash"><strong>hash</strong></a></li>
+<li><a href="#_to_c"><strong>to_c</strong></a></li>
+<li><a href="#_to_f"><strong>to_f</strong></a></li>
+<li><a href="#_to_s"><strong>to_s</strong></a></li>
+</ul>
+</li>
+<li><a href="#_operators">Operators</a>
+<ul class="sectlevel2">
+<li><a href="#_unary"><strong>+</strong>, <strong>-</strong> operators</a></li>
+<li><a href="#_bitwise_not"><strong>~</strong> operator</a></li>
+<li><a href="#_binary"><strong>+</strong>(other), <strong>-</strong>(other), <strong>*</strong>(other), <strong>/</strong>(other) operators</a></li>
+<li><a href="#_modulo"><strong>%</strong>(other) operator</a></li>
+<li><a href="#_bitwise_and"><strong>&amp;</strong>(other) operator</a></li>
+<li><a href="#_bitwise_or"><strong>|</strong>(other) operator</a></li>
+<li><a href="#_bitwise_xor"><strong>^</strong>(other) operator</a></li>
+<li><a href="#_shift_left"><strong>&lt;&lt;</strong>(other) operator</a></li>
+<li><a href="#_shift_right"><strong>&gt;&gt;</strong>(other) operator</a></li>
+<li><a href="#_logical_shift_right"><strong>&gt;&gt;&gt;</strong>(other) operator</a></li>
+<li><a href="#_cmp"><strong>&lt;</strong>(other), <strong>&lt;=</strong>(other), <strong>&gt;</strong>(other), <strong>&gt;=</strong>(other) operators</a></li>
+<li><a href="#_inclusive_range"><strong>..</strong>(other) operator</a></li>
+<li><a href="#_exclusive_range"><strong>&#8230;&#8203;</strong>(other) operator</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
 <div id="content">
 <div id="preamble">
 <div class="sectionbody">
+<div class="paragraph">
+<p>An <code>Int</code> number is a 64-bit signed <a href="https://en.wikipedia.org/wiki/Integer_(computer_science)">integer</a>.</p>
+</div>
 <div class="paragraph">
 <p><a href="core.html">&lt; Back to core library</a></p>
 </div>
@@ -474,19 +721,306 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect1">
 <h2 id="_static_methods"><a class="anchor" href="#_static_methods"></a>Static Methods</h2>
 <div class="sectionbody">
-
+<div class="sect2">
+<h3 id="_lowest"><a class="anchor" href="#_lowest"></a><strong>LOWEST</strong></h3>
+<div class="paragraph">
+<p>Minimum value of <code>Int</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Int</span><span class="p">.</span><span class="n">LOWEST</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; -9223372036854775808</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>See also: <a href="#_min"><strong>MIN</strong></a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_max"><a class="anchor" href="#_max"></a><strong>MAX</strong></h3>
+<div class="paragraph">
+<p>Maximum value of <code>Int</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Int</span><span class="p">.</span><span class="n">MAX</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; 9223372036854775807</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>See also: <a href="#_min"><strong>MIN</strong></a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_min"><a class="anchor" href="#_min"></a><strong>MIN</strong></h3>
+<div class="paragraph">
+<p>Minimum value of <code>Int</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Int</span><span class="p">.</span><span class="n">MIN</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; -9223372036854775808</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>See also: <a href="#_max"><strong>MAX</strong></a>, <a href="#_lowest"><strong>LOWEST</strong></a></p>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="_methods"><a class="anchor" href="#_methods"></a>Methods</h2>
 <div class="sectionbody">
-
+<div class="sect2">
+<h3 id="_hash"><a class="anchor" href="#_hash"></a><strong>hash</strong></h3>
+<div class="paragraph">
+<p>Compute a hash for the integer.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="mi">42</span><span class="p">.</span><span class="n">hash</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; -4767286540954276203</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_to_c"><a class="anchor" href="#_to_c"></a><strong>to_c</strong></h3>
+<div class="paragraph">
+<p>Transform the integer to a <a href="Char.html"><code>Char</code></a>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="mi">42</span><span class="p">.</span><span class="n">to_c</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; *</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="mi">26408</span><span class="p">.</span><span class="n">to_c</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; 木</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_to_f"><a class="anchor" href="#_to_f"></a><strong>to_f</strong></h3>
+<div class="paragraph">
+<p>Transform the integer to a <a href="Float.html"><code>Float</code></a>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="mi">42</span><span class="p">.</span><span class="n">to_f</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">42</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; true</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_to_s"><a class="anchor" href="#_to_s"></a><strong>to_s</strong></h3>
+<div class="paragraph">
+<p>Transform the integer to a <a href="String.html"><code>String</code></a>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="mi">42</span><span class="p">.</span><span class="n">to_s</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">"42"</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; true</span></code></pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="_operators"><a class="anchor" href="#_operators"></a>Operators</h2>
 <div class="sectionbody">
-
+<div class="sect2">
+<h3 id="_unary"><a class="anchor" href="#_unary"></a><strong>+</strong>, <strong>-</strong> operators</h3>
+<div class="paragraph">
+<p>Unary <code>+</code> return the integer itself. Unary <code>-</code> return the opposite of the integer.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="o">+</span><span class="mi">42</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; 42</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="o">-</span><span class="mi">42</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; -42</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>See also: <a href="#_binary"><strong>+</strong>(other), <strong>-</strong>(other), <strong>*</strong>(other), <strong>/</strong>(other) operators</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_bitwise_not"><a class="anchor" href="#_bitwise_not"></a><strong>~</strong> operator</h3>
+<div class="paragraph">
+<p>Return the <a href="https://en.wikipedia.org/wiki/Bitwise_operation#NOT">bitwise complement</a> of the integer.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="o">~</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; -1</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="o">~</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; -2</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="o">~</span><span class="kt">Int</span><span class="p">.</span><span class="n">MIN</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kt">Int</span><span class="p">.</span><span class="n">MAX</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; true</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>See also: <a href="#_bitwise_and"><strong>&amp;</strong>(other) operator</a>, <a href="#_bitwise_or"><strong>|</strong>(other) operator</a>, <a href="#_bitwise_xor"><strong>^</strong>(other) operator</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_binary"><a class="anchor" href="#_binary"></a><strong>+</strong>(other), <strong>-</strong>(other), <strong>*</strong>(other), <strong>/</strong>(other) operators</h3>
+<div class="paragraph">
+<p>Compute binary operation using usual arithmetic operators on integers. <code>other</code> must be an <code>Int</code>, there is no implicit conversion from <a href="Float.html"><code>Float</code></a>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="mi">42</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">69</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; 111</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="mi">42</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">69</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; -27</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="mi">42</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">69</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; 2898</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="mi">42</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">69</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; 0</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>See also: <a href="#_unary"><strong>+</strong>, <strong>-</strong> operators</a>, <a href="#_modulo"><strong>%</strong>(other) operator</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_modulo"><a class="anchor" href="#_modulo"></a><strong>%</strong>(other) operator</h3>
+<div class="paragraph">
+<p>Compute the <a href="https://en.wikipedia.org/wiki/Modulo_operation">modulo operation</a> and returns the remainder of the division of <code>this</code> by <code>other</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="mi">69</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">42</span><span class="p">)</span><span class="w">   </span><span class="c1">#&gt; 27</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="o">-</span><span class="mi">69</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">42</span><span class="p">)</span><span class="w">  </span><span class="c1">#&gt; -27</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="mi">69</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="o">-</span><span class="mi">42</span><span class="p">)</span><span class="w">  </span><span class="c1">#&gt; 27</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="o">-</span><span class="mi">69</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="o">-</span><span class="mi">42</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; -27</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>See also: <a href="#_binary"><strong>+</strong>(other), <strong>-</strong>(other), <strong>*</strong>(other), <strong>/</strong>(other) operators</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_bitwise_and"><a class="anchor" href="#_bitwise_and"></a><strong>&amp;</strong>(other) operator</h3>
+<div class="paragraph">
+<p>Return the <a href="https://en.wikipedia.org/wiki/Bitwise_operation#AND">bitwise AND</a> between <code>this</code> and <code>other</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="mb">0b0101</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mb">0b0011</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mb">0b0001</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; true</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>See also: <a href="#_bitwise_not"><strong>~</strong> operator</a>, <a href="#_bitwise_or"><strong>|</strong>(other) operator</a>, <a href="#_bitwise_xor"><strong>^</strong>(other) operator</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_bitwise_or"><a class="anchor" href="#_bitwise_or"></a><strong>|</strong>(other) operator</h3>
+<div class="paragraph">
+<p>Return the <a href="https://en.wikipedia.org/wiki/Bitwise_operation#OR">bitwise OR</a> between <code>this</code> and <code>other</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="mb">0b0101</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="mb">0b0011</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mb">0b0111</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; true</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>See also: <a href="#_bitwise_not"><strong>~</strong> operator</a>, <a href="#_bitwise_and"><strong>&amp;</strong>(other) operator</a>, <a href="#_bitwise_xor"><strong>^</strong>(other) operator</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_bitwise_xor"><a class="anchor" href="#_bitwise_xor"></a><strong>^</strong>(other) operator</h3>
+<div class="paragraph">
+<p>Return the <a href="https://en.wikipedia.org/wiki/Bitwise_operation#XOR">bitwise XOR</a> between <code>this</code> and <code>other</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="mb">0b0101</span><span class="w"> </span><span class="o">^</span><span class="w"> </span><span class="mb">0b0011</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mb">0b0110</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; true</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>See also: <a href="#_bitwise_not"><strong>~</strong> operator</a>, <a href="#_bitwise_and"><strong>&amp;</strong>(other) operator</a>, <a href="#_bitwise_or"><strong>|</strong>(other) operator</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_shift_left"><a class="anchor" href="#_shift_left"></a><strong>&lt;&lt;</strong>(other) operator</h3>
+<div class="paragraph">
+<p>Return the <a href="https://en.wikipedia.org/wiki/Arithmetic_shift">arithmetic left shift</a> of <code>this</code>. <code>other</code> must be a non-negative intger. The number of bits of the shift is <code>other % 0x3F</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w">  </span><span class="c1">#&gt; 4</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; -4</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="mb">0b10101</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mb">0b10101000</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; true</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>See also: <a href="#_shift_right"><strong>&gt;&gt;</strong>(other) operator</a>, <a href="#_logical_shift_right"><strong>&gt;&gt;&gt;</strong>(other) operator</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_shift_right"><a class="anchor" href="#_shift_right"></a><strong>&gt;&gt;</strong>(other) operator</h3>
+<div class="paragraph">
+<p>Return the <a href="https://en.wikipedia.org/wiki/Arithmetic_shift">arithmetic right shift</a> of <code>this</code>. <code>other</code> must be a non-negative intger. The number of bits of the shift is <code>other % 0x3F</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="mi">8</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w">  </span><span class="c1">#&gt; 2</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="o">-</span><span class="mi">8</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; -2</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="mb">0b10101000</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mb">0b10101</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; true</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>See also: <a href="#_shift_left"><strong>&lt;&lt;</strong>(other) operator</a>, <a href="#_logical_shift_right"><strong>&gt;&gt;&gt;</strong>(other) operator</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_logical_shift_right"><a class="anchor" href="#_logical_shift_right"></a><strong>&gt;&gt;&gt;</strong>(other) operator</h3>
+<div class="paragraph">
+<p>Return the <a href="https://en.wikipedia.org/wiki/Logical_shift">logical right shift</a> of <code>this</code>. <code>other</code> must be a non-negative intger. The number of bits of the shift is <code>other % 0x3F</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="mi">8</span><span class="w"> </span><span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w">  </span><span class="c1">#&gt; 2</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="o">-</span><span class="mi">8</span><span class="w"> </span><span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; 4611686018427387902</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="mb">0b10101000</span><span class="w"> </span><span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mb">0b10101</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; true</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>See also: <a href="#_shift_right"><strong>&gt;&gt;</strong>(other) operator</a>, <a href="#_shift_left"><strong>&lt;&lt;</strong>(other) operator</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_cmp"><a class="anchor" href="#_cmp"></a><strong>&lt;</strong>(other), <strong>&lt;=</strong>(other), <strong>&gt;</strong>(other), <strong>&gt;=</strong>(other) operators</h3>
+<div class="paragraph">
+<p>Compare the integer with <code>other</code>. <code>other</code> must be an <code>Int</code>, there is no implicit conversion from <a href="Float.html"><code>Float</code></a>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="mi">42</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">69</span><span class="p">)</span><span class="w">  </span><span class="c1">#&gt; true</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="mi">42</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">69</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; true</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="mi">42</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">69</span><span class="p">)</span><span class="w">  </span><span class="c1">#&gt; false</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="mi">42</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">69</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; false</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_inclusive_range"><a class="anchor" href="#_inclusive_range"></a><strong>..</strong>(other) operator</h3>
+<div class="paragraph">
+<p>Create an inclusive <a href="Range.html"><code>Range</code></a> between <code>this</code> and <code>other</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="k">def</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">42</span><span class="p">..</span><span class="mi">69</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">min</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; 42</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">max</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; 69</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">inclusive</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; true</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>See also: <a href="#_exclusive_range"><strong>&#8230;&#8203;</strong>(other) operator</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_exclusive_range"><a class="anchor" href="#_exclusive_range"></a><strong>&#8230;&#8203;</strong>(other) operator</h3>
+<div class="paragraph">
+<p>Create an exclusive <a href="Range.html"><code>Range</code></a> between <code>this</code> (included) and <code>other</code> (excluded).</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="k">def</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">42</span><span class="p">...</span><span class="mi">69</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">min</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; 42</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">max</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; 69</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">inclusive</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; false</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>See also: <a href="#_inclusive_range"><strong>..</strong>(other) operator</a></p>
+</div>
+</div>
 </div>
 </div>
 </div>
