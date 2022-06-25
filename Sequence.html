@@ -438,6 +438,221 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 #footer-text{color:rgba(0,0,0,.6);font-size:.9em}}
 @media amzn-kf8{#header,#content,#footnotes,#footer{padding:0}}
 </style>
+<style>
+pre.rouge table td { padding: 5px; }
+pre.rouge table pre { margin: 0; }
+pre.rouge .cm {
+  color: #999988;
+  font-style: italic;
+}
+pre.rouge .cp {
+  color: #999999;
+  font-weight: bold;
+}
+pre.rouge .c1 {
+  color: #999988;
+  font-style: italic;
+}
+pre.rouge .cs {
+  color: #999999;
+  font-weight: bold;
+  font-style: italic;
+}
+pre.rouge .c, pre.rouge .ch, pre.rouge .cd, pre.rouge .cpf {
+  color: #999988;
+  font-style: italic;
+}
+pre.rouge .err {
+  color: #a61717;
+  background-color: #e3d2d2;
+}
+pre.rouge .gd {
+  color: #000000;
+  background-color: #ffdddd;
+}
+pre.rouge .ge {
+  color: #000000;
+  font-style: italic;
+}
+pre.rouge .gr {
+  color: #aa0000;
+}
+pre.rouge .gh {
+  color: #999999;
+}
+pre.rouge .gi {
+  color: #000000;
+  background-color: #ddffdd;
+}
+pre.rouge .go {
+  color: #888888;
+}
+pre.rouge .gp {
+  color: #555555;
+}
+pre.rouge .gs {
+  font-weight: bold;
+}
+pre.rouge .gu {
+  color: #aaaaaa;
+}
+pre.rouge .gt {
+  color: #aa0000;
+}
+pre.rouge .kc {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .kd {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .kn {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .kp {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .kr {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .kt {
+  color: #445588;
+  font-weight: bold;
+}
+pre.rouge .k, pre.rouge .kv {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .mf {
+  color: #009999;
+}
+pre.rouge .mh {
+  color: #009999;
+}
+pre.rouge .il {
+  color: #009999;
+}
+pre.rouge .mi {
+  color: #009999;
+}
+pre.rouge .mo {
+  color: #009999;
+}
+pre.rouge .m, pre.rouge .mb, pre.rouge .mx {
+  color: #009999;
+}
+pre.rouge .sa {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .sb {
+  color: #d14;
+}
+pre.rouge .sc {
+  color: #d14;
+}
+pre.rouge .sd {
+  color: #d14;
+}
+pre.rouge .s2 {
+  color: #d14;
+}
+pre.rouge .se {
+  color: #d14;
+}
+pre.rouge .sh {
+  color: #d14;
+}
+pre.rouge .si {
+  color: #d14;
+}
+pre.rouge .sx {
+  color: #d14;
+}
+pre.rouge .sr {
+  color: #009926;
+}
+pre.rouge .s1 {
+  color: #d14;
+}
+pre.rouge .ss {
+  color: #990073;
+}
+pre.rouge .s, pre.rouge .dl {
+  color: #d14;
+}
+pre.rouge .na {
+  color: #008080;
+}
+pre.rouge .bp {
+  color: #999999;
+}
+pre.rouge .nb {
+  color: #0086B3;
+}
+pre.rouge .nc {
+  color: #445588;
+  font-weight: bold;
+}
+pre.rouge .no {
+  color: #008080;
+}
+pre.rouge .nd {
+  color: #3c5d5d;
+  font-weight: bold;
+}
+pre.rouge .ni {
+  color: #800080;
+}
+pre.rouge .ne {
+  color: #990000;
+  font-weight: bold;
+}
+pre.rouge .nf, pre.rouge .fm {
+  color: #990000;
+  font-weight: bold;
+}
+pre.rouge .nl {
+  color: #990000;
+  font-weight: bold;
+}
+pre.rouge .nn {
+  color: #555555;
+}
+pre.rouge .nt {
+  color: #000080;
+}
+pre.rouge .vc {
+  color: #008080;
+}
+pre.rouge .vg {
+  color: #008080;
+}
+pre.rouge .vi {
+  color: #008080;
+}
+pre.rouge .nv, pre.rouge .vm {
+  color: #008080;
+}
+pre.rouge .ow {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .o {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .w {
+  color: #bbbbbb;
+}
+pre.rouge {
+  background-color: #f8f8f8;
+}
+</style>
   <meta name="keywords" content="Agate, programming language, scripting, gamedev" />
   <meta name="description" content="Agate, a simple and embeddable programming language" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -457,13 +672,36 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
-<li><a href="#_methods">Methods</a></li>
+<li><a href="#_methods">Methods</a>
+<ul class="sectlevel2">
+<li><a href="#_accumulate"><strong>accumulate</strong>(val, op)</a></li>
+<li><a href="#_all"><strong>all</strong>(predicate)</a></li>
+<li><a href="#_any"><strong>any</strong>(predicate)</a></li>
+<li><a href="#_contains"><strong>contains</strong>(value)</a></li>
+<li><a href="#_count"><strong>count</strong></a></li>
+<li><a href="#_count_if"><strong>count</strong>(predicate)</a></li>
+<li><a href="#_each"><strong>each</strong>(fn)</a></li>
+<li><a href="#_empty"><strong>empty</strong></a></li>
+<li><a href="#_join"><strong>join</strong>()</a></li>
+<li><a href="#_join_sep"><strong>join</strong>(sep)</a></li>
+<li><a href="#_map"><strong>map</strong>(fn)</a></li>
+<li><a href="#_none"><strong>none</strong>(predicate)</a></li>
+<li><a href="#_reduce"><strong>reduce</strong>(op)</a></li>
+<li><a href="#_skip"><strong>skip</strong>(count)</a></li>
+<li><a href="#_take"><strong>take</strong>(count)</a></li>
+<li><a href="#_to_a"><strong>to_a</strong></a></li>
+<li><a href="#_where"><strong>where</strong>(predicate)</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
 <div id="content">
 <div id="preamble">
 <div class="sectionbody">
+<div class="paragraph">
+<p><code>Sequence</code> is a base class for objects that implements the <a href="lang.html#_iterator_protocol">iterator protocol</a>. It provides some useful methods to iterate through the elements of the sequence.</p>
+</div>
 <div class="paragraph">
 <p><a href="core.html">&lt; Back to core library</a></p>
 </div>
@@ -472,7 +710,236 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect1">
 <h2 id="_methods"><a class="anchor" href="#_methods"></a>Methods</h2>
 <div class="sectionbody">
-
+<div class="sect2">
+<h3 id="_accumulate"><a class="anchor" href="#_accumulate"></a><strong>accumulate</strong>(val, op)</h3>
+<div class="paragraph">
+<p>Compute the <a href="https://en.wikipedia.org/wiki/Fold_(higher-order_function)">left fold</a> of the sequence with operator <code>op</code>. <code>op</code> takes two parameters, an accumulator and a new value, and produces a new accumulator. The initial accumulator is <code>val</code>. If the sequence is empty, <code>val</code> is returned.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">].</span><span class="n">accumulate</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="o">|</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="o">|</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="p">})</span><span class="w"> </span><span class="c1">#&gt; 10</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>See also: <a href="#_reduce"><strong>reduce</strong>(op)</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_all"><a class="anchor" href="#_all"></a><strong>all</strong>(predicate)</h3>
+<div class="paragraph">
+<p>Return <code>true</code> if, for all the elements of the sequence, <code>predicate</code> returns <code>true</code>. If <code>predicate</code> returns a value that is false, then the iteration stops and returns that value. Otherwise, return <code>true</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">([</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="p">].</span><span class="n">all</span><span class="w"> </span><span class="p">{</span><span class="o">|</span><span class="n">n</span><span class="o">|</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="p">})</span><span class="w"> </span><span class="c1">#&gt; false</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">([</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="p">].</span><span class="n">all</span><span class="w"> </span><span class="p">{</span><span class="o">|</span><span class="n">n</span><span class="o">|</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="p">})</span><span class="w"> </span><span class="c1">#&gt; true</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>See also: <a href="#_any"><strong>any</strong>(predicate)</a>, <a href="#_none"><strong>none</strong>(predicate)</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_any"><a class="anchor" href="#_any"></a><strong>any</strong>(predicate)</h3>
+<div class="paragraph">
+<p>Return <code>true</code> if, for any element of the sequence, <code>predicate</code> returns <code>true</code>. If <code>predicate</code> returns a value that is true, then the iteration stops and returns that value. Otherwise return <code>false</code>. It is the contrary of <a href="#_none"><strong>none</strong>(predicate)</a>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">([</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="p">].</span><span class="n">any</span><span class="w"> </span><span class="p">{</span><span class="o">|</span><span class="n">n</span><span class="o">|</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">})</span><span class="w"> </span><span class="c1">#&gt; false</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">([</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="p">].</span><span class="n">any</span><span class="w"> </span><span class="p">{</span><span class="o">|</span><span class="n">n</span><span class="o">|</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="p">})</span><span class="w"> </span><span class="c1">#&gt; true</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>See also: <a href="#_all"><strong>all</strong>(predicate)</a>, <a href="#_none"><strong>none</strong>(predicate)</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_contains"><a class="anchor" href="#_contains"></a><strong>contains</strong>(value)</h3>
+<div class="paragraph">
+<p>Return <code>true</code> is the sequence contains an element equal to <code>value</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">([</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="p">].</span><span class="n">contains</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span><span class="w"> </span><span class="c1">#&gt; true</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">([</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="p">].</span><span class="n">contains</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span><span class="w"> </span><span class="c1">#&gt; false</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_count"><a class="anchor" href="#_count"></a><strong>count</strong></h3>
+<div class="paragraph">
+<p>Return the number of elements in the sequence by iterating the whole sequence. This method may be overriden if it can be computed more efficiently.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">((</span><span class="mi">1</span><span class="p">..</span><span class="mi">42</span><span class="p">).</span><span class="n">count</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; 42</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_count_if"><a class="anchor" href="#_count_if"></a><strong>count</strong>(predicate)</h3>
+<div class="paragraph">
+<p>Return the number of elements in the sequence that satisfies <code>predicate</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">([</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="p">].</span><span class="n">count</span><span class="w"> </span><span class="p">{</span><span class="o">|</span><span class="n">n</span><span class="o">|</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="p">})</span><span class="w"> </span><span class="c1">#&gt; 1</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">([</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="p">].</span><span class="n">count</span><span class="w"> </span><span class="p">{</span><span class="o">|</span><span class="n">n</span><span class="o">|</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="p">})</span><span class="w"> </span><span class="c1">#&gt; 3</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_each"><a class="anchor" href="#_each"></a><strong>each</strong>(fn)</h3>
+<div class="paragraph">
+<p>Iterate through the sequence applying <code>fn</code> to each element of the sequence.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="p">[</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="p">].</span><span class="n">each</span><span class="w"> </span><span class="p">{</span><span class="o">|</span><span class="n">n</span><span class="o">|</span><span class="w"> </span><span class="kt">IO</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="c1">#&gt; 123</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">()</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_empty"><a class="anchor" href="#_empty"></a><strong>empty</strong></h3>
+<div class="paragraph">
+<p>Return <code>true</code> if the sequence has no elements. It is often more efficient to call this method instead of comparing <a href="#_count"><strong>count</strong></a> to zero.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">([].</span><span class="n">empty</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; true</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">((</span><span class="mi">42</span><span class="p">..</span><span class="mi">42</span><span class="p">).</span><span class="n">empty</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; false</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_join"><a class="anchor" href="#_join"></a><strong>join</strong>()</h3>
+<div class="paragraph">
+<p>Create a <a href="String.html"><code>String</code></a> by concatenating all the elements of the sequence. The elements are converted to strings using <code>to_s</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">].</span><span class="n">join</span><span class="p">())</span><span class="w"> </span><span class="c1">#&gt; 123</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_join_sep"><a class="anchor" href="#_join_sep"></a><strong>join</strong>(sep)</h3>
+<div class="paragraph">
+<p>Create a <a href="String.html"><code>String</code></a> by concatenating all the elements of the sequence, separated by <code>sep</code>. The elements are converted to strings using <code>to_s</code>. <code>sep</code> can be a <a href="String.html"><code>String</code></a> or a <a href="Char.html"><code>Char</code></a>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">].</span><span class="n">join</span><span class="p">(</span><span class="sc">'|'</span><span class="p">))</span><span class="w"> </span><span class="c1">#&gt; 1|2|3</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_map"><a class="anchor" href="#_map"></a><strong>map</strong>(fn)</h3>
+<div class="paragraph">
+<p>Create a lazy sequence that applies <code>fn</code> to each element of the sequence.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="k">def</span><span class="w"> </span><span class="n">doubles</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">].</span><span class="n">map</span><span class="w"> </span><span class="p">{</span><span class="o">|</span><span class="n">n</span><span class="o">|</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="p">}</span><span class="err">
+</span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">doubles</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="err">
+</span><span class="w">  </span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="err">
+</span><span class="p">}</span><span class="err">
+</span><span class="c1">#&gt; 2</span><span class="err">
+</span><span class="c1">#&gt; 4</span><span class="err">
+</span><span class="c1">#&gt; 6</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_none"><a class="anchor" href="#_none"></a><strong>none</strong>(predicate)</h3>
+<div class="paragraph">
+<p>Return <code>true</code> if, for all element of the sequence, <code>predicate</code> returns <code>false</code>. If <code>predicate</code> returns a value that is true, then the iteration stops and returns the negation of that value. Otherwise return <code>true</code>. It is the contrary of <a href="#_any"><strong>any</strong>(predicate)</a>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">([</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="p">].</span><span class="n">none</span><span class="w"> </span><span class="p">{</span><span class="o">|</span><span class="n">n</span><span class="o">|</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">})</span><span class="w"> </span><span class="c1">#&gt; true</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">([</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="p">].</span><span class="n">none</span><span class="w"> </span><span class="p">{</span><span class="o">|</span><span class="n">n</span><span class="o">|</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="p">})</span><span class="w"> </span><span class="c1">#&gt; false</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>See also: <a href="#_all"><strong>all</strong>(predicate)</a>, <a href="#_any"><strong>any</strong>(predicate)</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_reduce"><a class="anchor" href="#_reduce"></a><strong>reduce</strong>(op)</h3>
+<div class="paragraph">
+<p>Compute the <a href="https://en.wikipedia.org/wiki/Fold_(higher-order_function)">left fold</a> of the sequence with operator <code>op</code>. <code>op</code> takes two parameters, an accumulator and a new value, and produces a new accumulator. The initial accumulator is the first element of the sequence. It is a runtime error to call this method on an empty sequence.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">].</span><span class="n">reduce</span><span class="w"> </span><span class="p">{</span><span class="o">|</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="o">|</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="p">})</span><span class="w"> </span><span class="c1">#&gt; 6</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>See also: <a href="#_accumulate"><strong>accumulate</strong>(val, op)</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_skip"><a class="anchor" href="#_skip"></a><strong>skip</strong>(count)</h3>
+<div class="paragraph">
+<p>Create a lazy sequence with the <code>count</code> first elements of the sequence skipped.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="k">def</span><span class="w"> </span><span class="n">seq</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">].</span><span class="n">skip</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="err">
+</span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">item</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">seq</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="err">
+</span><span class="w">  </span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">item</span><span class="p">)</span><span class="err">
+</span><span class="p">}</span><span class="err">
+</span><span class="c1">#&gt; 2</span><span class="err">
+</span><span class="c1">#&gt; 3</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_take"><a class="anchor" href="#_take"></a><strong>take</strong>(count)</h3>
+<div class="paragraph">
+<p>Create a lazy sequence with only the <code>count</code> first elements of the sequence.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="k">def</span><span class="w"> </span><span class="n">seq</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">].</span><span class="n">take</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="err">
+</span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">item</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">seq</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="err">
+</span><span class="w">  </span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">item</span><span class="p">)</span><span class="err">
+</span><span class="p">}</span><span class="err">
+</span><span class="c1">#&gt; 1</span><span class="err">
+</span><span class="c1">#&gt; 2</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_to_a"><a class="anchor" href="#_to_a"></a><strong>to_a</strong></h3>
+<div class="paragraph">
+<p>Force the evaluation of the whole sequence and put the result of the iteration in an <a href="Array.html"><code>Array</code></a>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">((</span><span class="mi">2</span><span class="p">..</span><span class="mi">5</span><span class="p">).</span><span class="n">to_a</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; [2, 3, 4, 5]</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_where"><a class="anchor" href="#_where"></a><strong>where</strong>(predicate)</h3>
+<div class="paragraph">
+<p>Create a lazy sequence with only the elements for which <code>predicate</code> returns <code>true</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="k">def</span><span class="w"> </span><span class="n">seq</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">].</span><span class="n">where</span><span class="w"> </span><span class="p">{</span><span class="o">|</span><span class="n">n</span><span class="o">|</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">}</span><span class="err">
+</span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">item</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">seq</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="err">
+</span><span class="w">  </span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">item</span><span class="p">)</span><span class="err">
+</span><span class="p">}</span><span class="err">
+</span><span class="c1">#&gt; 1</span><span class="err">
+</span><span class="c1">#&gt; 3</span></code></pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>

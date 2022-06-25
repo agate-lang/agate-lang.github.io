@@ -438,6 +438,221 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 #footer-text{color:rgba(0,0,0,.6);font-size:.9em}}
 @media amzn-kf8{#header,#content,#footnotes,#footer{padding:0}}
 </style>
+<style>
+pre.rouge table td { padding: 5px; }
+pre.rouge table pre { margin: 0; }
+pre.rouge .cm {
+  color: #999988;
+  font-style: italic;
+}
+pre.rouge .cp {
+  color: #999999;
+  font-weight: bold;
+}
+pre.rouge .c1 {
+  color: #999988;
+  font-style: italic;
+}
+pre.rouge .cs {
+  color: #999999;
+  font-weight: bold;
+  font-style: italic;
+}
+pre.rouge .c, pre.rouge .ch, pre.rouge .cd, pre.rouge .cpf {
+  color: #999988;
+  font-style: italic;
+}
+pre.rouge .err {
+  color: #a61717;
+  background-color: #e3d2d2;
+}
+pre.rouge .gd {
+  color: #000000;
+  background-color: #ffdddd;
+}
+pre.rouge .ge {
+  color: #000000;
+  font-style: italic;
+}
+pre.rouge .gr {
+  color: #aa0000;
+}
+pre.rouge .gh {
+  color: #999999;
+}
+pre.rouge .gi {
+  color: #000000;
+  background-color: #ddffdd;
+}
+pre.rouge .go {
+  color: #888888;
+}
+pre.rouge .gp {
+  color: #555555;
+}
+pre.rouge .gs {
+  font-weight: bold;
+}
+pre.rouge .gu {
+  color: #aaaaaa;
+}
+pre.rouge .gt {
+  color: #aa0000;
+}
+pre.rouge .kc {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .kd {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .kn {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .kp {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .kr {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .kt {
+  color: #445588;
+  font-weight: bold;
+}
+pre.rouge .k, pre.rouge .kv {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .mf {
+  color: #009999;
+}
+pre.rouge .mh {
+  color: #009999;
+}
+pre.rouge .il {
+  color: #009999;
+}
+pre.rouge .mi {
+  color: #009999;
+}
+pre.rouge .mo {
+  color: #009999;
+}
+pre.rouge .m, pre.rouge .mb, pre.rouge .mx {
+  color: #009999;
+}
+pre.rouge .sa {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .sb {
+  color: #d14;
+}
+pre.rouge .sc {
+  color: #d14;
+}
+pre.rouge .sd {
+  color: #d14;
+}
+pre.rouge .s2 {
+  color: #d14;
+}
+pre.rouge .se {
+  color: #d14;
+}
+pre.rouge .sh {
+  color: #d14;
+}
+pre.rouge .si {
+  color: #d14;
+}
+pre.rouge .sx {
+  color: #d14;
+}
+pre.rouge .sr {
+  color: #009926;
+}
+pre.rouge .s1 {
+  color: #d14;
+}
+pre.rouge .ss {
+  color: #990073;
+}
+pre.rouge .s, pre.rouge .dl {
+  color: #d14;
+}
+pre.rouge .na {
+  color: #008080;
+}
+pre.rouge .bp {
+  color: #999999;
+}
+pre.rouge .nb {
+  color: #0086B3;
+}
+pre.rouge .nc {
+  color: #445588;
+  font-weight: bold;
+}
+pre.rouge .no {
+  color: #008080;
+}
+pre.rouge .nd {
+  color: #3c5d5d;
+  font-weight: bold;
+}
+pre.rouge .ni {
+  color: #800080;
+}
+pre.rouge .ne {
+  color: #990000;
+  font-weight: bold;
+}
+pre.rouge .nf, pre.rouge .fm {
+  color: #990000;
+  font-weight: bold;
+}
+pre.rouge .nl {
+  color: #990000;
+  font-weight: bold;
+}
+pre.rouge .nn {
+  color: #555555;
+}
+pre.rouge .nt {
+  color: #000080;
+}
+pre.rouge .vc {
+  color: #008080;
+}
+pre.rouge .vg {
+  color: #008080;
+}
+pre.rouge .vi {
+  color: #008080;
+}
+pre.rouge .nv, pre.rouge .vm {
+  color: #008080;
+}
+pre.rouge .ow {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .o {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .w {
+  color: #bbbbbb;
+}
+pre.rouge {
+  background-color: #f8f8f8;
+}
+</style>
   <meta name="keywords" content="Agate, programming language, scripting, gamedev" />
   <meta name="description" content="Agate, a simple and embeddable programming language" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -457,14 +672,37 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
-<li><a href="#_methods">Methods</a></li>
-<li><a href="#_operators">Operators</a></li>
+<li><a href="#_methods">Methods</a>
+<ul class="sectlevel2">
+<li><a href="#_contains"><strong>contains</strong>(other)</a></li>
+<li><a href="#_ends_with"><strong>ends_with</strong>(other)</a></li>
+<li><a href="#_find"><strong>find</strong>(needle)</a></li>
+<li><a href="#_find_from"><strong>find</strong>(needle, start)</a></li>
+<li><a href="#_hash"><strong>hash</strong></a></li>
+<li><a href="#_iterate"><strong>iterate</strong>(iterator), <strong>iterator_value</strong>(iterator)</a></li>
+<li><a href="#_replace"><strong>replace</strong>(old,new)</a></li>
+<li><a href="#_split"><strong>split</strong>(sep)</a></li>
+<li><a href="#_starts_with"><strong>starts_with</strong>(other)</a></li>
+<li><a href="#_to_f"><strong>to_f</strong></a></li>
+<li><a href="#_to_i"><strong>to_i</strong></a></li>
+<li><a href="#_to_s"><strong>to_s</strong></a></li>
+</ul>
+</li>
+<li><a href="#_operators">Operators</a>
+<ul class="sectlevel2">
+<li><a href="#_plus"><strong>+</strong>(other)</a></li>
+<li><a href="#_times"><strong>*</strong>(count)</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
 <div id="content">
 <div id="preamble">
 <div class="sectionbody">
+<div class="paragraph">
+<p>A string is a <a href="Sequence.html"><code>Sequence</code></a> of characters. It is represented internally by an array of <a href="https://en.wikipedia.org/wiki/UTF-8">UTF-8</a> bytes.</p>
+</div>
 <div class="paragraph">
 <p><a href="core.html">&lt; Back to core library</a></p>
 </div>
@@ -473,13 +711,177 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect1">
 <h2 id="_methods"><a class="anchor" href="#_methods"></a>Methods</h2>
 <div class="sectionbody">
-
+<div class="sect2">
+<h3 id="_contains"><a class="anchor" href="#_contains"></a><strong>contains</strong>(other)</h3>
+<div class="paragraph">
+<p>Return <code>true</code> if <code>other</code> is a part of the string. <code>other</code> must be a character or a string.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">"the cake is a lie"</span><span class="p">.</span><span class="n">contains</span><span class="p">(</span><span class="s">"cake"</span><span class="p">))</span><span class="w"> </span><span class="c1">#&gt; true</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">"the cake is a lie"</span><span class="p">.</span><span class="n">contains</span><span class="p">(</span><span class="sc">'x'</span><span class="p">))</span><span class="w"> </span><span class="c1">#&gt; false</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_ends_with"><a class="anchor" href="#_ends_with"></a><strong>ends_with</strong>(other)</h3>
+<div class="paragraph">
+<p>Return <code>true</code> is the string ends with <code>other</code>. <code>other</code> must be a string.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">"the cake is a lie"</span><span class="p">.</span><span class="n">ends_with</span><span class="p">(</span><span class="s">"cake"</span><span class="p">))</span><span class="w"> </span><span class="c1">#&gt; false</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">"東京"</span><span class="p">.</span><span class="n">ends_with</span><span class="p">(</span><span class="s">"京"</span><span class="p">))</span><span class="w"> </span><span class="c1">#&gt; true</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>See also: <a href="#_starts_with"><strong>starts_with</strong>(other)</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_find"><a class="anchor" href="#_find"></a><strong>find</strong>(needle)</h3>
+<div class="paragraph">
+<p>Find <code>needle</code> in the string and return an iterator to the beginning of the first occurrence of <code>needle</code>, or <code>-1</code> if <code>needle</code> was not found.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">"the cake is a lie"</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="s">"cake"</span><span class="p">))</span><span class="w"> </span><span class="c1">#&gt; 4</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>See also: <a href="#_find_from"><strong>find</strong>(needle, start)</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_find_from"><a class="anchor" href="#_find_from"></a><strong>find</strong>(needle, start)</h3>
+<div class="paragraph">
+<p>Find <code>needle</code> in the string, starting at iterator <code>start</code>, and return an iterator to the beginning of the first occurrence of <code>needle</code>, or <code>-1</code> if <code>needle</code> was not found.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">"the cake is a lie"</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="s">"cake"</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">))</span><span class="w"> </span><span class="c1">#&gt; -1</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>See also: <a href="#_find"><strong>find</strong>(needle)</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_hash"><a class="anchor" href="#_hash"></a><strong>hash</strong></h3>
+<div class="paragraph">
+<p>Compute a hash for the string.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">"the cake is a lie"</span><span class="p">.</span><span class="n">hash</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; -5017247130378745027</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_iterate"><a class="anchor" href="#_iterate"></a><strong>iterate</strong>(iterator), <strong>iterator_value</strong>(iterator)</h3>
+<div class="paragraph">
+<p>Implement the <a href="lang.html#_iterator_protocol">iterator protocol</a> to iterate over the string.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_replace"><a class="anchor" href="#_replace"></a><strong>replace</strong>(old,new)</h3>
+<div class="paragraph">
+<p>Replace all the occurrences of <code>old</code> in the string with <code>new</code> and return a new string.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">"the cake is a lie"</span><span class="p">.</span><span class="n">replace</span><span class="p">(</span><span class="s">"cake"</span><span class="p">,</span><span class="w"> </span><span class="s">"pie"</span><span class="p">).</span><span class="n">replace</span><span class="p">(</span><span class="s">"lie"</span><span class="p">,</span><span class="w"> </span><span class="s">"fake"</span><span class="p">))</span><span class="err">
+</span><span class="c1">#&gt; the pie is a fake</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_split"><a class="anchor" href="#_split"></a><strong>split</strong>(sep)</h3>
+<div class="paragraph">
+<p>Split the string thanks to the separator <code>sep</code> and return an <a href="Array.html"><code>Array</code></a> of strings. <code>sep</code> must be a character or a string.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">"the cake is a lie"</span><span class="p">.</span><span class="n">split</span><span class="p">(</span><span class="sc">' '</span><span class="p">))</span><span class="w"> </span><span class="c1">#&gt; [the, cake, is, a, lie]</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_starts_with"><a class="anchor" href="#_starts_with"></a><strong>starts_with</strong>(other)</h3>
+<div class="paragraph">
+<p>Return <code>true</code> is the string starts with <code>other</code>. <code>other</code> must be a string.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">"the cake is a lie"</span><span class="p">.</span><span class="n">starts_with</span><span class="p">(</span><span class="s">"cake"</span><span class="p">))</span><span class="w"> </span><span class="c1">#&gt; false</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">"東京"</span><span class="p">.</span><span class="n">starts_with</span><span class="p">(</span><span class="s">"東"</span><span class="p">))</span><span class="w"> </span><span class="c1">#&gt; true</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>See also: <a href="#_ends_with"><strong>ends_with</strong>(other)</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_to_f"><a class="anchor" href="#_to_f"></a><strong>to_f</strong></h3>
+<div class="paragraph">
+<p>Convert the string to a <a href="Float.html"><code>Float</code></a>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">"42.0"</span><span class="p">.</span><span class="n">to_f</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; 42</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_to_i"><a class="anchor" href="#_to_i"></a><strong>to_i</strong></h3>
+<div class="paragraph">
+<p>Convert the string to an <a href="Int.html"><code>Int</code></a>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">"42"</span><span class="p">.</span><span class="n">to_i</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; 42</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_to_s"><a class="anchor" href="#_to_s"></a><strong>to_s</strong></h3>
+<div class="paragraph">
+<p>Return the string.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">"the cake is a lie"</span><span class="p">.</span><span class="n">to_s</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; the cake is a lie</span></code></pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="_operators"><a class="anchor" href="#_operators"></a>Operators</h2>
 <div class="sectionbody">
-
+<div class="sect2">
+<h3 id="_plus"><a class="anchor" href="#_plus"></a><strong>+</strong>(other)</h3>
+<div class="paragraph">
+<p>Concatenate the string with <code>other</code> and return the result of the concatenation.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">"the cake is "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">"a lie"</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; the cake is a lie</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_times"><a class="anchor" href="#_times"></a><strong>*</strong>(count)</h3>
+<div class="paragraph">
+<p>Concatenate the string <code>count</code> times and return the result of the concatenation.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">" the cake is a lie"</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="err">
+</span><span class="c1">#&gt;  the cake is a lie the cake is a lie the cake is a lie</span></code></pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
