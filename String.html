@@ -680,12 +680,15 @@ pre.rouge {
 <li><a href="#_find_from"><strong>find</strong>(needle, start)</a></li>
 <li><a href="#_hash"><strong>hash</strong></a></li>
 <li><a href="#_iterate"><strong>iterate</strong>(iterator), <strong>iterator_value</strong>(iterator)</a></li>
+<li><a href="#_ltrim"><strong>ltrim</strong>(), <strong>ltrim</strong>(chars)</a></li>
 <li><a href="#_replace"><strong>replace</strong>(old,new)</a></li>
+<li><a href="#_rtrim"><strong>rtrim</strong>(), <strong>rtrim</strong>(chars)</a></li>
 <li><a href="#_split"><strong>split</strong>(sep)</a></li>
 <li><a href="#_starts_with"><strong>starts_with</strong>(other)</a></li>
 <li><a href="#_to_f"><strong>to_f</strong></a></li>
 <li><a href="#_to_i"><strong>to_i</strong></a></li>
 <li><a href="#_to_s"><strong>to_s</strong></a></li>
+<li><a href="#_trim"><strong>trim</strong>(), <strong>trim</strong>(chars)</a></li>
 </ul>
 </li>
 <li><a href="#_operators">Operators</a>
@@ -704,7 +707,7 @@ pre.rouge {
 <p>A string is a <a href="Sequence.html"><code>Sequence</code></a> of characters. It is represented internally by an array of <a href="https://en.wikipedia.org/wiki/UTF-8">UTF-8</a> bytes.</p>
 </div>
 <div class="paragraph">
-<p><a href="core.html">&lt; Back to core library</a></p>
+<p><a href="core.html">&lt; Back to core unit</a></p>
 </div>
 </div>
 </div>
@@ -784,6 +787,21 @@ pre.rouge {
 </div>
 </div>
 <div class="sect2">
+<h3 id="_ltrim"><a class="anchor" href="#_ltrim"></a><strong>ltrim</strong>(), <strong>ltrim</strong>(chars)</h3>
+<div class="paragraph">
+<p>Remove some characters from the beginning of the string, and return a new string. <code>chars</code> contain the characters that should be removed. By default, it consists in whitespace characters: <code>" \n\t\r"</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">" </span><span class="se">\n\r</span><span class="s">the cake is a lie"</span><span class="p">.</span><span class="n">ltrim</span><span class="p">())</span><span class="w"> </span><span class="c1">#&gt; the cake is a lie</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">"the cake is a lie"</span><span class="p">.</span><span class="n">ltrim</span><span class="p">(</span><span class="s">" eht"</span><span class="p">))</span><span class="w"> </span><span class="c1">#&gt; cake is a lie</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>See also: <a href="#_rtrim"><strong>rtrim</strong>(), <strong>rtrim</strong>(chars)</a>, <a href="#_trim"><strong>trim</strong>(), <strong>trim</strong>(chars)</a></p>
+</div>
+</div>
+<div class="sect2">
 <h3 id="_replace"><a class="anchor" href="#_replace"></a><strong>replace</strong>(old,new)</h3>
 <div class="paragraph">
 <p>Replace all the occurrences of <code>old</code> in the string with <code>new</code> and return a new string.</p>
@@ -793,6 +811,21 @@ pre.rouge {
 <pre class="rouge highlight"><code data-lang="agate"><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">"the cake is a lie"</span><span class="p">.</span><span class="n">replace</span><span class="p">(</span><span class="s">"cake"</span><span class="p">,</span><span class="w"> </span><span class="s">"pie"</span><span class="p">).</span><span class="n">replace</span><span class="p">(</span><span class="s">"lie"</span><span class="p">,</span><span class="w"> </span><span class="s">"fake"</span><span class="p">))</span><span class="err">
 </span><span class="c1">#&gt; the pie is a fake</span></code></pre>
 </div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_rtrim"><a class="anchor" href="#_rtrim"></a><strong>rtrim</strong>(), <strong>rtrim</strong>(chars)</h3>
+<div class="paragraph">
+<p>Remove some characters from the end of the string, and return a new string. <code>chars</code> contain the characters that should be removed. By default, it consists in whitespace characters: <code>" \n\t\r"</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">"the cake is a lie </span><span class="se">\n\r</span><span class="s">"</span><span class="p">.</span><span class="n">rtrim</span><span class="p">())</span><span class="w"> </span><span class="c1">#&gt; the cake is a lie</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">"the cake is a lie"</span><span class="p">.</span><span class="n">rtrim</span><span class="p">(</span><span class="s">" eht"</span><span class="p">))</span><span class="w"> </span><span class="c1">#&gt; the cake is a li</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>See also: <a href="#_ltrim"><strong>ltrim</strong>(), <strong>ltrim</strong>(chars)</a>, <a href="#_trim"><strong>trim</strong>(), <strong>trim</strong>(chars)</a></p>
 </div>
 </div>
 <div class="sect2">
@@ -852,6 +885,21 @@ pre.rouge {
 <div class="content">
 <pre class="rouge highlight"><code data-lang="agate"><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">"the cake is a lie"</span><span class="p">.</span><span class="n">to_s</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; the cake is a lie</span></code></pre>
 </div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_trim"><a class="anchor" href="#_trim"></a><strong>trim</strong>(), <strong>trim</strong>(chars)</h3>
+<div class="paragraph">
+<p>Remove some characters from the beginning and the end of the string, and return a new string. <code>chars</code> contain the characters that should be removed. By default, it consists in whitespace characters: <code>" \n\t\r"</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">" </span><span class="se">\n\r</span><span class="s">the cake is a lie </span><span class="se">\n\r</span><span class="s">"</span><span class="p">.</span><span class="n">trim</span><span class="p">())</span><span class="w"> </span><span class="c1">#&gt; the cake is a lie</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">"the cake is a lie"</span><span class="p">.</span><span class="n">trim</span><span class="p">(</span><span class="s">" eht"</span><span class="p">))</span><span class="w"> </span><span class="c1">#&gt; cake is a li</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>See also: <a href="#_ltrim"><strong>ltrim</strong>(), <strong>ltrim</strong>(chars)</a>, <a href="#_rtrim"><strong>rtrim</strong>(), <strong>rtrim</strong>(chars)</a></p>
 </div>
 </div>
 </div>

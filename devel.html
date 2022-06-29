@@ -457,9 +457,14 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
+<li><a href="#_overview">Overview</a>
+<ul class="sectlevel2">
 <li><a href="#_introduction_to_agate_code_source">Introduction to Agate code source</a></li>
-<li><a href="#_conventions_for_core_library">Conventions for core library</a></li>
 <li><a href="#_differences_with_wren">Differences with Wren</a></li>
+<li><a href="#_implementation_notes">Implementation notes</a></li>
+</ul>
+</li>
+<li><a href="#_conventions_for_core_library">Conventions for core library</a></li>
 </ul>
 </div>
 </div>
@@ -475,8 +480,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect1">
-<h2 id="_introduction_to_agate_code_source">Introduction to Agate code source</h2>
+<h2 id="_overview">Overview</h2>
 <div class="sectionbody">
+<div class="sect2">
+<h3 id="_introduction_to_agate_code_source">Introduction to Agate code source</h3>
 <div class="paragraph">
 <p>Agate is a kind of fork of Wren, the basic implementation comes from Wren with functions and types that have been renamed and/or refactored. If you want to understand some parts of Agate source code, you should look in Wren source code and its excellent comments.</p>
 </div>
@@ -522,25 +529,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </ul>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="_conventions_for_core_library">Conventions for core library</h2>
-<div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p>Classes or methods starting with <code>__</code> are considered private and may change.</p>
-</li>
-<li>
-<p>When possible, implement methods with native functions, especially for <code>String</code></p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_differences_with_wren">Differences with Wren</h2>
-<div class="sectionbody">
+<div class="sect2">
+<h3 id="_differences_with_wren">Differences with Wren</h3>
 <div class="paragraph">
 <p>Agate is largely based on Wren. Here are the main differences:</p>
 </div>
@@ -568,6 +558,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>Agate <code>Map</code> can take as key any object that implements a <code>hash</code> method (and core types do implement <code>hash</code>).</p>
 </li>
 <li>
+<p>Wren module is Agate unit.</p>
+</li>
+<li>
 <p>Calling a method on <code>this</code> is done with <code>.method</code>, <code>method</code> refers to a variable (local or global).</p>
 </li>
 <li>
@@ -581,6 +574,26 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </li>
 <li>
 <p>Coding conventions are different: Agate methods, functions and variables are in snake case rather than camel case.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_implementation_notes">Implementation notes</h3>
+
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_conventions_for_core_library">Conventions for core library</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Classes or methods starting with <code>__</code> are considered private and may change.</p>
+</li>
+<li>
+<p>When possible, implement methods with native functions, especially for <code>String</code></p>
 </li>
 </ul>
 </div>
