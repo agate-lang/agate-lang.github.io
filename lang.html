@@ -988,7 +988,121 @@ pre.rouge {
 </div>
 <div class="sect2">
 <h3 id="_operators"><a class="anchor" href="#_operators"></a>Operators</h3>
-
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 1. Operators precedence and associativity</caption>
+<colgroup>
+<col style="width: 14.2857%;">
+<col style="width: 14.2857%;">
+<col style="width: 57.1428%;">
+<col style="width: 14.2858%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Precedence</th>
+<th class="tableblock halign-left valign-top">Operators</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Associativity</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>()</code> <code>[]</code> <code>.</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Call, subscript, method</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Left</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>+</code>, <code>-</code>, <code>!</code>, <code>~</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Unary plus and minus, logical NOT, bitwise NOT</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Right</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code>, <code>/</code>, <code>%</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Multiplication, division, and remainder</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Left</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>+</code>, <code>-</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Addition and subtraction</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Left</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>..</code>, <code>...</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Inclusive and exclusive range</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Left</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&lt;&lt;</code>, <code>&gt;&gt;</code>, <code>&gt;&gt;&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Arithmetic left shift, arithmetic right shift, logical right shift</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Left</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">7</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&amp;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Bitwise AND</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Left</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">8</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>^</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Bitwise XOR</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Left</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">9</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>|</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Bitwise OR</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Left</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">10</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&lt;</code>, <code>&gt;</code>, <code>&gt;=</code>, <code>&lt;=</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Comparison operators</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Left</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">11</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>is</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Type test</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Left</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">12</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>==</code>, <code>!=</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Equality, inequality</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Left</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">13</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&amp;&amp;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Logical AND</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Left</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">14</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>||</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Logical OR</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Left</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">15</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>?:</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Conditional</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Right</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">16</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>=</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Assignment</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Right</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="sect2">
 <h3 id="_logical_operators"><a class="anchor" href="#_logical_operators"></a>Logical Operators</h3>
