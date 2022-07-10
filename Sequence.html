@@ -678,14 +678,14 @@ pre.rouge {
 <li><a href="#_all"><strong>all</strong>(predicate)</a></li>
 <li><a href="#_any"><strong>any</strong>(predicate)</a></li>
 <li><a href="#_contains"><strong>contains</strong>(value)</a></li>
-<li><a href="#_count"><strong>count</strong></a></li>
-<li><a href="#_count_if"><strong>count</strong>(predicate)</a></li>
+<li><a href="#_count"><strong>count</strong>(predicate)</a></li>
 <li><a href="#_each"><strong>each</strong>(fn)</a></li>
 <li><a href="#_empty"><strong>empty</strong></a></li>
 <li><a href="#_join"><strong>join</strong>()</a></li>
 <li><a href="#_join_sep"><strong>join</strong>(sep)</a></li>
 <li><a href="#_map"><strong>map</strong>(fn)</a></li>
 <li><a href="#_none"><strong>none</strong>(predicate)</a></li>
+<li><a href="#_size"><strong>size</strong></a></li>
 <li><a href="#_reduce"><strong>reduce</strong>(op)</a></li>
 <li><a href="#_skip"><strong>skip</strong>(count)</a></li>
 <li><a href="#_take"><strong>take</strong>(count)</a></li>
@@ -767,18 +767,7 @@ pre.rouge {
 </div>
 </div>
 <div class="sect2">
-<h3 id="_count"><a class="anchor" href="#_count"></a><strong>count</strong></h3>
-<div class="paragraph">
-<p>Return the number of elements in the sequence by iterating the whole sequence. This method may be overriden if it can be computed more efficiently.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="rouge highlight"><code data-lang="agate"><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">((</span><span class="mi">1</span><span class="p">..</span><span class="mi">42</span><span class="p">).</span><span class="n">count</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; 42</span></code></pre>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_count_if"><a class="anchor" href="#_count_if"></a><strong>count</strong>(predicate)</h3>
+<h3 id="_count"><a class="anchor" href="#_count"></a><strong>count</strong>(predicate)</h3>
 <div class="paragraph">
 <p>Return the number of elements in the sequence that satisfies <code>predicate</code>.</p>
 </div>
@@ -804,7 +793,7 @@ pre.rouge {
 <div class="sect2">
 <h3 id="_empty"><a class="anchor" href="#_empty"></a><strong>empty</strong></h3>
 <div class="paragraph">
-<p>Return <code>true</code> if the sequence has no elements. It is often more efficient to call this method instead of comparing <a href="#_count"><strong>count</strong></a> to zero.</p>
+<p>Return <code>true</code> if the sequence has no elements. It is often more efficient to call this method instead of comparing <a href="#_count"><strong>count</strong>(predicate)</a> to zero.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -865,6 +854,17 @@ pre.rouge {
 </div>
 <div class="paragraph">
 <p>See also: <a href="#_all"><strong>all</strong>(predicate)</a>, <a href="#_any"><strong>any</strong>(predicate)</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_size"><a class="anchor" href="#_size"></a><strong>size</strong></h3>
+<div class="paragraph">
+<p>Return the number of elements in the sequence by iterating the whole sequence. This method may be overriden if it can be computed more efficiently.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">((</span><span class="mi">1</span><span class="p">..</span><span class="mi">42</span><span class="p">).</span><span class="n">size</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; 42</span></code></pre>
+</div>
 </div>
 </div>
 <div class="sect2">
