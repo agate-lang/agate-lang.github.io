@@ -699,16 +699,26 @@ pre.rouge {
 <li><a href="#_operators">Operators</a></li>
 <li><a href="#_the_truth_is_out_there">The truth is out there</a></li>
 <li><a href="#_logical_operators">Logical Operators</a></li>
-<li><a href="#_the_conditional_operator">The Conditional Operator <code>?:</code></a></li>
 </ul>
 </li>
 <li><a href="#_control_flow">Control Flow</a>
 <ul class="sectlevel2">
+<li><a href="#_if_statements">If Statements</a></li>
+<li><a href="#_once_statements">Once Statements</a></li>
+<li><a href="#_loop_statements">Loop Statements</a></li>
+<li><a href="#_while_statements">While Statements</a></li>
 <li><a href="#_for_statements">For Statements</a></li>
 <li><a href="#_iterator_protocol">Iterator Protocol</a></li>
+<li><a href="#_interrupting_a_loop">Interrupting a Loop</a></li>
 </ul>
 </li>
-<li><a href="#_variables">Variables</a></li>
+<li><a href="#_variables">Variables</a>
+<ul class="sectlevel2">
+<li><a href="#_definition">Definition</a></li>
+<li><a href="#_assignment">Assignment</a></li>
+<li><a href="#_scope">Scope</a></li>
+</ul>
+</li>
 <li><a href="#_functions">Functions</a>
 <ul class="sectlevel2">
 <li><a href="#_block_argument">Block Argument</a></li>
@@ -1136,6 +1146,16 @@ pre.rouge {
 <div class="paragraph">
 <p>In particular, <code>0</code> is true whereas it is false in C/C++.</p>
 </div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="k">false</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="err">
+</span><span class="w">  </span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">"This is true"</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; This is true</span><span class="err">
+</span><span class="p">}</span><span class="err">
+</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="err">
+</span><span class="w">  </span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">"This is also true"</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; This is also true</span><span class="err">
+</span><span class="p">}</span></code></pre>
+</div>
+</div>
 </div>
 <div class="sect2">
 <h3 id="_logical_operators"><a class="anchor" href="#_logical_operators"></a>Logical Operators</h3>
@@ -1143,29 +1163,245 @@ pre.rouge {
 <p>Logical operators <code>&amp;&amp;</code> and <code>||</code> do <a href="https://en.wikipedia.org/wiki/Short-circuit_evaluation">short-circuit evaluation</a>: the second argument is evaluated only if the first argument is not enough to determine the value of the expression.</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_the_conditional_operator"><a class="anchor" href="#_the_conditional_operator"></a>The Conditional Operator <code>?:</code></h3>
-
-</div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="_control_flow"><a class="anchor" href="#_control_flow"></a>Control Flow</h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>All control flow statements in Agate follow the same principles:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>the condition is between brackets i.e. <code>(</code> and <code>)</code> are mandatory</p>
+</li>
+<li>
+<p>the statements are statement blocks i.e. <code>{</code> and <code>}</code> are mandatory</p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="_if_statements"><a class="anchor" href="#_if_statements"></a>If Statements</h3>
+<div class="paragraph">
+<p>The <code>if</code> statement is a <a href="https://en.wikipedia.org/wiki/Conditional_(computer_programming)">conditional statement</a>.  The <code>else</code> branch is optional. An <code>else</code> branch may be either a statement block or another <code>if</code> statement.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="k">def</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">42</span><span class="err">
+</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="err">
+</span><span class="w">  </span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">"</span><span class="si">%(</span><span class="n">x</span><span class="si">)</span><span class="s"> is even"</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; 42 is even</span><span class="err">
+</span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="err">
+</span><span class="w">  </span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">"</span><span class="si">%(</span><span class="n">x</span><span class="si">)</span><span class="s"> is odd"</span><span class="p">)</span><span class="err">
+</span><span class="p">}</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_once_statements"><a class="anchor" href="#_once_statements"></a>Once Statements</h3>
+<div class="paragraph">
+<p>The <code>once</code> statement is a degenerate loop statement where the loop is executed exactly once. It is an idiomatic way to create a new scope, with the additional property that it is a loop like any other, so it can be interrupted.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="k">once</span><span class="w"> </span><span class="p">{</span><span class="err">
+</span><span class="w">  </span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">"Hello"</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; Hello</span><span class="err">
+</span><span class="w">  </span><span class="k">break</span><span class="err">
+</span><span class="w">  </span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">"World"</span><span class="p">)</span><span class="err">
+</span><span class="p">}</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>See also: <a href="#_interrupting_a_loop">Interrupting a Loop</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_loop_statements"><a class="anchor" href="#_loop_statements"></a>Loop Statements</h3>
+<div class="paragraph">
+<p>The <code>loop</code> statement creates an <a href="https://en.wikipedia.org/wiki/Infinite_loop">infinite loop</a>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="k">def</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="err">
+</span><span class="k">loop</span><span class="w"> </span><span class="p">{</span><span class="err">
+</span><span class="w">  </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="err">
+</span><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="err">
+</span><span class="w">    </span><span class="k">break</span><span class="err">
+</span><span class="w">  </span><span class="p">}</span><span class="err">
+</span><span class="w">  </span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="err">
+</span><span class="p">}</span><span class="err">
+</span><span class="c1">#&gt; 1</span><span class="err">
+</span><span class="c1">#&gt; 2</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>See also: <a href="#_interrupting_a_loop">Interrupting a Loop</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_while_statements"><a class="anchor" href="#_while_statements"></a>While Statements</h3>
+<div class="paragraph">
+<p>The <code>while</code> statement is a <a href="https://en.wikipedia.org/wiki/While_loop">loop statement</a> that allows to loop over statements while a condition is true.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="k">def</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">27</span><span class="err">
+</span><span class="k">def</span><span class="w"> </span><span class="n">steps</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="err">
+</span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="err">
+</span><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="err">
+</span><span class="w">    </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="err">
+</span><span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="err">
+</span><span class="w">    </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="err">
+</span><span class="w">  </span><span class="p">}</span><span class="err">
+</span><span class="w">  </span><span class="n">steps</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">steps</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="err">
+</span><span class="p">}</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">steps</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; 111</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>See also: <a href="#_interrupting_a_loop">Interrupting a Loop</a></p>
+</div>
+</div>
 <div class="sect2">
 <h3 id="_for_statements"><a class="anchor" href="#_for_statements"></a>For Statements</h3>
-
+<div class="paragraph">
+<p>The <code>for</code> statement is a <a href="https://en.wikipedia.org/wiki/Foreach_loop">loop statement</a> that allows to loop over a sequence. It has three components:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>a variable name to bind, a new variable with that name with the loop scope is created</p>
+</li>
+<li>
+<p>a sequence to iterate that is evaluated once before the loop starts</p>
+</li>
+<li>
+<p>a body that is a statement block</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">direction</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s">"north"</span><span class="p">,</span><span class="w"> </span><span class="s">"east"</span><span class="p">,</span><span class="w"> </span><span class="s">"south"</span><span class="p">,</span><span class="w"> </span><span class="s">"west"</span><span class="w"> </span><span class="p">])</span><span class="w"> </span><span class="p">{</span><span class="err">
+</span><span class="w">  </span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">direction</span><span class="p">)</span><span class="err">
+</span><span class="p">}</span><span class="err">
+</span><span class="c1">#&gt; north</span><span class="err">
+</span><span class="c1">#&gt; east</span><span class="err">
+</span><span class="c1">#&gt; south</span><span class="err">
+</span><span class="c1">#&gt; west</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The sequence can be an <a href="Array.html"><code>Array</code></a>, a <a href="Range.html"><code>Range</code></a>, a <a href="Map.html"><code>Map</code></a>, a <a href="String.html"><code>String</code></a> or any other object that implements the iterator protocol.</p>
+</div>
+<div class="paragraph">
+<p>See also: <a href="#_interrupting_a_loop">Interrupting a Loop</a></p>
+</div>
 </div>
 <div class="sect2">
 <h3 id="_iterator_protocol"><a class="anchor" href="#_iterator_protocol"></a>Iterator Protocol</h3>
-
+<div class="paragraph">
+<p>The iterator protocol is the protocol used by <code>for</code> statements. A sequence used in a for statement must implement two functions:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>iterate(iterator)</code>: it takes an iterator or <code>nil</code> at the first iteration and returns an iterator to the next item of the sequence or <code>nil</code> if the sequence is finished.</p>
+</li>
+<li>
+<p><code>iterator_value(iterator)</code>: it takes an iterator and returns the value of the item in the sequence that is pointed by the iterator.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The iterator can be any type.</p>
+</div>
+<div class="paragraph">
+<p>Then the following statement:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">variable</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">sequence</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="err">
+</span><span class="w">  </span><span class="n">statements</span><span class="err">
+</span><span class="p">}</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>is translated to the following:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="k">def</span><span class="w"> </span><span class="vm">$sequence</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sequence</span><span class="err">
+</span><span class="k">def</span><span class="w"> </span><span class="vm">$iterator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nil</span><span class="err">
+</span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="vm">$iterator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="vm">$sequence</span><span class="p">.</span><span class="n">iterate</span><span class="p">(</span><span class="vm">$iterator</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="err">
+</span><span class="w">  </span><span class="k">def</span><span class="w"> </span><span class="n">variable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="vm">$sequence</span><span class="p">.</span><span class="n">iterator_value</span><span class="p">(</span><span class="vm">$iterator</span><span class="p">)</span><span class="err">
+</span><span class="w">  </span><span class="n">statements</span><span class="err">
+</span><span class="p">}</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>where <code>$sequence</code> and <code>$iterator</code> are internal variables that you cannot use directly.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_interrupting_a_loop"><a class="anchor" href="#_interrupting_a_loop"></a>Interrupting a Loop</h3>
+<div class="paragraph">
+<p>There are two statements to interrupt a loop.</p>
+</div>
+<div class="paragraph">
+<p>The <code>break</code> statement exits the loop early.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="p">])</span><span class="w"> </span><span class="p">{</span><span class="err">
+</span><span class="w">  </span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w">   </span><span class="c1">#&gt; 1</span><span class="err">
+</span><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">   </span><span class="c1">#&gt; 2</span><span class="err">
+</span><span class="w">    </span><span class="k">break</span><span class="w">         </span><span class="c1">#&gt; 3</span><span class="err">
+</span><span class="w">  </span><span class="p">}</span><span class="err">
+</span><span class="p">}</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>continue</code> statement jumps to the next iteration of the loop.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="p">])</span><span class="w"> </span><span class="p">{</span><span class="err">
+</span><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">   </span><span class="c1">#&gt; 1</span><span class="err">
+</span><span class="w">    </span><span class="k">continue</span><span class="w">      </span><span class="c1">#&gt; 3</span><span class="err">
+</span><span class="w">  </span><span class="p">}</span><span class="w">               </span><span class="c1">#&gt; 4</span><span class="err">
+</span><span class="w">  </span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="err">
+</span><span class="p">}</span></code></pre>
+</div>
+</div>
 </div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="_variables"><a class="anchor" href="#_variables"></a>Variables</h2>
 <div class="sectionbody">
+<div class="sect2">
+<h3 id="_definition"><a class="anchor" href="#_definition"></a>Definition</h3>
+<div class="paragraph">
+<p>New variables are created using the <code>def</code> keyword followed by the name of the variable. By default, they are initialized to <code>nil</code> unless they are explicitely initialized with <code>=</code> followed by an expression.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="k">def</span><span class="w"> </span><span class="n">anakin</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">anakin</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; nil</span><span class="err">
+</span><span class="k">def</span><span class="w"> </span><span class="n">luke</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">.</span><span class="mi">4</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">luke</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; 5.4</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_assignment"><a class="anchor" href="#_assignment"></a>Assignment</h3>
 
+</div>
+<div class="sect2">
+<h3 id="_scope"><a class="anchor" href="#_scope"></a>Scope</h3>
+
+</div>
 </div>
 </div>
 <div class="sect1">
