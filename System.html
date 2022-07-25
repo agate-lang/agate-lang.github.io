@@ -678,6 +678,8 @@ pre.rouge {
 <li><a href="#_clock"><strong>clock</strong></a></li>
 <li><a href="#_env"><strong>env</strong>(name)</a></li>
 <li><a href="#_gc"><strong>gc</strong>()</a></li>
+<li><a href="#_version"><strong>version</strong></a></li>
+<li><a href="#_version_string"><strong>version_string</strong></a></li>
 </ul>
 </li>
 </ul>
@@ -743,6 +745,29 @@ pre.rouge {
 <div class="listingblock">
 <div class="content">
 <pre class="rouge highlight"><code data-lang="agate"><span class="kt">System</span><span class="p">.</span><span class="n">gc</span><span class="p">()</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_version"><a class="anchor" href="#_version"></a><strong>version</strong></h3>
+<div class="paragraph">
+<p>Return the current version of Agate in an <a href="String.html"><code>Array</code></a> form. The first element of the array is the <em>major</em> part of the version, the second element is the <em>minor</em> part of the version and the third element is the <em>patch</em> part of the version.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">System</span><span class="p">.</span><span class="n">version</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; [0, 1, 0]</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_version_string"><a class="anchor" href="#_version_string"></a><strong>version_string</strong></h3>
+<div class="paragraph">
+<p>Return the current version of Agate in a <a href="String.html"><code>String</code></a> form.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">System</span><span class="p">.</span><span class="n">version_string</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; 0.1.0</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">System</span><span class="p">.</span><span class="n">version_string</span><span class="p">.</span><span class="n">split</span><span class="p">(</span><span class="sc">'.'</span><span class="p">))</span><span class="w"> </span><span class="c1">#&gt; [0, 1, 0]</span></code></pre>
 </div>
 </div>
 </div>
