@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.12">
 <meta name="author" content="v0.1">
-<title>The Agate Core Unit</title>
+<title>Random class</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /* Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
@@ -438,6 +438,221 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 #footer-text{color:rgba(0,0,0,.6);font-size:.9em}}
 @media amzn-kf8{#header,#content,#footnotes,#footer{padding:0}}
 </style>
+<style>
+pre.rouge table td { padding: 5px; }
+pre.rouge table pre { margin: 0; }
+pre.rouge .cm {
+  color: #999988;
+  font-style: italic;
+}
+pre.rouge .cp {
+  color: #999999;
+  font-weight: bold;
+}
+pre.rouge .c1 {
+  color: #999988;
+  font-style: italic;
+}
+pre.rouge .cs {
+  color: #999999;
+  font-weight: bold;
+  font-style: italic;
+}
+pre.rouge .c, pre.rouge .ch, pre.rouge .cd, pre.rouge .cpf {
+  color: #999988;
+  font-style: italic;
+}
+pre.rouge .err {
+  color: #a61717;
+  background-color: #e3d2d2;
+}
+pre.rouge .gd {
+  color: #000000;
+  background-color: #ffdddd;
+}
+pre.rouge .ge {
+  color: #000000;
+  font-style: italic;
+}
+pre.rouge .gr {
+  color: #aa0000;
+}
+pre.rouge .gh {
+  color: #999999;
+}
+pre.rouge .gi {
+  color: #000000;
+  background-color: #ddffdd;
+}
+pre.rouge .go {
+  color: #888888;
+}
+pre.rouge .gp {
+  color: #555555;
+}
+pre.rouge .gs {
+  font-weight: bold;
+}
+pre.rouge .gu {
+  color: #aaaaaa;
+}
+pre.rouge .gt {
+  color: #aa0000;
+}
+pre.rouge .kc {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .kd {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .kn {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .kp {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .kr {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .kt {
+  color: #445588;
+  font-weight: bold;
+}
+pre.rouge .k, pre.rouge .kv {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .mf {
+  color: #009999;
+}
+pre.rouge .mh {
+  color: #009999;
+}
+pre.rouge .il {
+  color: #009999;
+}
+pre.rouge .mi {
+  color: #009999;
+}
+pre.rouge .mo {
+  color: #009999;
+}
+pre.rouge .m, pre.rouge .mb, pre.rouge .mx {
+  color: #009999;
+}
+pre.rouge .sa {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .sb {
+  color: #d14;
+}
+pre.rouge .sc {
+  color: #d14;
+}
+pre.rouge .sd {
+  color: #d14;
+}
+pre.rouge .s2 {
+  color: #d14;
+}
+pre.rouge .se {
+  color: #d14;
+}
+pre.rouge .sh {
+  color: #d14;
+}
+pre.rouge .si {
+  color: #d14;
+}
+pre.rouge .sx {
+  color: #d14;
+}
+pre.rouge .sr {
+  color: #009926;
+}
+pre.rouge .s1 {
+  color: #d14;
+}
+pre.rouge .ss {
+  color: #990073;
+}
+pre.rouge .s, pre.rouge .dl {
+  color: #d14;
+}
+pre.rouge .na {
+  color: #008080;
+}
+pre.rouge .bp {
+  color: #999999;
+}
+pre.rouge .nb {
+  color: #0086B3;
+}
+pre.rouge .nc {
+  color: #445588;
+  font-weight: bold;
+}
+pre.rouge .no {
+  color: #008080;
+}
+pre.rouge .nd {
+  color: #3c5d5d;
+  font-weight: bold;
+}
+pre.rouge .ni {
+  color: #800080;
+}
+pre.rouge .ne {
+  color: #990000;
+  font-weight: bold;
+}
+pre.rouge .nf, pre.rouge .fm {
+  color: #990000;
+  font-weight: bold;
+}
+pre.rouge .nl {
+  color: #990000;
+  font-weight: bold;
+}
+pre.rouge .nn {
+  color: #555555;
+}
+pre.rouge .nt {
+  color: #000080;
+}
+pre.rouge .vc {
+  color: #008080;
+}
+pre.rouge .vg {
+  color: #008080;
+}
+pre.rouge .vi {
+  color: #008080;
+}
+pre.rouge .nv, pre.rouge .vm {
+  color: #008080;
+}
+pre.rouge .ow {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .o {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .w {
+  color: #bbbbbb;
+}
+pre.rouge {
+  background-color: #f8f8f8;
+}
+</style>
   <meta name="keywords" content="Agate, programming language, scripting, gamedev" />
   <meta name="description" content="Agate, a simple and embeddable programming language" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -448,81 +663,160 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
   <meta name="msapplication-TileColor" content="#da532c">
   <meta name="theme-color" content="#ffffff">
 </head>
-<body class="article">
+<body class="article toc2 toc-right">
 <div id="header">
-<h1>The Agate Core Unit</h1>
+<h1><code>Random</code> class</h1>
 <div class="details">
 <span id="author" class="author">v0.1</span><br>
+</div>
+<div id="toc" class="toc2">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_static_methods">Static Methods</a>
+<ul class="sectlevel2">
+<li><a href="#_new"><strong>new</strong>(seed)</a></li>
+</ul>
+</li>
+<li><a href="#_methods">Methods</a>
+<ul class="sectlevel2">
+<li><a href="#_float0"><strong>float</strong>()</a></li>
+<li><a href="#_float1"><strong>float</strong>(end)</a></li>
+<li><a href="#_float2"><strong>float</strong>(start, end)</a></li>
+<li><a href="#_int0"><strong>int</strong>()</a></li>
+<li><a href="#_int1"><strong>int</strong>(end)</a></li>
+<li><a href="#_int2"><strong>int</strong>(start, end)</a></li>
+<li><a href="#_sample"><strong>sample</strong>(array)</a></li>
+<li><a href="#_shuffle"><strong>shuffle</strong>(array)</a></li>
+</ul>
+</li>
+</ul>
 </div>
 </div>
 <div id="content">
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>The core unit contains all the classes that are available in every Agate source.</p>
+<p>The <code>Random</code> class provides a random generator based on <a href="https://prng.di.unimi.it/">xoshiro256++</a>.</p>
 </div>
 <div class="paragraph">
-<p><a href="index.html">&lt; Back to main page</a></p>
+<p><a href="core.html">&lt; Back to core unit</a></p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_classes"><a class="anchor" href="#_classes"></a>Classes</h2>
+<h2 id="_static_methods"><a class="anchor" href="#_static_methods"></a>Static Methods</h2>
 <div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p><a href="Array.html"><code>Array</code></a></p>
-</li>
-<li>
-<p><a href="Bool.html"><code>Bool</code></a></p>
-</li>
-<li>
-<p><a href="Char.html"><code>Char</code></a></p>
-</li>
-<li>
-<p><a href="Class.html"><code>Class</code></a></p>
-</li>
-<li>
-<p><a href="Float.html"><code>Float</code></a></p>
-</li>
-<li>
-<p><a href="Fn.html"><code>Fn</code></a></p>
-</li>
-<li>
-<p><a href="Int.html"><code>Int</code></a></p>
-</li>
-<li>
-<p><a href="IO.html"><code>IO</code></a></p>
-</li>
-<li>
-<p><a href="Map.html"><code>Map</code></a></p>
-</li>
-<li>
-<p><a href="Math.html"><code>Math</code></a></p>
-</li>
-<li>
-<p><a href="Nil.html"><code>Nil</code></a></p>
-</li>
-<li>
-<p><a href="Object.html"><code>Object</code></a></p>
-</li>
-<li>
-<p><a href="Random.html"><code>Random</code></a></p>
-</li>
-<li>
-<p><a href="Range.html"><code>Range</code></a></p>
-</li>
-<li>
-<p><a href="Sequence.html"><code>Sequence</code></a></p>
-</li>
-<li>
-<p><a href="String.html"><code>String</code></a></p>
-</li>
-<li>
-<p><a href="System.html"><code>System</code></a></p>
-</li>
-</ul>
+<div class="sect2">
+<h3 id="_new"><a class="anchor" href="#_new"></a><strong>new</strong>(seed)</h3>
+<div class="paragraph">
+<p>Create a new random object initialized with <code>seed</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="k">def</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Random</span><span class="p">.</span><span class="n">new</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span></code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_methods"><a class="anchor" href="#_methods"></a>Methods</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_float0"><a class="anchor" href="#_float0"></a><strong>float</strong>()</h3>
+<div class="paragraph">
+<p>Return a <a href="Float.html"><code>Float</code></a> between 0.0 (included) and 1.0 (excluded) uniformly.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="k">def</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Random</span><span class="p">.</span><span class="n">new</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">float</span><span class="p">())</span><span class="w"> </span><span class="c1">#&gt; 0.81430514512291</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_float1"><a class="anchor" href="#_float1"></a><strong>float</strong>(end)</h3>
+<div class="paragraph">
+<p>Return a <a href="Float.html"><code>Float</code></a> between 0.0 (included) and <code>end</code> (excluded) uniformly.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="k">def</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Random</span><span class="p">.</span><span class="n">new</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">float</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">PI</span><span class="p">))</span><span class="w"> </span><span class="c1">#&gt; 2.5582150616985</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_float2"><a class="anchor" href="#_float2"></a><strong>float</strong>(start, end)</h3>
+<div class="paragraph">
+<p>Return a <a href="Float.html"><code>Float</code></a> between <code>start</code> (included) and <code>end</code> (excluded) uniformly.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="k">def</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Random</span><span class="p">.</span><span class="n">new</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">float</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">PI2</span><span class="p">,</span><span class="w"> </span><span class="kt">Math</span><span class="p">.</span><span class="n">PI</span><span class="p">))</span><span class="w"> </span><span class="c1">#&gt; 2.8499038576441</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_int0"><a class="anchor" href="#_int0"></a><strong>int</strong>()</h3>
+<div class="paragraph">
+<p>Return an <a href="Int.html"><code>Int</code></a> uniformly.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="k">def</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Random</span><span class="p">.</span><span class="n">new</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">int</span><span class="p">())</span><span class="w"> </span><span class="c1">#&gt; -3425465463722317665</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_int1"><a class="anchor" href="#_int1"></a><strong>int</strong>(end)</h3>
+<div class="paragraph">
+<p>Return an <a href="Int.html"><code>Int</code></a> between 0 (included) and <code>end</code> (excluded) uniformly.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="k">def</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Random</span><span class="p">.</span><span class="n">new</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">int</span><span class="p">(</span><span class="mi">69</span><span class="p">))</span><span class="w"> </span><span class="c1">#&gt; 55</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_int2"><a class="anchor" href="#_int2"></a><strong>int</strong>(start, end)</h3>
+<div class="paragraph">
+<p>Return an <a href="Int.html"><code>Int</code></a> between <code>start</code> (included) and <code>end</code> (excluded) uniformly.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="k">def</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Random</span><span class="p">.</span><span class="n">new</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">int</span><span class="p">(</span><span class="o">-</span><span class="mi">69</span><span class="p">,</span><span class="w"> </span><span class="mi">69</span><span class="p">))</span><span class="w"> </span><span class="c1">#&gt; -14</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_sample"><a class="anchor" href="#_sample"></a><strong>sample</strong>(array)</h3>
+<div class="paragraph">
+<p>Return a random element from <code>array</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="k">def</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Random</span><span class="p">.</span><span class="n">new</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">sample</span><span class="p">([</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="sc">'a'</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">.</span><span class="mi">14</span><span class="p">,</span><span class="w"> </span><span class="s">"good"</span><span class="w"> </span><span class="p">]))</span><span class="w"> </span><span class="c1">#&gt; good</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_shuffle"><a class="anchor" href="#_shuffle"></a><strong>shuffle</strong>(array)</h3>
+<div class="paragraph">
+<p>Shuffle the element in the array using <a href="https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle">Fisher–Yates shuffle</a> and return the array.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="k">def</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Random</span><span class="p">.</span><span class="n">new</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">shuffle</span><span class="p">([</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="sc">'a'</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">.</span><span class="mi">14</span><span class="p">,</span><span class="w"> </span><span class="s">"good"</span><span class="w"> </span><span class="p">]))</span><span class="w"> </span><span class="c1">#&gt; [good, 1, 3.14, a]</span></code></pre>
+</div>
+</div>
 </div>
 </div>
 </div>
