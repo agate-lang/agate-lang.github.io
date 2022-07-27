@@ -677,6 +677,7 @@ pre.rouge {
 <li><a href="#_print"><strong>print</strong>(obj)</a></li>
 <li><a href="#_println"><strong>println</strong>()</a></li>
 <li><a href="#_println_obj"><strong>println</strong>(obj)</a></li>
+<li><a href="#_write"><strong>write</strong>(byte)</a></li>
 </ul>
 </li>
 </ul>
@@ -732,6 +733,19 @@ pre.rouge {
 </div>
 <div class="paragraph">
 <p>See also: <a href="#_println"><strong>println</strong>()</a>, <a href="#_print"><strong>print</strong>(obj)</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_write"><a class="anchor" href="#_write"></a><strong>write</strong>(byte)</h3>
+<div class="paragraph">
+<p>Write a byte (an <a href="Int.html"><code>Int</code></a> between 0 and 255) to the standard output.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="kt">IO</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="mh">0x40</span><span class="p">)</span><span class="w"> </span><span class="c1"># @</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="mh">0x0A</span><span class="p">)</span><span class="w"> </span><span class="c1"># \n</span><span class="err">
+</span><span class="c1">#&gt; @</span></code></pre>
+</div>
 </div>
 </div>
 </div>

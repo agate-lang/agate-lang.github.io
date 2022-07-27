@@ -1519,6 +1519,14 @@ pre.rouge {
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>name=(_)</code></p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Prefix operator</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>@</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Infix operator</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>@(_)</code></p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Subscript getter</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>[_]</code>, <code>[_,_]</code></p></td>
 </tr>
@@ -1616,7 +1624,7 @@ pre.rouge {
 <p>It is possible to overload the subscript operator, both as a getter and a setter. The number of parameters inside the brackets is at least one.</p>
 </div>
 <div class="paragraph">
-<p>The signature of a subscript getter method is <code>[_]</code>, <code>[_,_]</code>, &#8230;&#8203; according to the number of indices in the sunscript.</p>
+<p>The signature of a subscript getter method is <code>[_]</code>, <code>[_,_]</code>, &#8230;&#8203; according to the number of indices in the subscript.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1632,7 +1640,7 @@ pre.rouge {
 </div>
 </div>
 <div class="paragraph">
-<p>The signature of a subscript setter method is <code>[_]=(_)</code>, <code>[_,_]=(_)</code>, &#8230;&#8203; according to the number of indices in the sunscript</p>
+<p>The signature of a subscript setter method is <code>[_]=(_)</code>, <code>[_,_]=(_)</code>, &#8230;&#8203; according to the number of indices in the subscript</p>
 </div>
 <div class="listingblock">
 <div class="content">
