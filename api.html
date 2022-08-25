@@ -691,8 +691,6 @@ pre.rouge {
 <li><a href="#_agatevm_type"><code>AgateVM</code> type</a></li>
 <li><a href="#_agatenewvm_function"><code>agateNewVM</code> function</a></li>
 <li><a href="#_agatedeletevm_function"><code>agateDeleteVM</code> function</a></li>
-<li><a href="#_agatestatus_type"><code>AgateStatus</code> type</a></li>
-<li><a href="#_agateinterpret_function"><code>agateInterpret</code> function</a></li>
 </ul>
 </li>
 <li><a href="#_slots">Slots</a>
@@ -707,10 +705,25 @@ pre.rouge {
 <ul class="sectlevel2">
 <li><a href="#_agateslotgethandle_and_agateslotsethandle_functions"><code>agateSlotGetHandle</code> and <code>agateSlotSetHandle</code> functions</a></li>
 <li><a href="#_agatereleasehandle_function"><code>agateReleaseHandle</code> function</a></li>
-<li><a href="#_agatemakecallhandle_and_agatecall_functions"><code>agateMakeCallHandle</code> and <code>agateCall</code> functions</a></li>
+<li><a href="#_agatemakecallhandle_function"><code>agateMakeCallHandle</code> function</a></li>
 </ul>
 </li>
-<li><a href="#_units_and_variables">Units and variables</a></li>
+<li><a href="#_calling">Calling</a>
+<ul class="sectlevel2">
+<li><a href="#_agatestatus_type"><code>AgateStatus</code> type</a></li>
+<li><a href="#_agatecallstring_function"><code>agateCallString</code> function</a></li>
+<li><a href="#_stack">Stack</a></li>
+<li><a href="#_slot_allocation">Slot allocation</a></li>
+<li><a href="#_agatecallhandle_function"><code>agateCallHandle</code> function</a></li>
+</ul>
+</li>
+<li><a href="#_units_and_variables">Units and variables</a>
+<ul class="sectlevel2">
+<li><a href="#_agatehasunit_function"><code>agateHasUnit</code> function</a></li>
+<li><a href="#_agatehasvariable_function"><code>agateHasVariable</code> function</a></li>
+<li><a href="#_agategetvariable_function"><code>agateGetVariable</code> function</a></li>
+</ul>
+</li>
 <li><a href="#_other_functions">Other functions</a>
 <ul class="sectlevel2">
 <li><a href="#_agateabort_function"><code>agateAbort</code> function</a></li>
@@ -751,7 +764,9 @@ pre.rouge {
 
   <span class="n">AgateAssertHandling</span> <span class="n">assert_handling</span><span class="p">;</span>
   <span class="n">AgatePrintFunc</span> <span class="n">print</span><span class="p">;</span>
+  <span class="n">AgateWriteFunc</span> <span class="n">write</span><span class="p">;</span>
   <span class="n">AgateErrorFunc</span> <span class="n">error</span><span class="p">;</span>
+  <span class="n">AgateInputFunc</span> <span class="n">input</span><span class="p">;</span>
 
   <span class="kt">void</span> <span class="o">*</span><span class="n">user_data</span><span class="p">;</span>
 <span class="p">}</span> <span class="n">AgateConfig</span><span class="p">;</span></code></pre>
@@ -788,10 +803,7 @@ pre.rouge {
   <span class="kt">void</span> <span class="o">*</span><span class="n">user_data</span><span class="p">;</span>
 <span class="p">}</span> <span class="n">AgateUnitHandler</span><span class="p">;</span>
 
-<span class="k">typedef</span> <span class="n">AgateUnitHandler</span> <span class="p">(</span><span class="o">*</span><span class="n">AgateUnitHandlerFunc</span><span class="p">)(</span><span class="n">AgateVM</span> <span class="o">*</span><span class="n">vm</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">name</span><span class="p">);</span>
-<span class="n">bool</span> <span class="nf">agateHasUnit</span><span class="p">(</span><span class="n">AgateVM</span> <span class="o">*</span><span class="n">vm</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">unit_name</span><span class="p">);</span>
-<span class="n">bool</span> <span class="nf">agateHasVariable</span><span class="p">(</span><span class="n">AgateVM</span> <span class="o">*</span><span class="n">vm</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">unit_name</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">variable_name</span><span class="p">);</span>
-<span class="kt">void</span> <span class="nf">agateGetVariable</span><span class="p">(</span><span class="n">AgateVM</span> <span class="o">*</span><span class="n">vm</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">unit_name</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">variable_name</span><span class="p">,</span> <span class="kt">ptrdiff_t</span> <span class="n">slot</span><span class="p">);</span></code></pre>
+<span class="k">typedef</span> <span class="n">AgateUnitHandler</span> <span class="p">(</span><span class="o">*</span><span class="n">AgateUnitHandlerFunc</span><span class="p">)(</span><span class="n">AgateVM</span> <span class="o">*</span><span class="n">vm</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">name</span><span class="p">);</span></code></pre>
 </div>
 </div>
 </div>
@@ -875,7 +887,7 @@ pre.rouge {
 <h3 id="_agateprintfunc_type"><a class="anchor" href="#_agateprintfunc_type"></a><code>AgatePrintFunc</code> type</h3>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="c"><span class="k">typedef</span> <span class="kt">void</span> <span class="p">(</span><span class="o">*</span><span class="n">AgatePrintFunc</span><span class="p">)(</span><span class="n">AgateVM</span> <span class="o">*</span><span class="n">vm</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">text</span><span class="p">,</span> <span class="kt">ptrdiff_t</span> <span class="n">size</span><span class="p">);</span></code></pre>
+<pre class="rouge highlight"><code data-lang="c"><span class="k">typedef</span> <span class="kt">void</span> <span class="p">(</span><span class="o">*</span><span class="n">AgatePrintFunc</span><span class="p">)(</span><span class="n">AgateVM</span> <span class="o">*</span><span class="n">vm</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">text</span><span class="p">);</span></code></pre>
 </div>
 </div>
 </div>
@@ -933,26 +945,6 @@ pre.rouge {
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_agatestatus_type"><a class="anchor" href="#_agatestatus_type"></a><code>AgateStatus</code> type</h3>
-<div class="listingblock">
-<div class="content">
-<pre class="rouge highlight"><code data-lang="c"><span class="k">typedef</span> <span class="k">enum</span> <span class="p">{</span>
-  <span class="n">AGATE_STATUS_OK</span><span class="p">,</span>
-  <span class="n">AGATE_STATUS_COMPILE_ERROR</span><span class="p">,</span>
-  <span class="n">AGATE_STATUS_RUNTIME_ERROR</span><span class="p">,</span>
-<span class="p">}</span> <span class="n">AgateStatus</span><span class="p">;</span></code></pre>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_agateinterpret_function"><a class="anchor" href="#_agateinterpret_function"></a><code>agateInterpret</code> function</h3>
-<div class="listingblock">
-<div class="content">
-<pre class="rouge highlight"><code data-lang="c"><span class="n">AgateStatus</span> <span class="nf">agateInterpret</span><span class="p">(</span><span class="n">AgateVM</span> <span class="o">*</span><span class="n">vm</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">unit</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">source</span><span class="p">);</span></code></pre>
-</div>
-</div>
-</div>
 </div>
 </div>
 <div class="sect1">
@@ -979,8 +971,8 @@ pre.rouge {
 <div class="listingblock">
 <div class="content">
 <pre class="rouge highlight"><code data-lang="c"><span class="kt">ptrdiff_t</span> <span class="nf">agateSlotCount</span><span class="p">(</span><span class="n">AgateVM</span> <span class="o">*</span><span class="n">vm</span><span class="p">);</span>
-<span class="kt">void</span> <span class="nf">agateEnsureSlots</span><span class="p">(</span><span class="n">AgateVM</span> <span class="o">*</span><span class="n">vm</span><span class="p">,</span> <span class="kt">ptrdiff_t</span> <span class="n">slots_count</span><span class="p">);</span>
-<span class="n">AgateType</span> <span class="nf">agateSlotType</span><span class="p">(</span><span class="n">AgateVM</span> <span class="o">*</span><span class="n">vm</span><span class="p">,</span> <span class="kt">ptrdiff_t</span> <span class="n">slot</span><span class="p">);</span></code></pre>
+<span class="n">AgateType</span> <span class="nf">agateSlotType</span><span class="p">(</span><span class="n">AgateVM</span> <span class="o">*</span><span class="n">vm</span><span class="p">,</span> <span class="kt">ptrdiff_t</span> <span class="n">slot</span><span class="p">);</span>
+<span class="kt">void</span> <span class="nf">agateSlotCopy</span><span class="p">(</span><span class="n">AgateVM</span> <span class="o">*</span><span class="n">vm</span><span class="p">,</span> <span class="kt">ptrdiff_t</span> <span class="n">dest</span><span class="p">,</span> <span class="kt">ptrdiff_t</span> <span class="n">orig</span><span class="p">);</span></code></pre>
 </div>
 </div>
 </div>
@@ -1060,11 +1052,62 @@ pre.rouge {
 </div>
 </div>
 <div class="sect2">
-<h3 id="_agatemakecallhandle_and_agatecall_functions"><a class="anchor" href="#_agatemakecallhandle_and_agatecall_functions"></a><code>agateMakeCallHandle</code> and <code>agateCall</code> functions</h3>
+<h3 id="_agatemakecallhandle_function"><a class="anchor" href="#_agatemakecallhandle_function"></a><code>agateMakeCallHandle</code> function</h3>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="c"><span class="n">AgateHandle</span> <span class="o">*</span><span class="nf">agateMakeCallHandle</span><span class="p">(</span><span class="n">AgateVM</span> <span class="o">*</span><span class="n">vm</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">signature</span><span class="p">);</span>
-<span class="n">AgateStatus</span> <span class="nf">agateCall</span><span class="p">(</span><span class="n">AgateVM</span> <span class="o">*</span><span class="n">vm</span><span class="p">,</span> <span class="n">AgateHandle</span> <span class="o">*</span><span class="n">method</span><span class="p">);</span></code></pre>
+<pre class="rouge highlight"><code data-lang="c"><span class="n">AgateHandle</span> <span class="o">*</span><span class="nf">agateMakeCallHandle</span><span class="p">(</span><span class="n">AgateVM</span> <span class="o">*</span><span class="n">vm</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">signature</span><span class="p">);</span></code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_calling"><a class="anchor" href="#_calling"></a>Calling</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_agatestatus_type"><a class="anchor" href="#_agatestatus_type"></a><code>AgateStatus</code> type</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="c"><span class="k">typedef</span> <span class="k">enum</span> <span class="p">{</span>
+  <span class="n">AGATE_STATUS_OK</span><span class="p">,</span>
+  <span class="n">AGATE_STATUS_COMPILE_ERROR</span><span class="p">,</span>
+  <span class="n">AGATE_STATUS_RUNTIME_ERROR</span><span class="p">,</span>
+<span class="p">}</span> <span class="n">AgateStatus</span><span class="p">;</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_agatecallstring_function"><a class="anchor" href="#_agatecallstring_function"></a><code>agateCallString</code> function</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="c"><span class="n">AgateStatus</span> <span class="nf">agateCallString</span><span class="p">(</span><span class="n">AgateVM</span> <span class="o">*</span><span class="n">vm</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">unit</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">source</span><span class="p">);</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_stack"><a class="anchor" href="#_stack"></a>Stack</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="c"><span class="kt">void</span> <span class="nf">agateStackStart</span><span class="p">(</span><span class="n">AgateVM</span> <span class="o">*</span><span class="n">vm</span><span class="p">);</span>
+<span class="kt">void</span> <span class="nf">agateStackFinish</span><span class="p">(</span><span class="n">AgateVM</span> <span class="o">*</span><span class="n">vm</span><span class="p">);</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_slot_allocation"><a class="anchor" href="#_slot_allocation"></a>Slot allocation</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="c"><span class="kt">ptrdiff_t</span> <span class="nf">agateSlotAllocate</span><span class="p">(</span><span class="n">AgateVM</span> <span class="o">*</span><span class="n">vm</span><span class="p">);</span>
+<span class="kt">ptrdiff_t</span> <span class="nf">agateSlotForArg</span><span class="p">(</span><span class="n">AgateVM</span> <span class="o">*</span><span class="n">vm</span><span class="p">,</span> <span class="kt">ptrdiff_t</span> <span class="n">i</span><span class="p">);</span>
+<span class="kt">ptrdiff_t</span> <span class="nf">agateSlotForReturn</span><span class="p">(</span><span class="n">AgateVM</span> <span class="o">*</span><span class="n">vm</span><span class="p">);</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_agatecallhandle_function"><a class="anchor" href="#_agatecallhandle_function"></a><code>agateCallHandle</code> function</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="c"><span class="n">AgateStatus</span> <span class="nf">agateCallHandle</span><span class="p">(</span><span class="n">AgateVM</span> <span class="o">*</span><span class="n">vm</span><span class="p">,</span> <span class="n">AgateHandle</span> <span class="o">*</span><span class="n">method</span><span class="p">);</span></code></pre>
 </div>
 </div>
 </div>
@@ -1073,21 +1116,28 @@ pre.rouge {
 <div class="sect1">
 <h2 id="_units_and_variables"><a class="anchor" href="#_units_and_variables"></a>Units and variables</h2>
 <div class="sectionbody">
+<div class="sect2">
+<h3 id="_agatehasunit_function"><a class="anchor" href="#_agatehasunit_function"></a><code>agateHasUnit</code> function</h3>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="c"><span class="k">typedef</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="p">(</span><span class="o">*</span><span class="n">AgateUnitLoadFunc</span><span class="p">)(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">name</span><span class="p">,</span> <span class="kt">void</span> <span class="o">*</span><span class="n">user_data</span><span class="p">);</span>
-<span class="k">typedef</span> <span class="kt">void</span> <span class="p">(</span><span class="o">*</span><span class="n">AgateUnitReleaseFunc</span><span class="p">)(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">source</span><span class="p">,</span> <span class="kt">void</span> <span class="o">*</span><span class="n">user_data</span><span class="p">);</span>
-
-<span class="k">typedef</span> <span class="k">struct</span> <span class="p">{</span>
-  <span class="n">AgateUnitLoadFunc</span> <span class="n">load</span><span class="p">;</span>
-  <span class="n">AgateUnitReleaseFunc</span> <span class="n">release</span><span class="p">;</span>
-  <span class="kt">void</span> <span class="o">*</span><span class="n">user_data</span><span class="p">;</span>
-<span class="p">}</span> <span class="n">AgateUnitHandler</span><span class="p">;</span>
-
-<span class="k">typedef</span> <span class="n">AgateUnitHandler</span> <span class="p">(</span><span class="o">*</span><span class="n">AgateUnitHandlerFunc</span><span class="p">)(</span><span class="n">AgateVM</span> <span class="o">*</span><span class="n">vm</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">name</span><span class="p">);</span>
-<span class="n">bool</span> <span class="nf">agateHasUnit</span><span class="p">(</span><span class="n">AgateVM</span> <span class="o">*</span><span class="n">vm</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">unit_name</span><span class="p">);</span>
-<span class="n">bool</span> <span class="nf">agateHasVariable</span><span class="p">(</span><span class="n">AgateVM</span> <span class="o">*</span><span class="n">vm</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">unit_name</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">variable_name</span><span class="p">);</span>
-<span class="kt">void</span> <span class="nf">agateGetVariable</span><span class="p">(</span><span class="n">AgateVM</span> <span class="o">*</span><span class="n">vm</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">unit_name</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">variable_name</span><span class="p">,</span> <span class="kt">ptrdiff_t</span> <span class="n">slot</span><span class="p">);</span></code></pre>
+<pre class="rouge highlight"><code data-lang="c"><span class="n">bool</span> <span class="nf">agateHasUnit</span><span class="p">(</span><span class="n">AgateVM</span> <span class="o">*</span><span class="n">vm</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">unit_name</span><span class="p">);</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_agatehasvariable_function"><a class="anchor" href="#_agatehasvariable_function"></a><code>agateHasVariable</code> function</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="c"><span class="n">bool</span> <span class="nf">agateHasVariable</span><span class="p">(</span><span class="n">AgateVM</span> <span class="o">*</span><span class="n">vm</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">unit_name</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">variable_name</span><span class="p">);</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_agategetvariable_function"><a class="anchor" href="#_agategetvariable_function"></a><code>agateGetVariable</code> function</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="c"><span class="kt">void</span> <span class="nf">agateGetVariable</span><span class="p">(</span><span class="n">AgateVM</span> <span class="o">*</span><span class="n">vm</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">unit_name</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">variable_name</span><span class="p">,</span> <span class="kt">ptrdiff_t</span> <span class="n">slot</span><span class="p">);</span></code></pre>
+</div>
 </div>
 </div>
 </div>

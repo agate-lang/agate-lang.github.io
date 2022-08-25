@@ -731,10 +731,19 @@ pre.rouge {
 </li>
 <li><a href="#_functions">Functions</a>
 <ul class="sectlevel2">
+<li><a href="#_definition_parameters_and_return_value">Definition, parameters and return value</a></li>
+<li><a href="#_call">Call</a></li>
 <li><a href="#_block_argument">Block Argument</a></li>
+<li><a href="#_closure">Closure</a></li>
 </ul>
 </li>
-<li><a href="#_units">Units</a></li>
+<li><a href="#_units">Units</a>
+<ul class="sectlevel2">
+<li><a href="#_import">Import</a></li>
+<li><a href="#_process">Process</a></li>
+<li><a href="#_location">Location</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
@@ -1855,16 +1864,162 @@ pre.rouge {
 <div class="sect1">
 <h2 id="_functions"><a class="anchor" href="#_functions"></a>Functions</h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>A <a href="https://en.wikipedia.org/wiki/Subroutine">function</a> is a sequence of statements that may have some parameters. In Agate, functions are objects of class <a href="Fn.html"><code>Fn</code></a>.</p>
+</div>
+<div class="sect2">
+<h3 id="_definition_parameters_and_return_value"><a class="anchor" href="#_definition_parameters_and_return_value"></a>Definition, parameters and return value</h3>
+<div class="paragraph">
+<p>The <code>def</code> keyword is used to create a new function. Contrary to methods, function can not be overloaded and must have a unique name. A function may have parameters, their names are between brackets after the function name. The function may return a value with the <code>return</code> keywork, or use an expression block. By default, <code>nil</code> is returned.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="k">def</span><span class="w"> </span><span class="n">is_even</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="err">
+</span><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="err">
+</span><span class="p">}</span><span class="err">
+
+</span><span class="k">def</span><span class="w"> </span><span class="n">is_odd</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="o">!</span><span class="n">is_even</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">}</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Alternatively, it is possible to create a function by creating an object of class <a href="Fn.html"><code>Fn</code></a>, thanks to a <a href="#_block_argument">block argument</a>. The result is exactly the same.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="k">def</span><span class="w"> </span><span class="n">is_even</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">Fn</span><span class="p">.</span><span class="n">new</span><span class="w"> </span><span class="p">{</span><span class="o">|</span><span class="n">n</span><span class="o">|</span><span class="err">
+</span><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="err">
+</span><span class="p">}</span><span class="err">
+
+</span><span class="k">def</span><span class="w"> </span><span class="n">is_odd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">Fn</span><span class="p">.</span><span class="n">new</span><span class="w"> </span><span class="p">{</span><span class="o">|</span><span class="n">n</span><span class="o">|</span><span class="w"> </span><span class="o">!</span><span class="n">is_even</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">}</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_call"><a class="anchor" href="#_call"></a>Call</h3>
+<div class="paragraph">
+<p>A call to a function is just the function name followed by its arguments between brackets. The caller can use the return value of the function. If there are more arguments than parameters, the extra arguments are discarded.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="k">def</span><span class="w"> </span><span class="n">double</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="p">}</span><span class="err">
+
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">double</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span><span class="w">     </span><span class="c1">#&gt; 4</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">double</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">))</span><span class="w">  </span><span class="c1">#&gt; 4</span></code></pre>
+</div>
+</div>
+</div>
 <div class="sect2">
 <h3 id="_block_argument"><a class="anchor" href="#_block_argument"></a>Block Argument</h3>
+<div class="paragraph">
+<p>If the last parameter is a function, the argument may be passed with a block argument. A block argument is a special block that can take parameters between <code>|</code> and act like a function. In fact, it is a function. It can be used to create callbacks.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="k">def</span><span class="w"> </span><span class="n">apply</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">fn</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="err">
+</span><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">fn</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="err">
+</span><span class="p">}</span><span class="err">
 
+</span><span class="k">def</span><span class="w"> </span><span class="n">print</span><span class="p">(</span><span class="n">str</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="err">
+</span><span class="w">  </span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">str</span><span class="p">)</span><span class="err">
+</span><span class="p">}</span><span class="err">
+
+</span><span class="n">apply</span><span class="p">(</span><span class="s">"Hello"</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="o">|</span><span class="n">str</span><span class="o">|</span><span class="w"> </span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">str</span><span class="p">)</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="c1">#&gt; Hello</span><span class="err">
+</span><span class="n">apply</span><span class="p">(</span><span class="s">"World"</span><span class="p">,</span><span class="w"> </span><span class="n">print</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; World</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>A block argument can also be used when calling methods.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_closure"><a class="anchor" href="#_closure"></a>Closure</h3>
+<div class="paragraph">
+<p>A function is a <a href="https://en.wikipedia.org/wiki/Closure_(computer_programming)">closure</a>, it can capture variables outside its scope.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="k">def</span><span class="w"> </span><span class="n">counter</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="err">
+</span><span class="w">  </span><span class="k">def</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="err">
+</span><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="kt">Fn</span><span class="p">.</span><span class="n">new</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="c1"># i is captured</span><span class="err">
+</span><span class="p">}</span><span class="err">
+
+</span><span class="k">def</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">counter</span><span class="p">()</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">f</span><span class="p">())</span><span class="w"> </span><span class="c1">#&gt; 1</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">f</span><span class="p">())</span><span class="w"> </span><span class="c1">#&gt; 2</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">f</span><span class="p">())</span><span class="w"> </span><span class="c1">#&gt; 3</span></code></pre>
+</div>
+</div>
 </div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="_units"><a class="anchor" href="#_units"></a>Units</h2>
 <div class="sectionbody">
-
+<div class="paragraph">
+<p>A unit is a single Agate file that can be imported in another Agate file with the <code>import</code> keyword. Units are useful to break a big program into small (independent) pieces. Each unit has its own scope.</p>
+</div>
+<div class="sect2">
+<h3 id="_import"><a class="anchor" href="#_import"></a>Import</h3>
+<div class="paragraph">
+<p>In order to import a unit, the keyword <code>import</code> is used, followed by a string that identifies the unit. Then, the top-level names from that unit are declared and copied from that unit into the current unit. The names can refer to variables, function or classes.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="k">import</span><span class="w"> </span><span class="s">"entities"</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">Hero</span><span class="p">,</span><span class="w"> </span><span class="n">Villain</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>An <code>import</code> statement can be anywhere, not necessarily at the top of the file.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="k">def</span><span class="w"> </span><span class="n">in_the_forest</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">true</span><span class="err">
+</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">in_the_forest</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="err">
+</span><span class="w">  </span><span class="k">import</span><span class="w"> </span><span class="s">"entities"</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">Orc</span><span class="p">,</span><span class="w"> </span><span class="n">Troll</span><span class="err">
+</span><span class="p">}</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You can rename imported names using the <code>as</code> keyword. This is useful if two units export the same name.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="k">import</span><span class="w"> </span><span class="s">"scenery"</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">Tree</span><span class="err">
+</span><span class="k">import</span><span class="w"> </span><span class="s">"entities"</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">Tree</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">Ent</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_process"><a class="anchor" href="#_process"></a>Process</h3>
+<div class="paragraph">
+<p>During an import, the code in the unit is executed, pausing the current script. When the code in the import is finished, the script resumes.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">"Before import"</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; Before import</span><span class="err">
+</span><span class="k">import</span><span class="w"> </span><span class="s">"tools"</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">Debug</span><span class="w">    </span><span class="c1">#&gt; Tools are loaded</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">"After import"</span><span class="p">)</span><span class="w">  </span><span class="c1">#&gt; After import</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>A unit is never executed twice. It is only executed the first time it is imported, even when several units import the same unit.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="k">import</span><span class="w"> </span><span class="s">"tools"</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">Debug</span><span class="w">  </span><span class="c1">#&gt; Tools are loaded</span><span class="err">
+</span><span class="k">import</span><span class="w"> </span><span class="s">"tools"</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">Log</span><span class="w">    </span><span class="c1"># no output, the unit is alreay loaded</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This means you have to be very careful when doing cyclic imports!</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_location"><a class="anchor" href="#_location"></a>Location</h3>
+<div class="paragraph">
+<p>The way to map the string after <code>import</code> to a file can be customized by the runtime environment (see <a href="embed.html#_units">Advanced Configuration - Units</a>). The convention is that the string <code>"foo/bar"</code> maps to a file called <code>for/bar.agate</code> inside a root directory known by the runtime. The string is always relative to the root directory, not relative to the script directory.</p>
+</div>
+</div>
 </div>
 </div>
 </div>

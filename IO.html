@@ -674,9 +674,11 @@ pre.rouge {
 <ul class="sectlevel1">
 <li><a href="#_static_methods">Static Methods</a>
 <ul class="sectlevel2">
+<li><a href="#_input"><strong>input</strong>()</a></li>
+<li><a href="#_input1"><strong>input</strong>(message)</a></li>
 <li><a href="#_print"><strong>print</strong>(obj)</a></li>
 <li><a href="#_println"><strong>println</strong>()</a></li>
-<li><a href="#_println_obj"><strong>println</strong>(obj)</a></li>
+<li><a href="#_println1"><strong>println</strong>(obj)</a></li>
 <li><a href="#_write"><strong>write</strong>(byte)</a></li>
 </ul>
 </li>
@@ -698,6 +700,34 @@ pre.rouge {
 <h2 id="_static_methods"><a class="anchor" href="#_static_methods"></a>Static Methods</h2>
 <div class="sectionbody">
 <div class="sect2">
+<h3 id="_input"><a class="anchor" href="#_input"></a><strong>input</strong>()</h3>
+<div class="paragraph">
+<p>Get a line from the standard input. The line may be truncated if it is too long. The line may end with a newline character.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="k">def</span><span class="w"> </span><span class="n">input</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">IO</span><span class="p">.</span><span class="n">input</span><span class="p">()</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>See also: <a href="#_input1"><strong>input</strong>(message)</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_input1"><a class="anchor" href="#_input1"></a><strong>input</strong>(message)</h3>
+<div class="paragraph">
+<p>Print the message and get a line from the standard input. The line may be truncated if it is too long. The line may end with a newline character.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="k">def</span><span class="w"> </span><span class="n">input</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">IO</span><span class="p">.</span><span class="n">input</span><span class="p">(</span><span class="s">"What is the answer?</span><span class="se">\n</span><span class="s">"</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; What is the answer?</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>See also: <a href="#_input"><strong>input</strong>()</a></p>
+</div>
+</div>
+<div class="sect2">
 <h3 id="_print"><a class="anchor" href="#_print"></a><strong>print</strong>(obj)</h3>
 <div class="paragraph">
 <p>Print <code>obj</code> to the standard output without a newline at the end. <code>obj</code> is converted to a string by calling the <code>.to_s</code> method.</p>
@@ -709,7 +739,7 @@ pre.rouge {
 </div>
 </div>
 <div class="paragraph">
-<p>See also: <a href="#_println_obj"><strong>println</strong>(obj)</a></p>
+<p>See also: <a href="#_println1"><strong>println</strong>(obj)</a></p>
 </div>
 </div>
 <div class="sect2">
@@ -718,11 +748,11 @@ pre.rouge {
 <p>Print a newline to the standard output.</p>
 </div>
 <div class="paragraph">
-<p>See also: <a href="#_println_obj"><strong>println</strong>(obj)</a></p>
+<p>See also: <a href="#_println1"><strong>println</strong>(obj)</a></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_println_obj"><a class="anchor" href="#_println_obj"></a><strong>println</strong>(obj)</h3>
+<h3 id="_println1"><a class="anchor" href="#_println1"></a><strong>println</strong>(obj)</h3>
 <div class="paragraph">
 <p>Print <code>obj</code> to the standard output <em>and</em> a newline at the end. <code>obj</code> is converted to a string by calling the <code>.to_s</code> method.</p>
 </div>

@@ -674,12 +674,14 @@ pre.rouge {
 <ul class="sectlevel1">
 <li><a href="#_methods">Methods</a>
 <ul class="sectlevel2">
+<li><a href="#_containsvalue"><strong>contains</strong>(value)</a></li>
 <li><a href="#_from"><strong>from</strong></a></li>
 <li><a href="#_hash"><strong>hash</strong></a></li>
 <li><a href="#_inclusive"><strong>inclusive</strong></a></li>
 <li><a href="#_iterate"><strong>iterate</strong>(iterator), <strong>iterator_value</strong>(iterator)</a></li>
 <li><a href="#_max"><strong>max</strong></a></li>
 <li><a href="#_min"><strong>min</strong></a></li>
+<li><a href="#_size"><strong>size</strong></a></li>
 <li><a href="#_to"><strong>to</strong></a></li>
 <li><a href="#_to_s"><strong>to_s</strong></a></li>
 </ul>
@@ -701,6 +703,18 @@ pre.rouge {
 <div class="sect1">
 <h2 id="_methods"><a class="anchor" href="#_methods"></a>Methods</h2>
 <div class="sectionbody">
+<div class="sect2">
+<h3 id="_containsvalue"><a class="anchor" href="#_containsvalue"></a><strong>contains</strong>(value)</h3>
+<div class="paragraph">
+<p>Return <code>true</code> if the range contains <code>value</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">((</span><span class="mi">42</span><span class="p">..</span><span class="mi">69</span><span class="p">).</span><span class="n">contains</span><span class="p">(</span><span class="mi">55</span><span class="p">))</span><span class="w"> </span><span class="c1">#&gt; true</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">((</span><span class="mi">42</span><span class="p">..</span><span class="mi">69</span><span class="p">).</span><span class="n">contains</span><span class="p">(</span><span class="mi">12</span><span class="p">))</span><span class="w"> </span><span class="c1">#&gt; false</span></code></pre>
+</div>
+</div>
+</div>
 <div class="sect2">
 <h3 id="_from"><a class="anchor" href="#_from"></a><strong>from</strong></h3>
 <div class="paragraph">
@@ -747,6 +761,9 @@ pre.rouge {
 </div>
 <div class="sect2">
 <h3 id="_max"><a class="anchor" href="#_max"></a><strong>max</strong></h3>
+<div class="paragraph">
+<p>Return the maximum endpoint of the range.</p>
+</div>
 <div class="listingblock">
 <div class="content">
 <pre class="rouge highlight"><code data-lang="agate"><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">((</span><span class="mi">42</span><span class="p">..</span><span class="mi">69</span><span class="p">).</span><span class="n">max</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; 69</span><span class="err">
@@ -759,6 +776,9 @@ pre.rouge {
 </div>
 <div class="sect2">
 <h3 id="_min"><a class="anchor" href="#_min"></a><strong>min</strong></h3>
+<div class="paragraph">
+<p>Return the minimum endpoint of the range.</p>
+</div>
 <div class="listingblock">
 <div class="content">
 <pre class="rouge highlight"><code data-lang="agate"><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">((</span><span class="mi">42</span><span class="p">..</span><span class="mi">69</span><span class="p">).</span><span class="n">min</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; 42</span><span class="err">
@@ -767,6 +787,18 @@ pre.rouge {
 </div>
 <div class="paragraph">
 <p>See also: <a href="#_max"><strong>max</strong></a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_size"><a class="anchor" href="#_size"></a><strong>size</strong></h3>
+<div class="paragraph">
+<p>Return the number of elements in the range.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">((</span><span class="mi">42</span><span class="p">..</span><span class="mi">69</span><span class="p">).</span><span class="n">size</span><span class="p">)</span><span class="w">   </span><span class="c1">#&gt; 28</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">((</span><span class="mi">42</span><span class="p">...</span><span class="mi">69</span><span class="p">).</span><span class="n">size</span><span class="p">)</span><span class="w">  </span><span class="c1">#&gt; 27</span></code></pre>
+</div>
 </div>
 </div>
 <div class="sect2">
