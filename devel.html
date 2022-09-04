@@ -529,6 +529,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li>
 <p><code>tests.c</code> is the driver for running all the tests.</p>
 </li>
+<li>
+<p><code>support.h</code>, <code>support.c</code> are files that implement some functions needed in the Agate configuration, they can be used as is.</p>
+</li>
 </ul>
 </div>
 </div>
@@ -552,7 +555,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>Functions can be declared with <code>def</code> (but also with <code>Fn.new()</code>).</p>
 </li>
 <li>
-<p>Functions can be called directly with <code>f()</code> without <code>.call</code>.</p>
+<p>Functions can be called directly with <code>f()</code> without <code>.call</code>. Classes can implement a <code>()</code> method to be callable.</p>
 </li>
 <li>
 <p>Math functions are in the <code>Math</code> class, not methods of <code>Num</code>.</p>
@@ -561,7 +564,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>Agate <code>Map</code> can take as key any object that implements a <code>hash</code> method (and core types do implement <code>hash</code>).</p>
 </li>
 <li>
-<p>Wren module is Agate unit.</p>
+<p>Wren <em>module</em> is Agate <em>unit</em>.</p>
 </li>
 <li>
 <p>Calling a method on <code>this</code> is done with <code>.method</code>, <code>method</code> refers to a variable (local or global).</p>
@@ -574,6 +577,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </li>
 <li>
 <p>Agate has no annotations (and do not plan to introduce annotations).</p>
+</li>
+<li>
+<p>Agate is reentrant!</p>
 </li>
 <li>
 <p>Coding conventions are different: Agate methods, functions and variables are in snake case rather than camel case.</p>
