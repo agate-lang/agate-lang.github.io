@@ -516,7 +516,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p><code>debug.inc.c</code> contains additional functions that are necessary for debugging (for developpers only), this file may be included from <code>agate.c</code>.</p>
 </li>
 <li>
-<p><code>agate-cli.c</code> is the driver for standalone Agate, it can execute an Agate script from the command line.</p>
+<p><code>agate-run.c</code> is a driver for standalone bare Agate, it can execute an Agate script from the command line.</p>
 </li>
 <li>
 <p><code>agate.l</code>, <code>agate.y</code> are the <a href="https://github.com/westes/flex">Flex</a> file and the <a href="https://www.gnu.org/software/bison/">Bison</a> file for checking Agate syntax</p>
@@ -531,7 +531,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p><code>tests.c</code> is the driver for running all the tests.</p>
 </li>
 <li>
-<p><code>support.h</code>, <code>support.c</code> are files that implement some functions needed in the Agate configuration, they can be used as is.</p>
+<p><code>agate-support.h</code>, <code>agate-support.c</code> are files that implement some functions needed in the Agate configuration, they can be used as is.</p>
 </li>
 </ul>
 </div>

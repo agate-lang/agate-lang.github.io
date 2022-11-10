@@ -674,6 +674,7 @@ pre.rouge {
 <ul class="sectlevel1">
 <li><a href="#_static_methods">Static Methods</a>
 <ul class="sectlevel2">
+<li><a href="#_indirect_call"><strong>indirect_call</strong>(fn, args)</a></li>
 <li><a href="#_new"><strong>new</strong>(function)</a></li>
 </ul>
 </li>
@@ -700,6 +701,20 @@ pre.rouge {
 <div class="sect1">
 <h2 id="_static_methods"><a class="anchor" href="#_static_methods"></a>Static Methods</h2>
 <div class="sectionbody">
+<div class="sect2">
+<h3 id="_indirect_call"><a class="anchor" href="#_indirect_call"></a><strong>indirect_call</strong>(fn, args)</h3>
+<div class="paragraph">
+<p>Call function <code>fn</code> with the arguments in the array <code>args</code>. <code>fn</code> must be an instance of <code>Fn</code> and not a callable.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="k">def</span><span class="w"> </span><span class="n">hello</span><span class="p">(</span><span class="n">name</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="err">
+</span><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="s">"Hello "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">name</span><span class="err">
+</span><span class="p">}</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Fn</span><span class="p">.</span><span class="n">indirect_call</span><span class="p">(</span><span class="n">hello</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="s">"World"</span><span class="p">]))</span><span class="w"> </span><span class="c1">#&gt; Hello World</span></code></pre>
+</div>
+</div>
+</div>
 <div class="sect2">
 <h3 id="_new"><a class="anchor" href="#_new"></a><strong>new</strong>(function)</h3>
 <div class="paragraph">

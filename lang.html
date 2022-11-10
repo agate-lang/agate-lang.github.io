@@ -1561,6 +1561,10 @@ pre.rouge {
 <td class="tableblock halign-left valign-top"><p class="tableblock">Call operator</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>()</code>, <code>(_)</code>, <code>(_,_)</code></p></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Missing method operator</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>?(_,_)</code></p></td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -1702,6 +1706,25 @@ pre.rouge {
 
 </span><span class="k">def</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Callable</span><span class="p">.</span><span class="n">new</span><span class="p">()</span><span class="err">
 </span><span class="n">c</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; Call with 1</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_missing_method_operator"><a class="anchor" href="#_missing_method_operator"></a>Missing Method Operator</h4>
+<div class="paragraph">
+<p>It is possible to implement the missing method operator. In case a method is not found, then this special operator is called with the name of the method and the arguments in an array. The signature of the missing method operator is <code>?(_,_)</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="k">class</span><span class="w"> </span><span class="n">Entity</span><span class="w"> </span><span class="p">{</span><span class="err">
+</span><span class="w">  </span><span class="k">construct</span><span class="w"> </span><span class="n">new</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span><span class="err">
+</span><span class="w">  </span><span class="o">?</span><span class="p">(</span><span class="n">signature</span><span class="p">,</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="err">
+</span><span class="w">    </span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">"Method </span><span class="si">%(</span><span class="n">signature</span><span class="si">)</span><span class="s"> missing: </span><span class="si">%(</span><span class="n">args</span><span class="si">)</span><span class="s">"</span><span class="p">)</span><span class="err">
+</span><span class="w">  </span><span class="p">}</span><span class="err">
+</span><span class="p">}</span><span class="err">
+
+</span><span class="k">def</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Entity</span><span class="p">.</span><span class="n">new</span><span class="p">()</span><span class="err">
+</span><span class="n">e</span><span class="p">.</span><span class="n">unknown</span><span class="p">(</span><span class="s">"hello"</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; Method unknown(_) missing: [hello]</span></code></pre>
 </div>
 </div>
 </div>

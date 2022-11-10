@@ -680,6 +680,7 @@ pre.rouge {
 <li><a href="#_methods">Methods</a>
 <ul class="sectlevel2">
 <li><a href="#_clear"><strong>clear</strong>()</a></li>
+<li><a href="#_clone"><strong>clone</strong>()</a></li>
 <li><a href="#_contains"><strong>contains</strong>(key)</a></li>
 <li><a href="#_erase"><strong>erase</strong>(key)</a></li>
 <li><a href="#_insert"><strong>insert</strong>(key, value)</a></li>
@@ -741,6 +742,19 @@ pre.rouge {
 <pre class="rouge highlight"><code data-lang="agate"><span class="k">def</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mi">1</span><span class="o">:</span><span class="w"> </span><span class="sc">'a'</span><span class="p">,</span><span class="w"> </span><span class="k">true</span><span class="o">:</span><span class="w"> </span><span class="mi">3</span><span class="p">.</span><span class="mi">14</span><span class="p">,</span><span class="w"> </span><span class="s">"good"</span><span class="o">:</span><span class="w"> </span><span class="k">nil</span><span class="w"> </span><span class="p">}</span><span class="err">
 </span><span class="n">m</span><span class="p">.</span><span class="n">clear</span><span class="p">()</span><span class="err">
 </span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">m</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; {}</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_clone"><a class="anchor" href="#_clone"></a><strong>clone</strong>()</h3>
+<div class="paragraph">
+<p>Get a deep copy of the map. The keys and values of the map must implement the <code>clone</code> method.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="k">def</span><span class="w"> </span><span class="n">m0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mi">1</span><span class="o">:</span><span class="w"> </span><span class="sc">'a'</span><span class="p">,</span><span class="w"> </span><span class="k">true</span><span class="o">:</span><span class="w"> </span><span class="mi">3</span><span class="p">.</span><span class="mi">14</span><span class="p">,</span><span class="w"> </span><span class="s">"good"</span><span class="o">:</span><span class="w"> </span><span class="k">nil</span><span class="w"> </span><span class="p">}</span><span class="err">
+</span><span class="k">def</span><span class="w"> </span><span class="n">m1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m0</span><span class="p">.</span><span class="n">clone</span><span class="p">()</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">m1</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; {1: a, true: 3.14, good: nil}</span></code></pre>
 </div>
 </div>
 </div>

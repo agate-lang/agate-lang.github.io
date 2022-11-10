@@ -676,10 +676,23 @@ pre.rouge {
 <ul class="sectlevel2">
 <li><a href="#_creation_and_deletion">Creation and Deletion</a></li>
 <li><a href="#_basic_configuration">Basic Configuration</a></li>
+<li><a href="#_executing_a_simple_script">Executing a simple script</a></li>
 </ul>
 </li>
-<li><a href="#_slots">Slots</a></li>
-<li><a href="#_handles">Handles</a></li>
+<li><a href="#_slots">Slots</a>
+<ul class="sectlevel2">
+<li><a href="#_primitive_types">Primitive types</a></li>
+<li><a href="#_array">Array</a></li>
+<li><a href="#_map">Map</a></li>
+<li><a href="#_variables">Variables</a></li>
+</ul>
+</li>
+<li><a href="#_handles">Handles</a>
+<ul class="sectlevel2">
+<li><a href="#_handle_management">Handle management</a></li>
+<li><a href="#_call_handles">Call handles</a></li>
+</ul>
+</li>
 <li><a href="#_foreign_methods">Foreign methods</a></li>
 <li><a href="#_foreign_classes">Foreign classes</a></li>
 <li><a href="#_calling_agate_from_c">Calling Agate from C</a></li>
@@ -753,7 +766,7 @@ pre.rouge {
 <p>Agate provides <a href="https://en.wikipedia.org/wiki/Assertion_(software_development)">assertions</a> in the language with the <code>assert</code> keyword. The behaviour of a failed assertion is determined by <code>assert_handling</code> in the configuration.</p>
 </div>
 <div class="paragraph">
-<p>By default, the value of <code>assert_handling</code> is <code>AGATE_ASSERT_ABORT</code>. This means that the script aborts if the assertion fails. This is useful when developping the script. You can also choose that the assertion returns <code>nil</code> instead of stopping the script, with the <code>AGATE_ASSERT_NIL</code> value. In this case, the script may fail later. Or you can also choose that assertions are totally removed from the script with the <code>AGATE_ASSERT_NONE</code> value. This should be the configuration in production, when the script have been well tested.</p>
+<p>By default, the value of <code>assert_handling</code> is <code>AGATE_ASSERT_ABORT</code>. This means that the script aborts if the assertion fails. This is useful when developping the script. You can also choose that the assertion returns <code>nil</code> instead of stopping the script, with the <code>AGATE_ASSERT_NIL</code> value. In this case, the script may fail later. Or you can also choose that assertions are totally removed from the script with the <code>AGATE_ASSERT_NONE</code> value. This should be the configuration in production, when the script has been well tested.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -764,7 +777,7 @@ pre.rouge {
 </div>
 </div>
 <div class="sect3">
-<h4 id="_printing">Printing</h4>
+<h4 id="_inputoutput">Input/Output</h4>
 <div class="paragraph">
 <p>By default, Agate does not print anything, you have to provide functions for this.</p>
 </div>
@@ -809,6 +822,16 @@ pre.rouge {
 </div>
 </div>
 <div class="paragraph">
+<p>The <code>input</code> function is responsible for taking the input from the user. The simplest implementation of an <code>input</code> function uses the <a href="https://en.cppreference.com/w/c/io/fgets"><code>fgets</code></a> standard functions. This function is used by the <a href="IO.html#_input"><code>IO.input</code></a> function.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="c"><span class="kt">void</span> <span class="nf">input_handler</span><span class="p">(</span><span class="n">AgateVM</span> <span class="o">*</span><span class="n">vm</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">buffer</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">size</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">fgets</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="n">stdin</span><span class="p">);</span>
+<span class="p">}</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
 <p>Finally, you can use these functions in the configuration.</p>
 </div>
 <div class="listingblock">
@@ -817,7 +840,8 @@ pre.rouge {
 <span class="n">agateConfigInitialize</span><span class="p">(</span><span class="o">&amp;</span><span class="n">config</span><span class="p">);</span>
 <span class="n">config</span><span class="p">.</span><span class="n">print</span> <span class="o">=</span> <span class="n">print_handler</span><span class="p">;</span>
 <span class="n">config</span><span class="p">.</span><span class="n">write</span> <span class="o">=</span> <span class="n">write_handler</span><span class="p">;</span>
-<span class="n">config</span><span class="p">.</span><span class="n">error</span> <span class="o">=</span> <span class="n">error_handler</span><span class="p">;</span></code></pre>
+<span class="n">config</span><span class="p">.</span><span class="n">error</span> <span class="o">=</span> <span class="n">error_handler</span><span class="p">;</span>
+<span class="n">config</span><span class="p">.</span><span class="n">input</span> <span class="o">=</span> <span class="n">print_handler</span><span class="p">;</span></code></pre>
 </div>
 </div>
 </div>
@@ -873,18 +897,54 @@ pre.rouge {
 </div>
 </div>
 </div>
+<div class="sect2">
+<h3 id="_executing_a_simple_script">Executing a simple script</h3>
+<div class="paragraph">
+<p>After the virtual machine is configured, you can execute a simple script in a string with <code>agateCallString()</code>. The return value indicates if the script was executed without errors (<code>AGATE_STATUS_OK</code>) or if the compilation of the script failed (<code>AGATE_STATUS_COMPILE_ERROR</code>) or if a runtime error occured (<code>AGATE_STATUS_RUNTIME_ERROR</code>).</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="c"><span class="n">AgateStatus</span> <span class="n">status</span> <span class="o">=</span> <span class="n">agateCallString</span><span class="p">(</span><span class="n">vm</span><span class="p">,</span> <span class="s">"game"</span><span class="p">,</span> <span class="s">"IO.println(</span><span class="se">\"</span><span class="s">Start!</span><span class="se">\"</span><span class="s">)"</span><span class="p">);</span></code></pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="_slots">Slots</h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>Slots are identifiers for communicating between the Agate part and the C part. They are indices in an array of values that you can read or write.</p>
+</div>
+<div class="sect2">
+<h3 id="_primitive_types">Primitive types</h3>
 
+</div>
+<div class="sect2">
+<h3 id="_array">Array</h3>
+
+</div>
+<div class="sect2">
+<h3 id="_map">Map</h3>
+
+</div>
+<div class="sect2">
+<h3 id="_variables">Variables</h3>
+
+</div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="_handles">Handles</h2>
 <div class="sectionbody">
+<div class="sect2">
+<h3 id="_handle_management">Handle management</h3>
 
+</div>
+<div class="sect2">
+<h3 id="_call_handles">Call handles</h3>
+
+</div>
 </div>
 </div>
 <div class="sect1">

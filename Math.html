@@ -698,7 +698,9 @@ pre.rouge {
 <li><a href="#_exp"><strong>exp</strong>(x)</a></li>
 <li><a href="#_exp2"><strong>exp2</strong>(x)</a></li>
 <li><a href="#_floor"><strong>floor</strong>(x)</a></li>
+<li><a href="#_gcd"><strong>gcd</strong>(x, y)</a></li>
 <li><a href="#_hypot"><strong>hypot</strong>(x, y)</a></li>
+<li><a href="#_lcm"><strong>lcm</strong>(x, y)</a></li>
 <li><a href="#_log"><strong>log</strong>(x)</a></li>
 <li><a href="#_log2"><strong>log2</strong>(x)</a></li>
 <li><a href="#_log10"><strong>log10</strong>(x)</a></li>
@@ -1047,6 +1049,22 @@ pre.rouge {
 </div>
 </div>
 <div class="sect2">
+<h3 id="_gcd"><a class="anchor" href="#_gcd"></a><strong>gcd</strong>(x, y)</h3>
+<div class="paragraph">
+<p>Get the <a href="https://en.wikipedia.org/wiki/Greatest_common_divisor">greatest common divisor</a> of <code>x</code> and <code>y</code>. <code>x</code> and <code>y</code> must be of type <a href="Int.html"><code>Int</code></a>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">gcd</span><span class="p">(</span><span class="mi">54</span><span class="p">,</span><span class="w"> </span><span class="mi">24</span><span class="p">))</span><span class="w">    </span><span class="c1">#&gt; 6</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">gcd</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="w"> </span><span class="mi">28</span><span class="p">))</span><span class="w">     </span><span class="c1">#&gt; 1</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">gcd</span><span class="p">(</span><span class="o">-</span><span class="mi">42</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">56</span><span class="p">))</span><span class="w">  </span><span class="c1">#&gt; 14</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>See also: <a href="#_lcm"><strong>lcm</strong>(x, y)</a></p>
+</div>
+</div>
+<div class="sect2">
 <h3 id="_hypot"><a class="anchor" href="#_hypot"></a><strong>hypot</strong>(x, y)</h3>
 <div class="paragraph">
 <p>Get the length of the hypotenuse of a right-angled triangle with sides of length <code>x</code> and <code>y</code>, or the distance of the point \((x,y)\) from the origin. The value is \(\sqrt{x^2 + y^2}\).</p>
@@ -1057,6 +1075,22 @@ pre.rouge {
 </span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">hypot</span><span class="p">(</span><span class="mi">1</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">.</span><span class="mi">0</span><span class="p">))</span><span class="w">  </span><span class="c1">#&gt; 1.4142135623731</span><span class="err">
 </span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">hypot</span><span class="p">(</span><span class="mi">4</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">3</span><span class="p">.</span><span class="mi">0</span><span class="p">))</span><span class="w"> </span><span class="c1">#&gt; 5</span></code></pre>
 </div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_lcm"><a class="anchor" href="#_lcm"></a><strong>lcm</strong>(x, y)</h3>
+<div class="paragraph">
+<p>Get the <a href="https://en.wikipedia.org/wiki/Least_common_multiple">least common multiple</a> of <code>x</code> and <code>y</code>. <code>x</code> and <code>y</code> must be of type <a href="Int.html"><code>Int</code></a>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">lcm</span><span class="p">(</span><span class="mi">21</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">))</span><span class="w">    </span><span class="c1">#&gt; 42</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">lcm</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">))</span><span class="w">     </span><span class="c1">#&gt; 63</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="kt">Math</span><span class="p">.</span><span class="n">lcm</span><span class="p">(</span><span class="o">-</span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">10</span><span class="p">))</span><span class="w">  </span><span class="c1">#&gt; 40</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>See also: <a href="#_gcd"><strong>gcd</strong>(x, y)</a></p>
 </div>
 </div>
 <div class="sect2">

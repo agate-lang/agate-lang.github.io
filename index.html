@@ -438,6 +438,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 #footer-text{color:rgba(0,0,0,.6);font-size:.9em}}
 @media amzn-kf8{#header,#content,#footnotes,#footer{padding:0}}
 </style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <meta name="keywords" content="Agate, programming language, scripting, gamedev" />
   <meta name="description" content="Agate, a simple and embeddable programming language" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -466,11 +467,27 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="paragraph">
 <p>Agate is a scripting language with a simple yet powerful object-oriented syntax written in C99. It can easily be embedded in any application (e.g. games) with only three files to copy in your source tree. It has decent performance thanks to a bytecode virtual machine and a single pass compiler.</p>
 </div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Agate is in an early stage of development. While it is being used, it is still far from a 1.0 version. This means that the language may change, as well as the C API. If you want a feature, use the <a href="https://github.com/agate-lang/agate/issues">Github issues</a> where it can be discussed. The website reflects the latest stage of the language.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="_users_documentation">Users Documentation</h2>
 <div class="sectionbody">
+<div class="sect2">
+<h3 id="_core_agate">Core Agate</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -486,6 +503,20 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p><a href="api.html">Agate Reference C API</a></p>
 </li>
 </ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_extended_agate">Extended Agate</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="std.html">The Agate Standard Units</a></p>
+</li>
+<li>
+<p><a href="cli.html">The Standalone Agate Command Line Tool</a></p>
+</li>
+</ul>
+</div>
 </div>
 </div>
 </div>
