@@ -872,7 +872,7 @@ pre.rouge {
 <div class="sect2">
 <h3 id="_boolean"><a class="anchor" href="#_boolean"></a>Boolean</h3>
 <div class="paragraph">
-<p>A boolean value represents whether an something is true or false. The literals <code>true</code> and <code>false</code> can be used to create the two possible boolean values. Their class is <a href="Bool.html"><code>Bool</code></a>.</p>
+<p>A boolean value represents whether something is true or false. The literals <code>true</code> and <code>false</code> can be used to create the two possible boolean values. Their class is <a href="Bool.html"><code>Bool</code></a>.</p>
 </div>
 </div>
 <div class="sect2">
@@ -1712,7 +1712,7 @@ pre.rouge {
 <div class="sect3">
 <h4 id="_missing_method_operator"><a class="anchor" href="#_missing_method_operator"></a>Missing Method Operator</h4>
 <div class="paragraph">
-<p>It is possible to implement the missing method operator. In case a method is not found, then this special operator is called with the name of the method and the arguments in an array. The signature of the missing method operator is <code>?(_,_)</code>.</p>
+<p>It is possible to implement the missing method operator. In case a method is not found, then this special operator is called with the signature of the method and the arguments in an array. The signature of the missing method operator is <code>?(_,_)</code>.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1883,9 +1883,11 @@ pre.rouge {
 <pre class="rouge highlight"><code data-lang="agate"><span class="k">class</span><span class="w"> </span><span class="n">Entity</span><span class="w"> </span><span class="p">{</span><span class="err">
 </span><span class="w">  </span><span class="c1"># no superclass = superclass is Object</span><span class="err">
 </span><span class="p">}</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">Entity</span><span class="p">.</span><span class="n">supertype</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; Object</span><span class="err">
 </span><span class="k">class</span><span class="w"> </span><span class="n">Hero</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">Entity</span><span class="w"> </span><span class="p">{</span><span class="err">
 </span><span class="w">  </span><span class="c1"># superclass is Entity</span><span class="err">
-</span><span class="p">}</span></code></pre>
+</span><span class="p">}</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">Hero</span><span class="p">.</span><span class="n">supertype</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; Entity</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2048,7 +2050,7 @@ pre.rouge {
 <div class="sect2">
 <h3 id="_import"><a class="anchor" href="#_import"></a>Import</h3>
 <div class="paragraph">
-<p>In order to import a unit, the keyword <code>import</code> is used, followed by a string that identifies the unit. Then, the top-level names from that unit are declared and copied from that unit into the current unit. The names can refer to variables, function or classes.</p>
+<p>In order to import a unit, the keyword <code>import</code> is used, followed by a string that identifies the unit. Then, the top-level names from that unit are declared and copied from that unit into the current unit. The names can refer to variables, functions or classes.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2104,7 +2106,7 @@ pre.rouge {
 <div class="sect2">
 <h3 id="_location"><a class="anchor" href="#_location"></a>Location</h3>
 <div class="paragraph">
-<p>The way to map the string after <code>import</code> to a file can be customized by the runtime environment (see <a href="embed.html#_units">Advanced Configuration - Units</a>). The convention is that the string <code>"foo/bar"</code> maps to a file called <code>for/bar.agate</code> inside a root directory known by the runtime. The string is always relative to the root directory, not relative to the script directory.</p>
+<p>The way to map the string after <code>import</code> to a file can be customized by the runtime environment (see <a href="embed.html#_units">Advanced Configuration - Units</a>). The convention is that the string <code>"foo/bar"</code> maps to a file called <code>foo/bar.agate</code> inside a root directory known by the runtime. The string is always relative to the root directory, not relative to the script directory.</p>
 </div>
 </div>
 </div>

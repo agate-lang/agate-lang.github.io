@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.12">
 <meta name="author" content="v0.1">
-<title>math/big unit</title>
+<title>Heap class</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /* Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
@@ -438,6 +438,221 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 #footer-text{color:rgba(0,0,0,.6);font-size:.9em}}
 @media amzn-kf8{#header,#content,#footnotes,#footer{padding:0}}
 </style>
+<style>
+pre.rouge table td { padding: 5px; }
+pre.rouge table pre { margin: 0; }
+pre.rouge .cm {
+  color: #999988;
+  font-style: italic;
+}
+pre.rouge .cp {
+  color: #999999;
+  font-weight: bold;
+}
+pre.rouge .c1 {
+  color: #999988;
+  font-style: italic;
+}
+pre.rouge .cs {
+  color: #999999;
+  font-weight: bold;
+  font-style: italic;
+}
+pre.rouge .c, pre.rouge .ch, pre.rouge .cd, pre.rouge .cpf {
+  color: #999988;
+  font-style: italic;
+}
+pre.rouge .err {
+  color: #a61717;
+  background-color: #e3d2d2;
+}
+pre.rouge .gd {
+  color: #000000;
+  background-color: #ffdddd;
+}
+pre.rouge .ge {
+  color: #000000;
+  font-style: italic;
+}
+pre.rouge .gr {
+  color: #aa0000;
+}
+pre.rouge .gh {
+  color: #999999;
+}
+pre.rouge .gi {
+  color: #000000;
+  background-color: #ddffdd;
+}
+pre.rouge .go {
+  color: #888888;
+}
+pre.rouge .gp {
+  color: #555555;
+}
+pre.rouge .gs {
+  font-weight: bold;
+}
+pre.rouge .gu {
+  color: #aaaaaa;
+}
+pre.rouge .gt {
+  color: #aa0000;
+}
+pre.rouge .kc {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .kd {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .kn {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .kp {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .kr {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .kt {
+  color: #445588;
+  font-weight: bold;
+}
+pre.rouge .k, pre.rouge .kv {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .mf {
+  color: #009999;
+}
+pre.rouge .mh {
+  color: #009999;
+}
+pre.rouge .il {
+  color: #009999;
+}
+pre.rouge .mi {
+  color: #009999;
+}
+pre.rouge .mo {
+  color: #009999;
+}
+pre.rouge .m, pre.rouge .mb, pre.rouge .mx {
+  color: #009999;
+}
+pre.rouge .sa {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .sb {
+  color: #d14;
+}
+pre.rouge .sc {
+  color: #d14;
+}
+pre.rouge .sd {
+  color: #d14;
+}
+pre.rouge .s2 {
+  color: #d14;
+}
+pre.rouge .se {
+  color: #d14;
+}
+pre.rouge .sh {
+  color: #d14;
+}
+pre.rouge .si {
+  color: #d14;
+}
+pre.rouge .sx {
+  color: #d14;
+}
+pre.rouge .sr {
+  color: #009926;
+}
+pre.rouge .s1 {
+  color: #d14;
+}
+pre.rouge .ss {
+  color: #990073;
+}
+pre.rouge .s, pre.rouge .dl {
+  color: #d14;
+}
+pre.rouge .na {
+  color: #008080;
+}
+pre.rouge .bp {
+  color: #999999;
+}
+pre.rouge .nb {
+  color: #0086B3;
+}
+pre.rouge .nc {
+  color: #445588;
+  font-weight: bold;
+}
+pre.rouge .no {
+  color: #008080;
+}
+pre.rouge .nd {
+  color: #3c5d5d;
+  font-weight: bold;
+}
+pre.rouge .ni {
+  color: #800080;
+}
+pre.rouge .ne {
+  color: #990000;
+  font-weight: bold;
+}
+pre.rouge .nf, pre.rouge .fm {
+  color: #990000;
+  font-weight: bold;
+}
+pre.rouge .nl {
+  color: #990000;
+  font-weight: bold;
+}
+pre.rouge .nn {
+  color: #555555;
+}
+pre.rouge .nt {
+  color: #000080;
+}
+pre.rouge .vc {
+  color: #008080;
+}
+pre.rouge .vg {
+  color: #008080;
+}
+pre.rouge .vi {
+  color: #008080;
+}
+pre.rouge .nv, pre.rouge .vm {
+  color: #008080;
+}
+pre.rouge .ow {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .o {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .w {
+  color: #bbbbbb;
+}
+pre.rouge {
+  background-color: #f8f8f8;
+}
+</style>
   <meta name="keywords" content="Agate, programming language, scripting, gamedev" />
   <meta name="description" content="Agate, a simple and embeddable programming language" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -448,33 +663,267 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
   <meta name="msapplication-TileColor" content="#da532c">
   <meta name="theme-color" content="#ffffff">
 </head>
-<body class="article">
+<body class="article toc2 toc-right">
 <div id="header">
-<h1><code>math/big</code> unit</h1>
+<h1><code>Heap</code> class</h1>
 <div class="details">
 <span id="author" class="author">v0.1</span><br>
+</div>
+<div id="toc" class="toc2">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_static_methods">Static Methods</a>
+<ul class="sectlevel2">
+<li><a href="#_new"><strong>new</strong>()</a></li>
+<li><a href="#_newcomp"><strong>new</strong>(comp)</a></li>
+<li><a href="#_sort"><strong>sort</strong>(seq), <strong>sort</strong>(seq,comp)</a></li>
+</ul>
+</li>
+<li><a href="#_methods">Methods</a>
+<ul class="sectlevel2">
+<li><a href="#_clear"><strong>clear</strong>()</a></li>
+<li><a href="#_clone"><strong>clone</strong>()</a></li>
+<li><a href="#_empty"><strong>empty</strong></a></li>
+<li><a href="#_peek"><strong>peek</strong>()</a></li>
+<li><a href="#_pop"><strong>pop</strong>()</a></li>
+<li><a href="#_push"><strong>push</strong>(item)</a></li>
+<li><a href="#_size"><strong>size</strong></a></li>
+<li><a href="#_to_a"><strong>to_a</strong></a></li>
+<li><a href="#_to_s"><strong>to_s</strong></a></li>
+</ul>
+</li>
+</ul>
 </div>
 </div>
 <div id="content">
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>The <code>math/big</code> unit provides types and functions for <a href="https://en.wikipedia.org/wiki/Arbitrary-precision_arithmetic">arbitry-precision arithmetic</a>.</p>
+<p>A <a href="https://en.wikipedia.org/wiki/Heap_(data_structure)">heap</a> is a tree-based data structure where the maximum element is easily accessible. The <code>Heap</code> class implements a binary max-heap regarding the comparison operator (<code>&lt;</code> by default).</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="k">import</span><span class="w"> </span><span class="s">"data"</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">Heap</span></code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p><a href="std_math.html">&lt; Back to <code>math</code> unit</a></p>
+<p><a href="std_data.html">&lt; Back to <code>data</code></a></p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_classes"><a class="anchor" href="#_classes"></a>Classes</h2>
+<h2 id="_static_methods"><a class="anchor" href="#_static_methods"></a>Static Methods</h2>
 <div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p><code>Integer</code></p>
-</li>
-</ul>
+<div class="sect2">
+<h3 id="_new"><a class="anchor" href="#_new"></a><strong>new</strong>()</h3>
+<div class="paragraph">
+<p>Create a new empty heap.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="k">import</span><span class="w"> </span><span class="s">"data"</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">Heap</span><span class="err">
+
+</span><span class="k">def</span><span class="w"> </span><span class="n">h</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Heap</span><span class="p">.</span><span class="n">new</span><span class="p">()</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">h</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; []</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_newcomp"><a class="anchor" href="#_newcomp"></a><strong>new</strong>(comp)</h3>
+<div class="paragraph">
+<p>Create a new empty heap with <code>comp</code> as a comparator.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="k">import</span><span class="w"> </span><span class="s">"data"</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">Heap</span><span class="err">
+
+</span><span class="c1"># define a min-heap</span><span class="err">
+</span><span class="k">def</span><span class="w"> </span><span class="n">h</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Heap</span><span class="p">.</span><span class="n">new</span><span class="w"> </span><span class="p">{</span><span class="o">|</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="o">|</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="p">}</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">h</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; []</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_sort"><a class="anchor" href="#_sort"></a><strong>sort</strong>(seq), <strong>sort</strong>(seq,comp)</h3>
+<div class="paragraph">
+<p>Sort the sequence and returns and array with the elements sorted using <a href="https://en.wikipedia.org/wiki/Heapsort">heapsort</a>. Comparator <code>comp</code> is used to compare two elements, if it returns <code>true</code> then the first element will be put before the second element in the sorted array. If <code>comp</code> is not provided, <code>&lt;</code> is used to compare elements.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="k">import</span><span class="w"> </span><span class="s">"data"</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">Heap</span><span class="err">
+
+</span><span class="k">def</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="w"> </span><span class="p">]</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">Heap</span><span class="p">.</span><span class="n">sort</span><span class="p">(</span><span class="n">a</span><span class="p">))</span><span class="w"> </span><span class="c1">#&gt; [2, 3, 5, 6, 7, 9, 10]</span></code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_methods"><a class="anchor" href="#_methods"></a>Methods</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_clear"><a class="anchor" href="#_clear"></a><strong>clear</strong>()</h3>
+<div class="paragraph">
+<p>Remove all the elements from the heap.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="k">import</span><span class="w"> </span><span class="s">"data"</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">Heap</span><span class="err">
+
+</span><span class="k">def</span><span class="w"> </span><span class="n">h</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Heap</span><span class="p">.</span><span class="n">new</span><span class="p">()</span><span class="err">
+</span><span class="n">h</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span><span class="err">
+</span><span class="n">h</span><span class="p">.</span><span class="n">clear</span><span class="p">()</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">h</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; []</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_clone"><a class="anchor" href="#_clone"></a><strong>clone</strong>()</h3>
+<div class="paragraph">
+<p>Get a deep copy of the heap. The elements of the heap must implement the <code>clone</code> method.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="k">import</span><span class="w"> </span><span class="s">"data"</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">Heap</span><span class="err">
+
+</span><span class="k">def</span><span class="w"> </span><span class="n">h0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Heap</span><span class="p">.</span><span class="n">new</span><span class="p">()</span><span class="err">
+</span><span class="n">h0</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span><span class="err">
+</span><span class="k">def</span><span class="w"> </span><span class="n">h1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">h0</span><span class="p">.</span><span class="n">clone</span><span class="p">()</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">h1</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; [42]</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_empty"><a class="anchor" href="#_empty"></a><strong>empty</strong></h3>
+<div class="paragraph">
+<p>Return <code>true</code> if the heap has no elements.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="k">import</span><span class="w"> </span><span class="s">"data"</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">Heap</span><span class="err">
+
+</span><span class="k">def</span><span class="w"> </span><span class="n">h</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Heap</span><span class="p">.</span><span class="n">new</span><span class="p">()</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">h</span><span class="p">.</span><span class="n">empty</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; true</span><span class="err">
+</span><span class="n">h</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">h</span><span class="p">.</span><span class="n">empty</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; false</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>See also: <a href="#_size"><strong>size</strong></a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_peek"><a class="anchor" href="#_peek"></a><strong>peek</strong>()</h3>
+<div class="paragraph">
+<p>Get the maximum element of the heap.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="k">import</span><span class="w"> </span><span class="s">"data"</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">Heap</span><span class="err">
+
+</span><span class="k">def</span><span class="w"> </span><span class="n">h</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Heap</span><span class="p">.</span><span class="n">new</span><span class="p">()</span><span class="err">
+</span><span class="n">h</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span><span class="err">
+</span><span class="n">h</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="mi">69</span><span class="p">)</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">h</span><span class="p">.</span><span class="n">peek</span><span class="p">())</span><span class="w"> </span><span class="c1">#&gt; 69</span><span class="err">
+</span><span class="n">h</span><span class="p">.</span><span class="n">pop</span><span class="p">()</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">h</span><span class="p">.</span><span class="n">peek</span><span class="p">())</span><span class="w"> </span><span class="c1">#&gt; 42</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>See also: <a href="#_pop"><strong>pop</strong>()</a>, <a href="#_push"><strong>push</strong>(item)</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_pop"><a class="anchor" href="#_pop"></a><strong>pop</strong>()</h3>
+<div class="paragraph">
+<p>Remove the maximum element of the heap.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="k">import</span><span class="w"> </span><span class="s">"data"</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">Heap</span><span class="err">
+
+</span><span class="k">def</span><span class="w"> </span><span class="n">h</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Heap</span><span class="p">.</span><span class="n">new</span><span class="p">()</span><span class="err">
+</span><span class="n">h</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">h</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; [42]</span><span class="err">
+</span><span class="n">h</span><span class="p">.</span><span class="n">pop</span><span class="p">()</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">h</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; []</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>See also: <a href="#_peek"><strong>peek</strong>()</a>, <a href="#_push"><strong>push</strong>(item)</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_push"><a class="anchor" href="#_push"></a><strong>push</strong>(item)</h3>
+<div class="paragraph">
+<p>Insert an element in the heap.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="k">import</span><span class="w"> </span><span class="s">"data"</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">Heap</span><span class="err">
+
+</span><span class="k">def</span><span class="w"> </span><span class="n">h</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Heap</span><span class="p">.</span><span class="n">new</span><span class="p">()</span><span class="err">
+</span><span class="n">h</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">h</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; [42]</span><span class="err">
+</span><span class="n">h</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="mi">69</span><span class="p">)</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">h</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; [69, 42]</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>See also: <a href="#_peek"><strong>peek</strong>()</a>, <a href="#_pop"><strong>pop</strong>()</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_size"><a class="anchor" href="#_size"></a><strong>size</strong></h3>
+<div class="paragraph">
+<p>Return the number of elements in the heap.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="k">import</span><span class="w"> </span><span class="s">"data"</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">Heap</span><span class="err">
+
+</span><span class="k">def</span><span class="w"> </span><span class="n">h</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Heap</span><span class="p">.</span><span class="n">new</span><span class="p">()</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">h</span><span class="p">.</span><span class="n">size</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; 0</span><span class="err">
+</span><span class="n">h</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">h</span><span class="p">.</span><span class="n">size</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; 1</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>See also: <a href="#_empty"><strong>empty</strong></a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_to_a"><a class="anchor" href="#_to_a"></a><strong>to_a</strong></h3>
+<div class="paragraph">
+<p>Transform the heap to an array with the same elements.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="k">import</span><span class="w"> </span><span class="s">"data"</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">Heap</span><span class="err">
+
+</span><span class="k">def</span><span class="w"> </span><span class="n">h</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Heap</span><span class="p">.</span><span class="n">new</span><span class="p">()</span><span class="err">
+</span><span class="n">h</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span><span class="err">
+</span><span class="n">h</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="mi">69</span><span class="p">)</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">h</span><span class="p">.</span><span class="n">to_a</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; [69, 42]</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_to_s"><a class="anchor" href="#_to_s"></a><strong>to_s</strong></h3>
+<div class="paragraph">
+<p>Transform the heap to a <a href="String.html"><code>String</code></a>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="k">import</span><span class="w"> </span><span class="s">"data"</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">Heap</span><span class="err">
+
+</span><span class="k">def</span><span class="w"> </span><span class="n">h</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Heap</span><span class="p">.</span><span class="n">new</span><span class="p">()</span><span class="err">
+</span><span class="n">h</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span><span class="err">
+</span><span class="n">h</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="mi">69</span><span class="p">)</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">h</span><span class="p">.</span><span class="n">to_s</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; [69, 42]</span></code></pre>
+</div>
+</div>
 </div>
 </div>
 </div>

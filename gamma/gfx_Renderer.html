@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.12">
 <meta name="author" content="v0.1">
-<title>math/big unit</title>
+<title>Renderer class</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /* Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
@@ -438,43 +438,352 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 #footer-text{color:rgba(0,0,0,.6);font-size:.9em}}
 @media amzn-kf8{#header,#content,#footnotes,#footer{padding:0}}
 </style>
-  <meta name="keywords" content="Agate, programming language, scripting, gamedev" />
-  <meta name="description" content="Agate, a simple and embeddable programming language" />
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  <link rel="manifest" href="/site.webmanifest">
-  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<style>
+pre.rouge table td { padding: 5px; }
+pre.rouge table pre { margin: 0; }
+pre.rouge .cm {
+  color: #999988;
+  font-style: italic;
+}
+pre.rouge .cp {
+  color: #999999;
+  font-weight: bold;
+}
+pre.rouge .c1 {
+  color: #999988;
+  font-style: italic;
+}
+pre.rouge .cs {
+  color: #999999;
+  font-weight: bold;
+  font-style: italic;
+}
+pre.rouge .c, pre.rouge .ch, pre.rouge .cd, pre.rouge .cpf {
+  color: #999988;
+  font-style: italic;
+}
+pre.rouge .err {
+  color: #a61717;
+  background-color: #e3d2d2;
+}
+pre.rouge .gd {
+  color: #000000;
+  background-color: #ffdddd;
+}
+pre.rouge .ge {
+  color: #000000;
+  font-style: italic;
+}
+pre.rouge .gr {
+  color: #aa0000;
+}
+pre.rouge .gh {
+  color: #999999;
+}
+pre.rouge .gi {
+  color: #000000;
+  background-color: #ddffdd;
+}
+pre.rouge .go {
+  color: #888888;
+}
+pre.rouge .gp {
+  color: #555555;
+}
+pre.rouge .gs {
+  font-weight: bold;
+}
+pre.rouge .gu {
+  color: #aaaaaa;
+}
+pre.rouge .gt {
+  color: #aa0000;
+}
+pre.rouge .kc {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .kd {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .kn {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .kp {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .kr {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .kt {
+  color: #445588;
+  font-weight: bold;
+}
+pre.rouge .k, pre.rouge .kv {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .mf {
+  color: #009999;
+}
+pre.rouge .mh {
+  color: #009999;
+}
+pre.rouge .il {
+  color: #009999;
+}
+pre.rouge .mi {
+  color: #009999;
+}
+pre.rouge .mo {
+  color: #009999;
+}
+pre.rouge .m, pre.rouge .mb, pre.rouge .mx {
+  color: #009999;
+}
+pre.rouge .sa {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .sb {
+  color: #d14;
+}
+pre.rouge .sc {
+  color: #d14;
+}
+pre.rouge .sd {
+  color: #d14;
+}
+pre.rouge .s2 {
+  color: #d14;
+}
+pre.rouge .se {
+  color: #d14;
+}
+pre.rouge .sh {
+  color: #d14;
+}
+pre.rouge .si {
+  color: #d14;
+}
+pre.rouge .sx {
+  color: #d14;
+}
+pre.rouge .sr {
+  color: #009926;
+}
+pre.rouge .s1 {
+  color: #d14;
+}
+pre.rouge .ss {
+  color: #990073;
+}
+pre.rouge .s, pre.rouge .dl {
+  color: #d14;
+}
+pre.rouge .na {
+  color: #008080;
+}
+pre.rouge .bp {
+  color: #999999;
+}
+pre.rouge .nb {
+  color: #0086B3;
+}
+pre.rouge .nc {
+  color: #445588;
+  font-weight: bold;
+}
+pre.rouge .no {
+  color: #008080;
+}
+pre.rouge .nd {
+  color: #3c5d5d;
+  font-weight: bold;
+}
+pre.rouge .ni {
+  color: #800080;
+}
+pre.rouge .ne {
+  color: #990000;
+  font-weight: bold;
+}
+pre.rouge .nf, pre.rouge .fm {
+  color: #990000;
+  font-weight: bold;
+}
+pre.rouge .nl {
+  color: #990000;
+  font-weight: bold;
+}
+pre.rouge .nn {
+  color: #555555;
+}
+pre.rouge .nt {
+  color: #000080;
+}
+pre.rouge .vc {
+  color: #008080;
+}
+pre.rouge .vg {
+  color: #008080;
+}
+pre.rouge .vi {
+  color: #008080;
+}
+pre.rouge .nv, pre.rouge .vm {
+  color: #008080;
+}
+pre.rouge .ow {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .o {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .w {
+  color: #bbbbbb;
+}
+pre.rouge {
+  background-color: #f8f8f8;
+}
+</style>
+  <meta name="keywords" content="gamma, scripting, gamedev" />
+  <meta name="description" content="gamma, GAMes Made with Agate" />
+  <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+  <link rel="manifest" href="../site.webmanifest">
+  <link rel="mask-icon" href="../safari-pinned-tab.svg" color="#5bbad5">
   <meta name="msapplication-TileColor" content="#da532c">
   <meta name="theme-color" content="#ffffff">
 </head>
-<body class="article">
+<body class="article toc2 toc-right">
 <div id="header">
-<h1><code>math/big</code> unit</h1>
+<h1><code>Renderer</code> class</h1>
 <div class="details">
 <span id="author" class="author">v0.1</span><br>
+</div>
+<div id="toc" class="toc2">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_static_methods">Static Methods</a>
+<ul class="sectlevel2">
+<li><a href="#_newwindow"><strong>new</strong>(window)</a></li>
+</ul>
+</li>
+<li><a href="#_methods">Methods</a>
+<ul class="sectlevel2">
+<li><a href="#_clear0"><strong>clear</strong>()</a></li>
+<li><a href="#_clear1"><strong>clear</strong>(color)</a></li>
+<li><a href="#_display"><strong>display()</strong></a></li>
+</ul>
+</li>
+</ul>
 </div>
 </div>
 <div id="content">
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>The <code>math/big</code> unit provides types and functions for <a href="https://en.wikipedia.org/wiki/Arbitrary-precision_arithmetic">arbitry-precision arithmetic</a>.</p>
+<p>A renderer is in charge of all the graphical operations.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="k">import</span><span class="w"> </span><span class="s">"gamma/gfx"</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">Renderer</span></code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p><a href="std_math.html">&lt; Back to <code>math</code> unit</a></p>
+<p><a href="gfx.html">&lt; Back to <code>gamma/gfx</code></a></p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_classes"><a class="anchor" href="#_classes"></a>Classes</h2>
+<h2 id="_static_methods"><a class="anchor" href="#_static_methods"></a>Static Methods</h2>
 <div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p><code>Integer</code></p>
-</li>
-</ul>
+<div class="sect2">
+<h3 id="_newwindow"><a class="anchor" href="#_newwindow"></a><strong>new</strong>(window)</h3>
+<div class="paragraph">
+<p>Create a new renderer associated with a <a href="window_Window.html"><code>Window</code></a>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="k">import</span><span class="w"> </span><span class="s">"gamma/gfx"</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">Renderer</span><span class="err">
+</span><span class="k">import</span><span class="w"> </span><span class="s">"gamma/window"</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">Window</span><span class="err">
+
+</span><span class="k">def</span><span class="w"> </span><span class="n">window</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Window</span><span class="p">.</span><span class="n">new</span><span class="p">(</span><span class="s">"gamma"</span><span class="p">,</span><span class="w"> </span><span class="mi">1920</span><span class="p">,</span><span class="w"> </span><span class="mi">1080</span><span class="p">)</span><span class="err">
+</span><span class="k">def</span><span class="w"> </span><span class="n">renderer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Renderer</span><span class="p">.</span><span class="n">new</span><span class="p">(</span><span class="n">window</span><span class="p">)</span><span class="err">
+
+</span><span class="n">renderer</span><span class="p">.</span><span class="n">clear</span><span class="p">()</span><span class="err">
+</span><span class="n">renderer</span><span class="p">.</span><span class="n">display</span><span class="p">()</span></code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_methods"><a class="anchor" href="#_methods"></a>Methods</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_clear0"><a class="anchor" href="#_clear0"></a><strong>clear</strong>()</h3>
+<div class="paragraph">
+<p>Clear the current frame with the current clear color.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="k">import</span><span class="w"> </span><span class="s">"gamma/gfx"</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">Renderer</span><span class="err">
+</span><span class="k">import</span><span class="w"> </span><span class="s">"gamma/window"</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">Window</span><span class="err">
+
+</span><span class="k">def</span><span class="w"> </span><span class="n">window</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Window</span><span class="p">.</span><span class="n">new</span><span class="p">(</span><span class="s">"gamma"</span><span class="p">,</span><span class="w"> </span><span class="mi">1920</span><span class="p">,</span><span class="w"> </span><span class="mi">1080</span><span class="p">)</span><span class="err">
+</span><span class="k">def</span><span class="w"> </span><span class="n">renderer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Renderer</span><span class="p">.</span><span class="n">new</span><span class="p">(</span><span class="n">window</span><span class="p">)</span><span class="err">
+
+</span><span class="n">renderer</span><span class="p">.</span><span class="n">clear</span><span class="p">()</span><span class="err">
+</span><span class="n">renderer</span><span class="p">.</span><span class="n">display</span><span class="p">()</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_clear1"><a class="anchor" href="#_clear1"></a><strong>clear</strong>(color)</h3>
+<div class="paragraph">
+<p>Set the current clear color to <code>color</code> and clear the current frame.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="k">import</span><span class="w"> </span><span class="s">"gamma"</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">Color</span><span class="err">
+</span><span class="k">import</span><span class="w"> </span><span class="s">"gamma/gfx"</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">Renderer</span><span class="err">
+</span><span class="k">import</span><span class="w"> </span><span class="s">"gamma/window"</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">Window</span><span class="err">
+
+</span><span class="k">def</span><span class="w"> </span><span class="n">window</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Window</span><span class="p">.</span><span class="n">new</span><span class="p">(</span><span class="s">"gamma"</span><span class="p">,</span><span class="w"> </span><span class="mi">1920</span><span class="p">,</span><span class="w"> </span><span class="mi">1080</span><span class="p">)</span><span class="err">
+</span><span class="k">def</span><span class="w"> </span><span class="n">renderer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Renderer</span><span class="p">.</span><span class="n">new</span><span class="p">(</span><span class="n">window</span><span class="p">)</span><span class="err">
+
+</span><span class="n">renderer</span><span class="p">.</span><span class="n">clear</span><span class="p">(</span><span class="n">Color</span><span class="p">.</span><span class="n">RED</span><span class="p">)</span><span class="err">
+</span><span class="n">renderer</span><span class="p">.</span><span class="n">display</span><span class="p">()</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_display"><a class="anchor" href="#_display"></a><strong>display()</strong></h3>
+<div class="paragraph">
+<p>Send the current frame to the window.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="k">import</span><span class="w"> </span><span class="s">"gamma"</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">Color</span><span class="err">
+</span><span class="k">import</span><span class="w"> </span><span class="s">"gamma/gfx"</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">Renderer</span><span class="err">
+</span><span class="k">import</span><span class="w"> </span><span class="s">"gamma/window"</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">Window</span><span class="err">
+
+</span><span class="k">def</span><span class="w"> </span><span class="n">window</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Window</span><span class="p">.</span><span class="n">new</span><span class="p">(</span><span class="s">"gamma"</span><span class="p">,</span><span class="w"> </span><span class="mi">1920</span><span class="p">,</span><span class="w"> </span><span class="mi">1080</span><span class="p">)</span><span class="err">
+</span><span class="k">def</span><span class="w"> </span><span class="n">renderer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Renderer</span><span class="p">.</span><span class="n">new</span><span class="p">(</span><span class="n">window</span><span class="p">)</span><span class="err">
+
+</span><span class="n">renderer</span><span class="p">.</span><span class="n">clear</span><span class="p">(</span><span class="n">Color</span><span class="p">.</span><span class="n">BLACK</span><span class="p">)</span><span class="err">
+</span><span class="n">renderer</span><span class="p">.</span><span class="n">display</span><span class="p">()</span></code></pre>
+</div>
+</div>
 </div>
 </div>
 </div>
