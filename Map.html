@@ -679,6 +679,7 @@ pre.rouge {
 </li>
 <li><a href="#_methods">Methods</a>
 <ul class="sectlevel2">
+<li><a href="#_at"><strong>at</strong>(key)</a></li>
 <li><a href="#_clear"><strong>clear</strong>()</a></li>
 <li><a href="#_clone"><strong>clone</strong>()</a></li>
 <li><a href="#_contains"><strong>contains</strong>(key)</a></li>
@@ -732,6 +733,21 @@ pre.rouge {
 <div class="sect1">
 <h2 id="_methods"><a class="anchor" href="#_methods"></a>Methods</h2>
 <div class="sectionbody">
+<div class="sect2">
+<h3 id="_at"><a class="anchor" href="#_at"></a><strong>at</strong>(key)</h3>
+<div class="paragraph">
+<p>Return the value associated with <code>key</code>. <code>key</code> must be present.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="k">def</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mi">1</span><span class="o">:</span><span class="w"> </span><span class="sc">'a'</span><span class="p">,</span><span class="w"> </span><span class="k">true</span><span class="o">:</span><span class="w"> </span><span class="mi">3</span><span class="p">.</span><span class="mi">14</span><span class="p">,</span><span class="w"> </span><span class="s">"good"</span><span class="o">:</span><span class="w"> </span><span class="k">nil</span><span class="w"> </span><span class="p">}</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">m</span><span class="p">.</span><span class="n">at</span><span class="p">(</span><span class="k">true</span><span class="p">))</span><span class="w"> </span><span class="c1">#&gt; 3.14</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>See also: <a href="#_subscript_getter"><strong>[</strong> key <strong>]</strong> operator</a></p>
+</div>
+</div>
 <div class="sect2">
 <h3 id="_clear"><a class="anchor" href="#_clear"></a><strong>clear</strong>()</h3>
 <div class="paragraph">
@@ -898,7 +914,7 @@ pre.rouge {
 </div>
 </div>
 <div class="paragraph">
-<p>See also: <a href="#_subscript_setter"><strong>[</strong> key <strong>]=</strong>(value) operator</a></p>
+<p>See also: <a href="#_subscript_setter"><strong>[</strong> key <strong>]=</strong>(value) operator</a>, <a href="#_at"><strong>at</strong>(key)</a></p>
 </div>
 </div>
 <div class="sect2">

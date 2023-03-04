@@ -674,6 +674,7 @@ pre.rouge {
 <ul class="sectlevel1">
 <li><a href="#_methods">Methods</a>
 <ul class="sectlevel2">
+<li><a href="#_at"><strong>at</strong>(index)</a></li>
 <li><a href="#_clone"><strong>clone</strong>()</a></li>
 <li><a href="#_iterate"><strong>iterate</strong>(iterator), <strong>iterator_value</strong>(iterator)</a></li>
 <li><a href="#_size"><strong>size</strong></a></li>
@@ -702,6 +703,22 @@ pre.rouge {
 <div class="sect1">
 <h2 id="_methods"><a class="anchor" href="#_methods"></a>Methods</h2>
 <div class="sectionbody">
+<div class="sect2">
+<h3 id="_at"><a class="anchor" href="#_at"></a><strong>at</strong>(index)</h3>
+<div class="paragraph">
+<p>Get the component at <code>index</code>. <code>index</code> can be negative to indicate a position from the end, <code>-1</code> being the last element. <code>index</code> must be valid.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="k">def</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="sc">'a'</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">.</span><span class="mi">14</span><span class="p">,</span><span class="w"> </span><span class="s">"good"</span><span class="p">,</span><span class="w"> </span><span class="k">true</span><span class="p">)</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">t</span><span class="p">.</span><span class="n">at</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span><span class="w"> </span><span class="c1">#&gt; good</span><span class="err">
+</span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">t</span><span class="p">.</span><span class="n">at</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span><span class="w"> </span><span class="c1">#&gt; true</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>See also: <a href="#_subscript_getter"><strong>[</strong> index <strong>]</strong> operator</a></p>
+</div>
+</div>
 <div class="sect2">
 <h3 id="_clone"><a class="anchor" href="#_clone"></a><strong>clone</strong>()</h3>
 <div class="paragraph">
@@ -746,7 +763,7 @@ pre.rouge {
 <div class="sect2">
 <h3 id="_subscript_getter"><a class="anchor" href="#_subscript_getter"></a><strong>[</strong> index <strong>]</strong> operator</h3>
 <div class="paragraph">
-<p>Get the component at <code>index</code>. <code>index</code> can be negative to indicate a position from the end, <code>-1</code> being the last element.</p>
+<p>Get the component at <code>index</code>. <code>index</code> can be negative to indicate a position from the end, <code>-1</code> being the last element. If <code>index</code> is not valid, <code>nil</code> is returned.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -754,6 +771,9 @@ pre.rouge {
 </span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span><span class="w"> </span><span class="c1">#&gt; good</span><span class="err">
 </span><span class="kt">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span><span class="w"> </span><span class="c1">#&gt; true</span></code></pre>
 </div>
+</div>
+<div class="paragraph">
+<p>See also: <a href="#_at"><strong>at</strong>(index)</a></p>
 </div>
 </div>
 </div>
