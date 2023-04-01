@@ -864,7 +864,7 @@ pre.rouge {
 <div class="sect2">
 <h3 id="_binary"><a class="anchor" href="#_binary"></a><strong>+</strong>(other), <strong>-</strong>(other), <strong>*</strong>(other), <strong>/</strong>(other) operators</h3>
 <div class="paragraph">
-<p>Compute binary operation using usual arithmetic operators on integers. <code>other</code> must be an <code>Int</code>, there is no implicit conversion from <a href="Float.html"><code>Float</code></a>.</p>
+<p>Compute binary operation using usual arithmetic operators on integers. <code>other</code> must be an <code>Int</code> or a <code>Float</code>. There is an implicit conversion from <a href="Float.html"><code>Float</code></a> and, in this case, the result is a <code>Float</code>.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -881,7 +881,7 @@ pre.rouge {
 <div class="sect2">
 <h3 id="_modulo"><a class="anchor" href="#_modulo"></a><strong>%</strong>(other) operator</h3>
 <div class="paragraph">
-<p>Compute the <a href="https://en.wikipedia.org/wiki/Modulo_operation">modulo operation</a> and returns the remainder of the division of <code>this</code> by <code>other</code>.</p>
+<p>Compute the <a href="https://en.wikipedia.org/wiki/Modulo_operation">modulo operation</a> and returns the remainder of the division of <code>this</code> by <code>other</code>. There is an implicit conversion from <a href="Float.html"><code>Float</code></a> and, in this case, the result is a <code>Float</code>.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -898,7 +898,7 @@ pre.rouge {
 <div class="sect2">
 <h3 id="_bitwise_and"><a class="anchor" href="#_bitwise_and"></a><strong>&amp;</strong>(other) operator</h3>
 <div class="paragraph">
-<p>Return the <a href="https://en.wikipedia.org/wiki/Bitwise_operation#AND">bitwise AND</a> between <code>this</code> and <code>other</code>.</p>
+<p>Return the <a href="https://en.wikipedia.org/wiki/Bitwise_operation#AND">bitwise AND</a> between <code>this</code> and <code>other</code>. <code>other</code> must be an <code>Int</code>.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -912,7 +912,7 @@ pre.rouge {
 <div class="sect2">
 <h3 id="_bitwise_or"><a class="anchor" href="#_bitwise_or"></a><strong>|</strong>(other) operator</h3>
 <div class="paragraph">
-<p>Return the <a href="https://en.wikipedia.org/wiki/Bitwise_operation#OR">bitwise OR</a> between <code>this</code> and <code>other</code>.</p>
+<p>Return the <a href="https://en.wikipedia.org/wiki/Bitwise_operation#OR">bitwise OR</a> between <code>this</code> and <code>other</code>. <code>other</code> must be an <code>Int</code>.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -926,7 +926,7 @@ pre.rouge {
 <div class="sect2">
 <h3 id="_bitwise_xor"><a class="anchor" href="#_bitwise_xor"></a><strong>^</strong>(other) operator</h3>
 <div class="paragraph">
-<p>Return the <a href="https://en.wikipedia.org/wiki/Bitwise_operation#XOR">bitwise XOR</a> between <code>this</code> and <code>other</code>.</p>
+<p>Return the <a href="https://en.wikipedia.org/wiki/Bitwise_operation#XOR">bitwise XOR</a> between <code>this</code> and <code>other</code>. <code>other</code> must be an <code>Int</code>.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -940,7 +940,7 @@ pre.rouge {
 <div class="sect2">
 <h3 id="_shift_left"><a class="anchor" href="#_shift_left"></a><strong>&lt;&lt;</strong>(other) operator</h3>
 <div class="paragraph">
-<p>Return the <a href="https://en.wikipedia.org/wiki/Arithmetic_shift">arithmetic left shift</a> of <code>this</code>. <code>other</code> must be a non-negative intger. The number of bits of the shift is <code>other % 0x3F</code>.</p>
+<p>Return the <a href="https://en.wikipedia.org/wiki/Arithmetic_shift">arithmetic left shift</a> of <code>this</code>. <code>other</code> must be a non-negative integer. The number of bits of the shift is <code>other % 0x3F</code>.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -956,7 +956,7 @@ pre.rouge {
 <div class="sect2">
 <h3 id="_shift_right"><a class="anchor" href="#_shift_right"></a><strong>&gt;&gt;</strong>(other) operator</h3>
 <div class="paragraph">
-<p>Return the <a href="https://en.wikipedia.org/wiki/Arithmetic_shift">arithmetic right shift</a> of <code>this</code>. <code>other</code> must be a non-negative intger. The number of bits of the shift is <code>other % 0x3F</code>.</p>
+<p>Return the <a href="https://en.wikipedia.org/wiki/Arithmetic_shift">arithmetic right shift</a> of <code>this</code>. <code>other</code> must be a non-negative integer. The number of bits of the shift is <code>other % 0x3F</code>.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -972,7 +972,7 @@ pre.rouge {
 <div class="sect2">
 <h3 id="_logical_shift_right"><a class="anchor" href="#_logical_shift_right"></a><strong>&gt;&gt;&gt;</strong>(other) operator</h3>
 <div class="paragraph">
-<p>Return the <a href="https://en.wikipedia.org/wiki/Logical_shift">logical right shift</a> of <code>this</code>. <code>other</code> must be a non-negative intger. The number of bits of the shift is <code>other % 0x3F</code>.</p>
+<p>Return the <a href="https://en.wikipedia.org/wiki/Logical_shift">logical right shift</a> of <code>this</code>. <code>other</code> must be a non-negative integer. The number of bits of the shift is <code>other % 0x3F</code>.</p>
 </div>
 <div class="listingblock">
 <div class="content">

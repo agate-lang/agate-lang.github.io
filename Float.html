@@ -974,7 +974,7 @@ See also <a href="https://docs.oracle.com/cd/E19957-01/806-3568/ncg_goldberg.htm
 <div class="sect2">
 <h3 id="_binary"><a class="anchor" href="#_binary"></a><strong>+</strong>(other), <strong>-</strong>(other), <strong>*</strong>(other), <strong>/</strong>(other) operators</h3>
 <div class="paragraph">
-<p>Compute binary operation using usual arithmetic operators on float numbers. <code>other</code> must be a <code>Float</code>, there is no implicit conversion from <a href="Int.html"><code>Int</code></a>.</p>
+<p>Compute binary operation using usual arithmetic operators on float numbers. <code>other</code> must be a <code>Float</code> or an <code>Int</code>, there is an implicit conversion from <a href="Int.html"><code>Int</code></a>.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -991,7 +991,7 @@ See also <a href="https://docs.oracle.com/cd/E19957-01/806-3568/ncg_goldberg.htm
 <div class="sect2">
 <h3 id="_modulo"><a class="anchor" href="#_modulo"></a><strong>%</strong>(other)</h3>
 <div class="paragraph">
-<p>Compute the float <a href="https://en.wikipedia.org/wiki/Modulo_operation">modulo operation</a>. If \(x\) is <code>this</code> and \(y\) is <code>other</code>, return value is \(x - n \times y\), where \(n\) is the quotient of \(x \div y\), rounded toward zero to an integer (like <code>fmod</code> in C).</p>
+<p>Compute the float <a href="https://en.wikipedia.org/wiki/Modulo_operation">modulo operation</a>. If \(x\) is <code>this</code> and \(y\) is <code>other</code>, return value is \(x - n \times y\), where \(n\) is the quotient of \(x \div y\), rounded toward zero to an integer (like <code>fmod</code> in C). <code>other</code> must be a <code>Float</code> or an <code>Int</code>, there is an implicit conversion from <a href="Int.html"><code>Int</code></a>.</p>
 </div>
 <div class="listingblock">
 <div class="content">
