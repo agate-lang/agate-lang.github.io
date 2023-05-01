@@ -87,6 +87,7 @@
 <li><a href="#_fields">Fields</a></li>
 <li><a href="#_this"><code>this</code></a></li>
 <li><a href="#_inheritance">Inheritance</a></li>
+<li><a href="#_mixin">Mixin</a></li>
 </ul>
 </li>
 <li><a href="#_functions">Functions</a>
@@ -155,7 +156,7 @@
 <div class="sect2">
 <h3 id="_keywords"><a class="anchor" href="#_keywords"></a>Keywords</h3>
 <div class="paragraph">
-<p>Agate has <strong>24</strong> keywords: <code>as</code>, <code>assert</code>, <code>break</code>, <code>class</code>, <code>construct</code>, <code>continue</code>, <code>def</code>, <code>else</code>, <code>false</code>, <code>for</code>, <code>foreign</code>, <code>if</code>, <code>import</code>, <code>in</code>, <code>is</code>, <code>loop</code>, <code>nil</code>, <code>once</code>, <code>return</code>, <code>static</code>, <code>super</code>, <code>this</code>, <code>true</code>, <code>while</code>.</p>
+<p>Agate has <strong>25</strong> keywords: <code>as</code>, <code>assert</code>, <code>break</code>, <code>class</code>, <code>construct</code>, <code>continue</code>, <code>def</code>, <code>else</code>, <code>false</code>, <code>for</code>, <code>foreign</code>, <code>if</code>, <code>import</code>, <code>in</code>, <code>is</code>, <code>loop</code>, <code>mixin</code>, <code>nil</code>, <code>once</code>, <code>return</code>, <code>static</code>, <code>super</code>, <code>this</code>, <code>true</code>, <code>while</code>.</p>
 </div>
 </div>
 <div class="sect2">
@@ -1249,7 +1250,7 @@
 <div class="sect2">
 <h3 id="_inheritance"><a class="anchor" href="#_inheritance"></a>Inheritance</h3>
 <div class="paragraph">
-<p>A class can inherit another class, its superclass, using the <code>is</code> keyword. If a superclass is not present, the superclass is <a href="Object.html"><code>Object</code></a>. It&#8217;s not possible to inherit from builtin classes (<a href="Array.html"><code>Array</code></a>, <a href="Bool.html"><code>Bool</code></a>, <a href="Char.html"><code>Char</code></a>, <a href="Class.html"><code>Class</code></a>, <a href="Float.html"><code>Float</code></a>, <a href="Fn.html"><code>Fn</code></a>, <a href="Int.html"><code>Int</code></a>, <a href="Map.html"><code>Map</code></a>, <a href="Nil.html"><code>Nil</code></a>, <a href="Range.html"><code>Range</code></a>, <a href="String.html"><code>String</code></a>).</p>
+<p>A class can inherit another class, its superclass, using the <code>is</code> keyword. If a superclass is not present, the superclass is <a href="Object.html"><code>Object</code></a>. It&#8217;s not possible to inherit from builtin classes (<a href="Array.html"><code>Array</code></a>, <a href="Bool.html"><code>Bool</code></a>, <a href="Char.html"><code>Char</code></a>, <a href="Class.html"><code>Class</code></a>, <a href="Float.html"><code>Float</code></a>, <a href="Fn.html"><code>Fn</code></a>, <a href="Int.html"><code>Int</code></a>, <a href="Map.html"><code>Map</code></a>, <a href="Nil.html"><code>Nil</code></a>, <a href="Range.html"><code>Range</code></a>, <a href="String.html"><code>String</code></a>, <a href="String.html"><code>Tuple</code></a>).</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1295,6 +1296,31 @@
 </span><span class="n">h</span><span class="p">.</span><span class="n">print</span><span class="p">()</span><span class="w"> </span><span class="c1">#&gt; Entity.print</span></code></pre>
 </div>
 </div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_mixin"><a class="anchor" href="#_mixin"></a>Mixin</h3>
+<div class="paragraph">
+<p>A class can include the methods of another class with the <code>mixin</code> keyword. The included class must not have any fields and must not be a builtin class. It is also possible to do a static mixin to include the methods in the class itself rather than its instances.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="agate"><span class="k">class</span><span class="w"> </span><span class="n">Representable</span><span class="w"> </span><span class="p">{</span><span class="err">
+</span><span class="w">  </span><span class="n">string</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">.</span><span class="n">to_s</span><span class="w"> </span><span class="p">}</span><span class="err">
+</span><span class="p">}</span><span class="err">
+
+</span><span class="k">class</span><span class="w"> </span><span class="n">Entity</span><span class="w"> </span><span class="p">{</span><span class="err">
+</span><span class="w">  </span><span class="n">mixin</span><span class="w"> </span><span class="n">Representable</span><span class="err">
+</span><span class="w">  </span><span class="k">construct</span><span class="w"> </span><span class="n">new</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span><span class="err">
+</span><span class="w">  </span><span class="n">to_s</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s">"Entity"</span><span class="w"> </span><span class="p">}</span><span class="err">
+</span><span class="p">}</span><span class="err">
+
+</span><span class="k">def</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Entity</span><span class="p">.</span><span class="n">new</span><span class="p">()</span><span class="err">
+</span><span class="nc">IO</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">string</span><span class="p">)</span><span class="w"> </span><span class="c1">#&gt; Entity</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>There may be several mixins. The order in which a mixin appear is important: its methods are included in the class at the point where it is declared. A method defined in a mixin may be overriden in the class if it appears after the mixin declaration.</p>
 </div>
 </div>
 </div>

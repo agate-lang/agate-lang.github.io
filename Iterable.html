@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.12">
 <meta name="author" content="v0.1">
-<title>Sequence class</title>
+<title>Iterable class</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <link rel="stylesheet" href="./asciidoctor.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -23,7 +23,7 @@
 </head>
 <body class="article toc2 toc-right">
 <div id="header">
-<h1><code>Sequence</code> class</h1>
+<h1><code>Iterable</code> class</h1>
 <div class="details">
 <span id="author" class="author">v0.1</span><br>
 </div>
@@ -64,7 +64,7 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p><code>Sequence</code> is a base class for objects that implements the <a href="lang.html#_iterator_protocol">iterator protocol</a>. It provides some useful methods to iterate through the elements of the sequence.</p>
+<p><code>Iterable</code> is meant to use as a mixin for classes that implements the <a href="lang.html#_iterator_protocol">iterator protocol</a>. It provides some useful methods to iterate through the elements of the iterable.</p>
 </div>
 <div class="paragraph">
 <p><a href="core.html">&lt; Back to core unit</a></p>
@@ -77,7 +77,7 @@
 <div class="sect2">
 <h3 id="_accumulate"><a class="anchor" href="#_accumulate"></a><strong>accumulate</strong>(val, op)</h3>
 <div class="paragraph">
-<p>Compute the <a href="https://en.wikipedia.org/wiki/Fold_(higher-order_function)">left fold</a> of the sequence with operator <code>op</code>. <code>op</code> takes two parameters, an accumulator and a new value, and produces a new accumulator. The initial accumulator is <code>val</code>. If the sequence is empty, <code>val</code> is returned.</p>
+<p>Compute the <a href="https://en.wikipedia.org/wiki/Fold_(higher-order_function)">left fold</a> of the iterable with operator <code>op</code>. <code>op</code> takes two parameters, an accumulator and a new value, and produces a new accumulator. The initial accumulator is <code>val</code>. If the iterable is empty, <code>val</code> is returned.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -91,7 +91,7 @@
 <div class="sect2">
 <h3 id="_all"><a class="anchor" href="#_all"></a><strong>all</strong>(predicate)</h3>
 <div class="paragraph">
-<p>Return <code>true</code> if, for all the elements of the sequence, <code>predicate</code> returns <code>true</code>. If <code>predicate</code> returns a value that is false, then the iteration stops and returns that value. Otherwise, return <code>true</code>.</p>
+<p>Return <code>true</code> if, for all the elements of the iterable, <code>predicate</code> returns <code>true</code>. If <code>predicate</code> returns a value that is false, then the iteration stops and returns that value. Otherwise, return <code>true</code>.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -106,7 +106,7 @@
 <div class="sect2">
 <h3 id="_any"><a class="anchor" href="#_any"></a><strong>any</strong>(predicate)</h3>
 <div class="paragraph">
-<p>Return <code>true</code> if, for any element of the sequence, <code>predicate</code> returns <code>true</code>. If <code>predicate</code> returns a value that is true, then the iteration stops and returns that value. Otherwise return <code>false</code>. It is the contrary of <a href="#_none"><strong>none</strong>(predicate)</a>.</p>
+<p>Return <code>true</code> if, for any element of the iterable, <code>predicate</code> returns <code>true</code>. If <code>predicate</code> returns a value that is true, then the iteration stops and returns that value. Otherwise return <code>false</code>. It is the contrary of <a href="#_none"><strong>none</strong>(predicate)</a>.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -121,7 +121,7 @@
 <div class="sect2">
 <h3 id="_contains"><a class="anchor" href="#_contains"></a><strong>contains</strong>(value)</h3>
 <div class="paragraph">
-<p>Return <code>true</code> is the sequence contains an element equal to <code>value</code>.</p>
+<p>Return <code>true</code> is the iterable contains an element equal to <code>value</code>.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -133,7 +133,7 @@
 <div class="sect2">
 <h3 id="_count"><a class="anchor" href="#_count"></a><strong>count</strong>(predicate)</h3>
 <div class="paragraph">
-<p>Return the number of elements in the sequence that satisfies <code>predicate</code>.</p>
+<p>Return the number of elements in the iterable that satisfies <code>predicate</code>.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -145,7 +145,7 @@
 <div class="sect2">
 <h3 id="_each"><a class="anchor" href="#_each"></a><strong>each</strong>(fn)</h3>
 <div class="paragraph">
-<p>Iterate through the sequence applying <code>fn</code> to each element of the sequence.</p>
+<p>Iterate through the iterable applying <code>fn</code> to each element of the iterable.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -157,7 +157,7 @@
 <div class="sect2">
 <h3 id="_empty"><a class="anchor" href="#_empty"></a><strong>empty</strong></h3>
 <div class="paragraph">
-<p>Return <code>true</code> if the sequence has no elements. It is often more efficient to call this method instead of comparing <a href="#_size"><strong>size</strong></a> to zero.</p>
+<p>Return <code>true</code> if the iterable has no elements. It is often more efficient to call this method instead of comparing <a href="#_size"><strong>size</strong></a> to zero.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -172,7 +172,7 @@
 <div class="sect2">
 <h3 id="_join"><a class="anchor" href="#_join"></a><strong>join</strong>()</h3>
 <div class="paragraph">
-<p>Create a <a href="String.html"><code>String</code></a> by concatenating all the elements of the sequence. The elements are converted to strings using <code>to_s</code>.</p>
+<p>Create a <a href="String.html"><code>String</code></a> by concatenating all the elements of the iterable. The elements are converted to strings using <code>to_s</code>.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -183,7 +183,7 @@
 <div class="sect2">
 <h3 id="_join_sep"><a class="anchor" href="#_join_sep"></a><strong>join</strong>(sep)</h3>
 <div class="paragraph">
-<p>Create a <a href="String.html"><code>String</code></a> by concatenating all the elements of the sequence, separated by <code>sep</code>. The elements are converted to strings using <code>to_s</code>. <code>sep</code> can be a <a href="String.html"><code>String</code></a> or a <a href="Char.html"><code>Char</code></a>.</p>
+<p>Create a <a href="String.html"><code>String</code></a> by concatenating all the elements of the iterable, separated by <code>sep</code>. The elements are converted to strings using <code>to_s</code>. <code>sep</code> can be a <a href="String.html"><code>String</code></a> or a <a href="Char.html"><code>Char</code></a>.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -194,7 +194,7 @@
 <div class="sect2">
 <h3 id="_min"><a class="anchor" href="#_min"></a><strong>min</strong></h3>
 <div class="paragraph">
-<p>Return the minimum of the sequence according to the <code>&lt;</code> operator.</p>
+<p>Return the minimum of the iterable according to the <code>&lt;</code> operator.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -208,7 +208,7 @@
 <div class="sect2">
 <h3 id="_map"><a class="anchor" href="#_map"></a><strong>map</strong>(fn)</h3>
 <div class="paragraph">
-<p>Create a lazy sequence that applies <code>fn</code> to each element of the sequence.</p>
+<p>Create a lazy iterable that applies <code>fn</code> to each element of the iterable.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -225,7 +225,7 @@
 <div class="sect2">
 <h3 id="_max"><a class="anchor" href="#_max"></a><strong>max</strong></h3>
 <div class="paragraph">
-<p>Return the maximum of the sequence according to the <code>&lt;</code> operator.</p>
+<p>Return the maximum of the iterable according to the <code>&lt;</code> operator.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -239,7 +239,7 @@
 <div class="sect2">
 <h3 id="_none"><a class="anchor" href="#_none"></a><strong>none</strong>(predicate)</h3>
 <div class="paragraph">
-<p>Return <code>true</code> if, for all element of the sequence, <code>predicate</code> returns <code>false</code>. If <code>predicate</code> returns a value that is true, then the iteration stops and returns the negation of that value. Otherwise return <code>true</code>. It is the contrary of <a href="#_any"><strong>any</strong>(predicate)</a>.</p>
+<p>Return <code>true</code> if, for all element of the iterable, <code>predicate</code> returns <code>false</code>. If <code>predicate</code> returns a value that is true, then the iteration stops and returns the negation of that value. Otherwise return <code>true</code>. It is the contrary of <a href="#_any"><strong>any</strong>(predicate)</a>.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -254,7 +254,7 @@
 <div class="sect2">
 <h3 id="_product"><a class="anchor" href="#_product"></a><strong>product</strong></h3>
 <div class="paragraph">
-<p>Return the product of the sequence according to the <code>*</code> operator.</p>
+<p>Return the product of the iterable according to the <code>*</code> operator.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -268,7 +268,7 @@
 <div class="sect2">
 <h3 id="_reduce"><a class="anchor" href="#_reduce"></a><strong>reduce</strong>(op)</h3>
 <div class="paragraph">
-<p>Compute the <a href="https://en.wikipedia.org/wiki/Fold_(higher-order_function)">left fold</a> of the sequence with operator <code>op</code>. <code>op</code> takes two parameters, an accumulator and a new value, and produces a new accumulator. The initial accumulator is the first element of the sequence. It is a runtime error to call this method on an empty sequence.</p>
+<p>Compute the <a href="https://en.wikipedia.org/wiki/Fold_(higher-order_function)">left fold</a> of the iterable with operator <code>op</code>. <code>op</code> takes two parameters, an accumulator and a new value, and produces a new accumulator. The initial accumulator is the first element of the iterable. It is a runtime error to call this method on an empty iterable.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -282,7 +282,7 @@
 <div class="sect2">
 <h3 id="_size"><a class="anchor" href="#_size"></a><strong>size</strong></h3>
 <div class="paragraph">
-<p>Return the number of elements in the sequence by iterating the whole sequence. This method may be overriden if it can be computed more efficiently.</p>
+<p>Return the number of elements in the iterable by iterating the whole iterable. This method may be overriden if it can be computed more efficiently.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -296,7 +296,7 @@
 <div class="sect2">
 <h3 id="_skip"><a class="anchor" href="#_skip"></a><strong>skip</strong>(count)</h3>
 <div class="paragraph">
-<p>Create a lazy sequence with the <code>count</code> first elements of the sequence skipped.</p>
+<p>Create a lazy iterable with the <code>count</code> first elements of the iterable skipped.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -312,7 +312,7 @@
 <div class="sect2">
 <h3 id="_sortedcomp_sorted"><a class="anchor" href="#_sortedcomp_sorted"></a><strong>sorted</strong>(comp), <strong>sorted</strong>()</h3>
 <div class="paragraph">
-<p>Return <code>true</code> if the elements of the sequence are sorted according to comparator <code>comp</code>. If <code>comp</code> is not provided, <code>&lt;</code> is used to compare elements.</p>
+<p>Return <code>true</code> if the elements of the iterable are sorted according to comparator <code>comp</code>. If <code>comp</code> is not provided, <code>&lt;</code> is used to compare elements.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -324,7 +324,7 @@
 <div class="sect2">
 <h3 id="_sum"><a class="anchor" href="#_sum"></a><strong>sum</strong></h3>
 <div class="paragraph">
-<p>Return the sum of the sequence according to the <code>+</code> operator.</p>
+<p>Return the sum of the iterable according to the <code>+</code> operator.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -338,7 +338,7 @@
 <div class="sect2">
 <h3 id="_take"><a class="anchor" href="#_take"></a><strong>take</strong>(count)</h3>
 <div class="paragraph">
-<p>Create a lazy sequence with only the <code>count</code> first elements of the sequence.</p>
+<p>Create a lazy iterable with only the <code>count</code> first elements of the iterable.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -354,7 +354,7 @@
 <div class="sect2">
 <h3 id="_to_a"><a class="anchor" href="#_to_a"></a><strong>to_a</strong></h3>
 <div class="paragraph">
-<p>Force the evaluation of the whole sequence and put the result of the iteration in an <a href="Array.html"><code>Array</code></a>.</p>
+<p>Force the evaluation of the whole iterable and put the result of the iteration in an <a href="Array.html"><code>Array</code></a>.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -365,7 +365,7 @@
 <div class="sect2">
 <h3 id="_uniq"><a class="anchor" href="#_uniq"></a><strong>uniq</strong>()</h3>
 <div class="paragraph">
-<p>Create a lazy sequence where only the first occurrence of consecutive equal items are kept.</p>
+<p>Create a lazy iterable where only the first occurrence of consecutive equal items are kept.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -376,7 +376,7 @@
 <div class="sect2">
 <h3 id="_where"><a class="anchor" href="#_where"></a><strong>where</strong>(predicate)</h3>
 <div class="paragraph">
-<p>Create a lazy sequence with only the elements for which <code>predicate</code> returns <code>true</code>.</p>
+<p>Create a lazy iterable with only the elements for which <code>predicate</code> returns <code>true</code>.</p>
 </div>
 <div class="listingblock">
 <div class="content">

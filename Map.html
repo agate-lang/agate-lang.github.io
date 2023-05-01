@@ -63,7 +63,7 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>A map is a <a href="Sequence.html"><code>Sequence</code></a> that stores key-value pairs, also called entries. A map is sometimes called an <a href="https://en.wikipedia.org/wiki/Associative_array">associative array</a>. Keys must implement a <code>.hash</code> method that returns an <a href="Int.html"><code>Int</code></a>. A map can be built with entries between <code>{</code> and <code>}</code>.</p>
+<p>A map is a container that stores key-value pairs, also called entries. A map is sometimes called an <a href="https://en.wikipedia.org/wiki/Associative_array">associative array</a>. Keys must implement a <code>.hash</code> method that returns an <a href="Int.html"><code>Int</code></a>. A map can be built with entries between <code>{</code> and <code>}</code>.</p>
 </div>
 <div class="paragraph">
 <p><a href="core.html">&lt; Back to core unit</a></p>
@@ -199,7 +199,7 @@
 <div class="sect2">
 <h3 id="_keys"><a class="anchor" href="#_keys"></a><strong>keys</strong></h3>
 <div class="paragraph">
-<p>Return a <a href="Sequence.html"><code>Sequence</code></a> that can be used to iterate over the keys of the map. The order of the keys is not guaranteed.</p>
+<p>Return an <a href="lang.html#_iterator_protocol">iterable</a> that can be used to iterate over the keys of the map. The order of the keys is not guaranteed.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -240,7 +240,7 @@
 <div class="sect2">
 <h3 id="_values"><a class="anchor" href="#_values"></a><strong>values</strong></h3>
 <div class="paragraph">
-<p>Return a <a href="Sequence.html"><code>Sequence</code></a> that can be used to iterate over the values of the map. The order of the values is not guaranteed. If the same value is associated with different keys, the value will appear several times.</p>
+<p>Return an <a href="lang.html#_iterator_protocol">iterable</a> that can be used to iterate over the values of the map. The order of the values is not guaranteed. If the same value is associated with different keys, the value will appear several times.</p>
 </div>
 <div class="listingblock">
 <div class="content">
